@@ -80,4 +80,4 @@ theme: landscape
 deploy:
   type: git
   repo: git@github.com:meifu2027/meifu2027.github.io.git
-  branch: master
+  branch: gh-pages
