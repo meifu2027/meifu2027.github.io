@@ -17,8 +17,8 @@ say: Welcome
 # https://source.unsplash.com/collection/954550/1920x1080
 background_image:
     enable: true
-    url: https://source.unsplash.com/collection/954550/1920x1080
-    #url: img/1.jpg
+    # url: https://source.unsplash.com/collection/954550/1920x1080
+    url: img/1.jpg
     #custom Radom img: https://XXX-youname-XXX.github.io/Random-img/
     customRadom_url: https://XXX-youname-XXX.github.io/Random-img/
     
@@ -42,7 +42,7 @@ comment:
     enable: true
 
 gitalk:
-    enable: false
+    enable: true
     clientID: '3333.... ' 
     clientSecret: '3333.... ' 
     repo: annie-gitalk 
