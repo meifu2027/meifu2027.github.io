@@ -3,6 +3,7 @@ title: （转）MySQL 性能优化技巧
 date: 2018-11-08 18:13:22
 tags: [MySQL, 调优]
 categories: 数据库
+toc: true
 ---
 > 原文作者: MoonlightL
 > 原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/
