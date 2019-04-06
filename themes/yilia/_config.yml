@@ -94,11 +94,11 @@ changyan_conf: false
 disqus: false
 
 #5、Gitment
-gitment_owner: 'meifu2027'       #你的 GitHub ID
-gitment_repo: 'meifu2027.github.io'          #存储评论的 repo
+gitment_owner: false       #你的 GitHub ID
+gitment_repo:          #存储评论的 repo
 gitment_oauth:
-client_id: '4c30d1aeafb1fe6f21b0'           #client ID
-client_secret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52'       #client secret
+client_id:            #client ID
+client_secret:  #client secret
 
 #6、gitalk评论
 gitalk:
