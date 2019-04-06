@@ -1,31 +1,31 @@
 ---
 title: （转）MySQL 性能优化技巧
 date: 2018-11-08 18:13:22
-tags: MySQL 调优
+tags: [MySQL, 调优]
 categories: 数据库
 ---
 > 原文作者: MoonlightL
 > 原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/
 ## 一、背景
 最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假回家，因此优化查询数据的问题落在笔者手中。笔者在查阅网上 SQL 优化的资料后成功解决了问题，在此从**全局角度**记录和总结 MySQL 查询优化相关技巧。
-
+<!-- more -->
 
 ## 二、优化思路
 **数据查询慢，不代表 SQL 语句写法有问题。** 首先，我们需要找到问题的源头才能“对症下药”。笔者用一张流程图展示 MySQL 优化的思路：
 
-![image](http://ow97db1io.bkt.clouddn.com/mysql-optimized.jpg)
+![image](http://images.extlight.com/mysql-optimized.jpg)
 
 
 无需更多言语，从图中可以清楚地看出，导致数据查询慢的原因有多种，如：缓存失效，在此一段时间内由于高并发访问导致 MySQL 服务器崩溃；SQL 语句编写问题；MySQL 服务器参数问题；硬件配置限制 MySQL 服务性能问题等。
 
-<!-- more -->
+
 
 ## 三、查看 MySQL 服务器运行的状态值
 **如果系统的并发请求数不高，且查询速度慢，可以忽略该步骤直接进行 SQL 语句调优步骤。**
 
 执行命令：
 
-```
+```bash
 show status
 ```
 
@@ -33,7 +33,7 @@ show status
 
 我们可以通过执行如下脚本监控 MySQL 服务器运行的状态值
 
-```
+```bash
 #!/bin/bash
 while true
 do
@@ -45,7 +45,7 @@ done
 执行该脚本 24 小时，获取 status.txt 里的内容，再次通过 awk 计算**每秒请求 MySQL 服务的次数**
 
 
-```
+```bash
 awk '{q=$1-last;last=$1}{printf("%d %d %d\n",q,$2,$3)}' status.txt
 ```
 
@@ -63,12 +63,12 @@ awk '{q=$1-last;last=$1}{printf("%d %d %d\n",q,$2,$3)}' status.txt
 
 ### 4.1 方式一：查看运行的线程
 执行命令：
-```
+```bash
 show processlist
 ```
 
 返回结果：
-```
+```bash
 mysql> show processlist;
 +----+------+-----------+------+---------+------+----------+------------------+
 | Id | User | Host      | db   | Command | Time | State    | Info             |
@@ -81,7 +81,7 @@ mysql> show processlist;
 从返回结果中我们可以了解该线程执行了什么命令/SQL 语句以及执行的时间。实际应用中，查询的返回结果会有 N 条记录。
 
 其中，**返回的 State 的值是我们判断性能好坏的关键**，其值出现如下内容，则该行记录的 SQL 语句需要优化：
-```
+```bash
 Converting HEAP to MyISAM # 查询结果太大时，把结果放到磁盘，严重
 Create tmp table #创建临时表，严重
 Copying to tmp table on disk  #把内存临时表复制到磁盘，严重
@@ -95,7 +95,7 @@ State 字段有很多值，如需了解更多，可以参看文章末尾提供�
 ### 4.2 方式二：开启慢查询日志
 在配置文件 my.cnf 中的 [mysqld] 一行下边添加两个参数：
 
-```
+```bash
 slow_query_log = 1
 slow_query_log_file=/var/lib/mysql/slow-query.log
 long_query_time = 2
@@ -115,7 +115,7 @@ log_queries_not_using_indexes = 1 记录没有使用索引的 SQL 语句。
 
 修改保存文件后，重启 MySQL 服务。在 /var/lib/mysql/ 目录下会创建 slow-query.log 日志文件。连接 MySQL 服务端执行如下命令可以查看配置情况。
 
-```
+```bash
 show variables like 'slow_query%';
 
 show variables like 'long_query_time';
@@ -123,7 +123,7 @@ show variables like 'long_query_time';
 
 测试慢查询日志：
 
-```
+```bash
 mysql> select sleep(2);
 +----------+
 | sleep(2) |
@@ -135,7 +135,7 @@ mysql> select sleep(2);
 
 打开慢查询日志文件
 
-```
+```bash
 [root@localhost mysql]# vim /var/lib/mysql/slow-query.log
 /usr/sbin/mysqld, Version: 5.7.19-log (MySQL Community Server (GPL)). started with:
 Tcp port: 0  Unix socket: /var/lib/mysql/mysql.sock
@@ -157,7 +157,7 @@ MySQL 提供 mysqldumpslow 工具对日志进行分析。我们可以使用 mysq
 
 常用参数如下：
 
-```
+```bash
     -s：排序方式，后边接着如下参数
         c：访问次数
         l：锁定时间
@@ -173,7 +173,7 @@ MySQL 提供 mysqldumpslow 工具对日志进行分析。我们可以使用 mysq
 
 案例：
 
-```
+```bash
 获取返回记录集最多的10个sql
 mysqldumpslow -s r -t 10 /var/lib/mysql/slow-query.log
 
@@ -191,13 +191,13 @@ mysqldumpslow -s t -t 10 -g "left join" /var/lib/mysql/slow-query.log
 
 用法：
 
-```
+```bash
 explain select * from category;
 ```
 
 返回结果：
 
-```
+```bash
 mysql> explain select * from category;
 +----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------+
 | id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
@@ -213,7 +213,7 @@ mysql> explain select * from category;
 
 2) select_type：查询数据的操作类型，其值如下：
 
-```
+```bash
 simple：简单查询，不包含子查询或 union
 primary:包含复杂的子查询，最外层查询标记为该值
 subquery：在 select 或 where 包含子查询，被标记为该值
@@ -228,7 +228,7 @@ union result：从 union 表获取结果的 select
 
 5) type：表的连接类型，其值，性能由高到底排列如下：
 
-```
+```bash
 system：表只有一行记录，相当于系统表
 const：通过索引一次就找到，只匹配一行数据
 eq_ref：唯一性索引扫描，对于每个索引键，表中只有一条记录与之匹配。常用于主键或唯一索引扫描
@@ -255,7 +255,7 @@ ALL：全表扫描，性能最差
 
 12) extra： 包含不合适在其他列中显示但十分重要的额外信息，常见的值如下：
    
-```
+```bash
 using filesort：说明 MySQL 会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取。出现该值，应该优化 SQL
 using temporary：使用了临时表保存中间结果，MySQL 在对查询结果排序时使用临时表。常见于排序 order by 和分组查询 group by。出现该值，应该优化 SQL 
 using index：表示相应的 select 操作使用了覆盖索引，避免了访问表的数据行，效率不错
@@ -271,12 +271,12 @@ distinct：发现第一个匹配后，停止为当前的行组合搜索更多的
 
 #### 5.2.1 查看 profile 开启情况
 
-```
+```bash
 select @@profiling;
 ```
 
 返回结果：
-```
+```bash
 mysql> select @@profiling;
 +-------------+
 | @@profiling |
@@ -289,12 +289,12 @@ mysql> select @@profiling;
 
 #### 5.2.2 启用 profile
 
-```
+```bash
 set profiling = 1;  
 ```
 返回结果：
 
-```
+```bash
 mysql> set profiling = 1;  
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 
@@ -311,12 +311,12 @@ mysql> select @@profiling;
 
 #### 5.2.3 查看执行的 SQL 列表
 
-```
+```bash
 show profiles;
 ```
 返回结果：
 
-```
+```bash
 mysql> show profiles;
 +----------+------------+------------------------------+
 | Query_ID | Duration   | Query                        |
@@ -338,7 +338,7 @@ mysql> show profiles;
 
 #### 5.2.4 查询指定 ID 的执行详细信息
 
-```
+```bash
 show profile for query Query_ID;
 ```
 
@@ -373,7 +373,7 @@ mysql> show profile for query 9;
 
 #### 5.2.5 获取 CPU、 Block IO 等信息
 
-```
+```bash
 show profile block io,cpu for query Query_ID;
 
 show profile cpu,block io,memory,swaps,context switches,source for query Query_ID;
@@ -390,11 +390,11 @@ show profile all for query Query_ID;
 
 2) 小表驱动大表，即小的数据集驱动大的数据集。如：以 A，B 两表为例，两表通过 id 字段进行关联。
 
-```
-当 B 表的数据集小于 A 表时，用 in 优化 exist；使用 in ，两表执行顺序是先查 B 表，再查 A 表
+```sql
+-- 当 B 表的数据集小于 A 表时，用 in 优化 exist；使用 in ，两表执行顺序是先查 B 表，再查 A 表
 select * from A where id in (select id from B)
 
-当 A 表的数据集小于 B 表时，用 exist 优化 in；使用 exists，两表执行顺序是先查 A 表，再查 B 表
+-- 当 A 表的数据集小于 B 表时，用 exist 优化 in；使用 exists，两表执行顺序是先查 A 表，再查 B 表
 select * from A where exists (select 1 from B where B.id = A.id)
 
 ```
