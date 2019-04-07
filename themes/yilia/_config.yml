@@ -2,9 +2,10 @@
 
 menu:
   主页: /
-  随想: /categories/随想/
-  # 分类: /categories/数据库
-  # 考证: /tags/考证/
+  # 随想: /categories/随想/
+  # 分类: /categories
+  # 考证: /tags/
+  归档: /archives/
 
 # SubNav
 subnav:
