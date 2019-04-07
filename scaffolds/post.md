@@ -1,7 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
-categories:
+tags: 
+categories: [原创]
 toc: true
 ---

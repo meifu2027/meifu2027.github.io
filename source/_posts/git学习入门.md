@@ -2,7 +2,7 @@
 title: git学习入门
 date: 2018-05-12 17:51:43
 tags: [git, 版本管理]
-categories: 教学
+categories: [教学,原创]
 toc: true
 ---
 > 前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，[Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)，[Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)。  
