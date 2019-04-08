@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-07T07:55:22.407Z">
+<meta property="og:updated_time" content="2019-04-08T01:03:28.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git学习入门">
 <meta name="twitter:description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
@@ -201,7 +201,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article" style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">1.</span> <span class="toc-text">安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux安装Git"><span class="toc-number">1.1.</span> <span class="toc-text">Linux安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac-OS-X-上安装Git"><span class="toc-number">1.2.</span> <span class="toc-text">Mac OS X 上安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows上安装Git"><span class="toc-number">1.3.</span> <span class="toc-text">Windows上安装Git</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-number">2.</span> <span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">3.</span> <span class="toc-text">时光机穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本回退"><span class="toc-number">3.1.</span> <span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">3.2.</span> <span class="toc-text">工作区和暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理修改"><span class="toc-number">3.3.</span> <span class="toc-text">管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销修改"><span class="toc-number">3.4.</span> <span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件"><span class="toc-number">3.5.</span> <span class="toc-text">删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">4.</span> <span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程库"><span class="toc-number">4.1.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从远程库克隆"><span class="toc-number">4.2.</span> <span class="toc-text">从远程库克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">5.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与合并分支"><span class="toc-number">5.1.</span> <span class="toc-text">创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决冲突"><span class="toc-number">5.2.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理策略"><span class="toc-number">5.3.</span> <span class="toc-text">分支管理策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签管理"><span class="toc-number">6.</span> <span class="toc-text">标签管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用GitHub"><span class="toc-number">7.</span> <span class="toc-text">使用GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用码云"><span class="toc-number">8.</span> <span class="toc-text">使用码云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Git"><span class="toc-number">9.</span> <span class="toc-text">自定义Git</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">1.</span> <span class="toc-text">安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux安装Git"><span class="toc-number">1.1.</span> <span class="toc-text">Linux安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac-OS-X-上安装Git"><span class="toc-number">1.2.</span> <span class="toc-text">Mac OS X 上安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows上安装Git"><span class="toc-number">1.3.</span> <span class="toc-text">Windows上安装Git</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-number">2.</span> <span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">3.</span> <span class="toc-text">时光机穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本回退"><span class="toc-number">3.1.</span> <span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">3.2.</span> <span class="toc-text">工作区和暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理修改"><span class="toc-number">3.3.</span> <span class="toc-text">管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销修改"><span class="toc-number">3.4.</span> <span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件"><span class="toc-number">3.5.</span> <span class="toc-text">删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">4.</span> <span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程库"><span class="toc-number">4.1.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从远程库克隆"><span class="toc-number">4.2.</span> <span class="toc-text">从远程库克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">5.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与合并分支"><span class="toc-number">5.1.</span> <span class="toc-text">创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决冲突"><span class="toc-number">5.2.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理策略"><span class="toc-number">5.3.</span> <span class="toc-text">分支管理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bug分支"><span class="toc-number">5.4.</span> <span class="toc-text">Bug分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature分支"><span class="toc-number">5.5.</span> <span class="toc-text">Feature分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作"><span class="toc-number">5.6.</span> <span class="toc-text">多人协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签管理"><span class="toc-number">6.</span> <span class="toc-text">标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建标签"><span class="toc-number">6.1.</span> <span class="toc-text">创建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作标签"><span class="toc-number">6.2.</span> <span class="toc-text">操作标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用GitHub"><span class="toc-number">7.</span> <span class="toc-text">使用GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用码云"><span class="toc-number">8.</span> <span class="toc-text">使用码云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Git"><span class="toc-number">9.</span> <span class="toc-text">自定义Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">10.</span> <span class="toc-text">附录</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -329,7 +329,7 @@ function showBtn(){
 <blockquote>
 <p><code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code></p>
 </blockquote>
-<p>###Bug分支<br>若当前在<code>dev</code>分支上开发，但是需要修复<code>master</code>上的缺陷，那么需要：<br>储藏当前开发现场：</p>
+<h3 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h3><p>若当前在<code>dev</code>分支上开发，但是需要修复<code>master</code>上的缺陷，那么需要：<br>储藏当前开发现场：</p>
 <blockquote>
 <p><code>git stash</code></p>
 </blockquote>
@@ -357,11 +357,11 @@ function showBtn(){
 <blockquote>
 <p><code>git stash apply stash@{0}</code></p>
 </blockquote>
-<p>###Feature分支<br>如果要丢弃一个没有被合并过的分支，可以强行删除:</p>
+<h3 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h3><p>如果要丢弃一个没有被合并过的分支，可以强行删除:</p>
 <blockquote>
 <p><code>git branch -D &lt;name&gt;</code></p>
 </blockquote>
-<p>###多人协作<br>查看远程库的信息：</p>
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><p>查看远程库的信息：</p>
 <blockquote>
 <p><code>git remote</code><br>或展示更详细信息：<br><code>git remote -v</code></p>
 </blockquote>
@@ -398,7 +398,7 @@ function showBtn(){
 <li><p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</p>
 </li>
 <li><p>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</p>
-<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><p>###创建标签<br>切换到分支：</p>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>切换到分支：</p>
 <blockquote>
 <p><code>git checkout master</code></p>
 </blockquote>
@@ -424,7 +424,7 @@ function showBtn(){
 <blockquote>
 <p>用<code>-a</code>指定标签名，<code>-m</code>指定说明文字<br><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</code></p>
 </blockquote>
-<p>###操作标签<br>删除标签：</p>
+<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><p>删除标签：</p>
 <blockquote>
 <p><code>git tag -d v0.1</code></p>
 </blockquote>
@@ -445,7 +445,7 @@ function showBtn(){
 <li>自己拥有Fork后的仓库的读写权限；</li>
 <li>可以推送pull request给官方仓库来贡献代码<h2 id="使用码云"><a href="#使用码云" class="headerlink" title="使用码云"></a>使用码云</h2>暂不使用，先不记录；<h2 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h2>暂不使用，先不记录；</li>
 </ul>
-<p>##附录<br><a href="https://pan.baidu.com/s/1kU5OCOB#list/path=/pub/git" target="_blank" rel="noopener">Git Cheat Sheet</a></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://pan.baidu.com/s/1kU5OCOB#list/path=/pub/git" target="_blank" rel="noopener">Git Cheat Sheet</a></p>
 
       
 
