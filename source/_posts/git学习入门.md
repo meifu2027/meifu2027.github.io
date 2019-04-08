@@ -121,7 +121,7 @@ $ pwd
 ### 分支管理策略
 合并分支使用：
 > `git merge --no-ff -m "merge with no-ff" dev`
-###Bug分支
+### Bug分支
 若当前在`dev`分支上开发，但是需要修复`master`上的缺陷，那么需要：
 储藏当前开发现场：
 > `git stash`
@@ -150,10 +150,10 @@ $ pwd
 
 可以多次`stash`，恢复的时候，先用`git stash list`查看，然后恢复指定的`stash`，用命令：
 > `git stash apply stash@{0}`
-###Feature分支
+### Feature分支
 如果要丢弃一个没有被合并过的分支，可以强行删除:
 > `git branch -D <name>`
-###多人协作
+### 多人协作
 查看远程库的信息：
 > `git remote`
 > 或展示更详细信息：
@@ -200,7 +200,7 @@ $ pwd
 
 * 从远程抓取分支，使用`git pull`，如果有冲突，要先处理冲突。
 ## 标签管理
-###创建标签
+### 创建标签
 切换到分支：
 > `git checkout master`
 
@@ -224,7 +224,7 @@ $ pwd
 > 用`-a`指定标签名，`-m`指定说明文字
 > `git tag -a v0.1 -m "version 0.1 released" 3628164`
 
-###操作标签
+### 操作标签
 删除标签：
 > `git tag -d v0.1`
 
@@ -256,5 +256,5 @@ $ pwd
 
 
 
-##附录
+## 附录
 [Git Cheat Sheet](https://pan.baidu.com/s/1kU5OCOB#list/path=/pub/git)
