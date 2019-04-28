@@ -9,7 +9,7 @@
   <title>（转）MySQL 性能优化技巧 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="原文作者: MoonlightL原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/  一、背景最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假">
-<meta name="keywords" content="MySQL,调优">
+<meta name="keywords" content="mysql,调优">
 <meta property="og:type" content="article">
 <meta property="og:title" content="（转）MySQL 性能优化技巧">
 <meta property="og:url" content="http://yoursite.com/2018/11/08/（转）MySQL-性能优化技巧/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="原文作者: MoonlightL原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/  一、背景最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://images.extlight.com/mysql-optimized.jpg">
-<meta property="og:updated_time" content="2019-04-07T07:55:22.412Z">
+<meta property="og:updated_time" content="2019-04-28T04:45:20.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（转）MySQL 性能优化技巧">
 <meta name="twitter:description" content="原文作者: MoonlightL原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/  一、背景最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假">
@@ -440,7 +440,7 @@ function showBtn(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -663,11 +663,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调优</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,6 +672,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">版本管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">调优</a>
               </li>
              
               <li class="article-tag-list-item">
