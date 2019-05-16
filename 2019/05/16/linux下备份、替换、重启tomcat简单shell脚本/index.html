@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="背景最近在开发一个项目，部署应用的环境是linux、tomcat8，因为之前的项目都是由专业的实施人员负责部署，对于我来讲linux的掌握程度则相对较低。尽管在 Linux学习笔记 - （一）Linux达人养成计划 I — 吐血整理  中分享过自己学习的记录，但是并未真正实践过。谨以此项目来练手第一个shell实战脚本。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-16T01:50:27.948Z">
+<meta property="og:updated_time" content="2019-05-16T01:57:02.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下备份、替换、重启tomcat简单shell脚本">
 <meta name="twitter:description" content="背景最近在开发一个项目，部署应用的环境是linux、tomcat8，因为之前的项目都是由专业的实施人员负责部署，对于我来讲linux的掌握程度则相对较低。尽管在 Linux学习笔记 - （一）Linux达人养成计划 I — 吐血整理  中分享过自己学习的记录，但是并未真正实践过。谨以此项目来练手第一个shell实战脚本。">
@@ -221,7 +221,7 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在开发一个项目，部署应用的环境是linux、tomcat8，因为之前的项目都是由专业的实施人员负责部署，对于我来讲linux的掌握程度则相对较低。尽管在 <a href="Linux学习笔记-（一）Linux达人养成计划-I-吐血整理.md"><em>Linux学习笔记 - （一）Linux达人养成计划 I — 吐血整理</em></a>  中分享过自己学习的记录，但是并未真正实践过。<br>谨以此项目来练手第一个shell实战脚本。<br><a id="more"></a></p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在开发一个项目，部署应用的环境是linux、tomcat8，因为之前的项目都是由专业的实施人员负责部署，对于我来讲linux的掌握程度则相对较低。尽管在 <a href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/"><em>Linux学习笔记 - （一）Linux达人养成计划 I — 吐血整理</em></a>  中分享过自己学习的记录，但是并未真正实践过。<br>谨以此项目来练手第一个shell实战脚本。<br><a id="more"></a></p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>编写脚本之前首先要有明确要实现的功能和步骤。<br><strong>功能：</strong> 备份原war、部署新war包。<br><strong>前提：</strong> 新demo.war包已上传至/app/backup目录（这一步目前是手动操作）。<br><strong>脚本编写逻辑：</strong></p>
 <ol>
 <li>停应用；</li>
