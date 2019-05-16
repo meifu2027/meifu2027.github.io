@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://0d077ef9e74d8.cdn.sohucs.com/rmSrcQd_png">
 <meta property="og:image" content="https://0d077ef9e74d8.cdn.sohucs.com/rmSrcQn_png">
-<meta property="og:updated_time" content="2019-04-07T07:55:22.406Z">
+<meta property="og:updated_time" content="2019-05-16T02:14:15.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习笔记 - （一）Linux达人养成计划 I --- 吐血整理">
 <meta name="twitter:description" content="最近一段时间负责的系统频频出现各种诡异的问题，也给了自己一个偷懒的借口没有更新博客。说来惭愧，入行以来，对于Linux的基本操作是知之甚少，抽空学习了下基本的一些概念和指令。废话不多说，记录下在慕课网学习的一些总结。Linux达人养成计划">
@@ -598,7 +598,7 @@ function showBtn(){
 <blockquote>
 <p>30m=黑色,31m=红色,32m=绿色,33m=黄色<br>34m=蓝色,35m=洋红,36m=青色,37m=白色</p>
 </blockquote>
-<p><strong>第一个脚本</strong><br><code>vi helloworld.sh</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo -e "\e[1;34m hello world! \e[0m"</span><br></pre></td></tr></table></figure></p>
+<p><strong>第一个脚本</strong><br><code>vi helloworld.sh</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo -e "\e[1;34m hello world! \e[0m"</span><br></pre></td></tr></table></figure></p>
 <p><strong>脚本执行</strong></p>
 <blockquote>
 <p>赋予执行权限，直接运行<br><code>chmod 755 helloworld.sh</code><br><code>./helloworld.sh</code><br>通过Bash调用执行脚本<br><code>bash helloworld.sh</code></p>
@@ -626,14 +626,129 @@ function showBtn(){
 <blockquote>
 <p><code>↑↓</code> 调用以前的历史命令<br><code>!n</code> 重复执行第n条历史命令<br><code>!!</code> 重复执行上一条命令<br><code>!字串</code> 重复执行最后一条以该字串开头的命令</p>
 </blockquote>
-<h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><p><strong>标准输入输出</strong><br>设备|设备文件名|文件描述符|类型<br>—|—|—|—<br>键盘|/dev/stdin|0|标准输入<br>显示器|/dev/sdtout|1|标准输出<br>显示器|/dev/sdterr|2|标准错误输出</p>
-<p><strong>输出重定向</strong><br>类型|符号|作用<br>—|—|—<br>标准输出重定向|<code>命令&gt;文件</code>|以覆盖的方式，把命令的正确输出到制定的文件或设备当中<br>标准输出重定向|<code>命令&gt;&gt;文件</code>|以追加的方式，把命令的正确输出到制定的文件或设备当中<br>标准错误输出重定向|<code>命令2&gt;文件</code>|以覆盖的方式，把命令的错误输出到制定的文件或设备当中<br>标准错误输出重定向|<code>命令2&gt;&gt;文件</code>|以追加的方式，把命令的错误输出到制定的文件或设备当中</p>
-<p><strong>正确输出和错误输出同时保存</strong><br>符号|作用<br>—|—<br><code>命令&gt;文件 2&gt;&amp;1</code> |以覆盖的方式，把正确输出和错误输出都保存到一个文件当中<br><code>命令&gt;&gt;文件 2&gt;&amp;1</code> |以追加的方式，把正确输出和错误输出都保存到一个文件当中<br><code>命令 &amp;&gt; 文件</code>| 以覆盖的方式，把正确输出和错误输出都保存在同一个文件当中<br><code>命令 &amp;&gt;&gt; 文件</code>| 以追加的方式，把正确输出和错误输出都保存在同一个文件当中<br><code>命令&gt;&gt;文件1 2&gt;&gt;文件2</code>|把正确的输出追加到文件1中，吧错误的输出追加到文件2中</p>
+<h3 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h3><p><strong>标准输入输出</strong></p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>设备文件名</th>
+<th>文件描述符</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>键盘</td>
+<td>/dev/stdin</td>
+<td>0</td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td>显示器</td>
+<td>/dev/sdtout</td>
+<td>1</td>
+<td>标准输出</td>
+</tr>
+<tr>
+<td>显示器</td>
+<td>/dev/sdterr</td>
+<td>2</td>
+<td>标准错误输出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>输出重定向</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准输出重定向</td>
+<td><code>命令&gt;文件</code></td>
+<td>以覆盖的方式，把命令的正确输出到制定的文件或设备当中</td>
+</tr>
+<tr>
+<td>标准输出重定向</td>
+<td><code>命令&gt;&gt;文件</code></td>
+<td>以追加的方式，把命令的正确输出到制定的文件或设备当中</td>
+</tr>
+<tr>
+<td>标准错误输出重定向</td>
+<td><code>命令2&gt;文件</code></td>
+<td>以覆盖的方式，把命令的错误输出到制定的文件或设备当中</td>
+</tr>
+<tr>
+<td>标准错误输出重定向</td>
+<td><code>命令2&gt;&gt;文件</code></td>
+<td>以追加的方式，把命令的错误输出到制定的文件或设备当中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>正确输出和错误输出同时保存</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>命令&gt;文件 2&gt;&amp;1</code></td>
+<td>以覆盖的方式，把正确输出和错误输出都保存到一个文件当中</td>
+</tr>
+<tr>
+<td><code>命令&gt;&gt;文件 2&gt;&amp;1</code></td>
+<td>以追加的方式，把正确输出和错误输出都保存到一个文件当中</td>
+</tr>
+<tr>
+<td><code>命令 &amp;&gt; 文件</code></td>
+<td>以覆盖的方式，把正确输出和错误输出都保存在同一个文件当中</td>
+</tr>
+<tr>
+<td><code>命令 &amp;&gt;&gt; 文件</code></td>
+<td>以追加的方式，把正确输出和错误输出都保存在同一个文件当中</td>
+</tr>
+<tr>
+<td><code>命令&gt;&gt;文件1 2&gt;&gt;文件2</code></td>
+<td>把正确的输出追加到文件1中，吧错误的输出追加到文件2中</td>
+</tr>
+</tbody>
+</table>
 <p><code>ls &amp;&gt;/dev/null</code>把输出结果直接丢了<br><strong>输入重定向</strong><br><code>wc</code> 直接输入字符 <code>ctrl + d</code> 停止输入<br><code>wc [选项][文件名]</code></p>
 <blockquote>
 <p><code>-c</code> 统计字节数<br><code>-w</code> 共计单词书<br><code>-l</code> 统计行数</p>
 </blockquote>
-<h3 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h3><p><strong>多命令顺序执行</strong><br>多命令执行符| 格式 |作用<br>—|—|—<br>;|<code>命令1;命令2</code>|多个命令顺序执行，命令之间没有任何逻辑联系<br>&amp;&amp;| <code>命令1&amp;&amp;命令2</code>|逻辑与。当命令1正确执行，则命令2才会执行；当命令1执行不正确，则命令2不会执行<br>||| <code>命令1\|\|命令2</code>|逻辑或。当命令1执行不正确，则命令2才会执行；当命令1正确执行，则命令2不会执行<br><strong>管道符</strong><br><code>命令1 | 命令2</code></p>
+<h3 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h3><p><strong>多命令顺序执行</strong></p>
+<table>
+<thead>
+<tr>
+<th>多命令执行符</th>
+<th>格式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>;</td>
+<td><code>命令1;命令2</code></td>
+<td>多个命令顺序执行，命令之间没有任何逻辑联系</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td><code>命令1&amp;&amp;命令2</code></td>
+<td>逻辑与。当命令1正确执行，则命令2才会执行；当命令1执行不正确，则命令2不会执行</td>
+</tr>
+</tbody>
+</table>
+<p>||   <code>命令1||命令2</code>  逻辑或。当命令1执行不正确，则命令2才会执行；当命令1正确执行，则命令2不会执行</p>
+<p><strong>管道符</strong></p>
+<p><code>命令1 | 命令2</code></p>
 <blockquote>
 <p>命令1的整除输出作为命令2的操作对象<br><code>more</code>  分页显示<br><code>ls -l /etc | more</code><br>查询结果翻页：<br><code>空格</code>表示向下翻一页<br><code>回车</code>表示向下滚动一行<br><code>/字符串</code>表示查询字符串<br><code>q</code>离开more界面</p>
 </blockquote>
@@ -667,8 +782,45 @@ function showBtn(){
 </tr>
 </tbody>
 </table>
-<p><strong>Bash中其他特殊符号</strong><br>符号|作用<br>—|—<br>‘’|单引号。在单引号中所有的特殊符号，如“$”和 “<code>&quot;（反引号）没有特殊含义
-&quot;&quot;|双引号。在双引号中特殊符号都没有特殊含义，但是 “$”、“</code>”和“\”是例外，拥有“调用变量的值”、“引用命令”和“转义符”的特殊含义<br>`|反引号。反引号括起来的内容是系统命令，在Bash中会先执行它。和\$()作用一样，不过推荐使用$(),因为反引号非常容易看错。<br>$()|和反引号作用一样，用来引用系统命令。<br>#|在Shell脚本中，#开头的行代表注释<br>\$|用户调用变量的值，如果需要调用变量name的值时，需要用$named 的方式得到变量的值。<br>\ |转义符，跟在\之后的特殊符号将失去特殊含义，变为普通字符。如\\$将输出“$”符号，而不当做是变量引用。</p>
+<p><strong>Bash中其他特殊符号</strong></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘’</td>
+<td>单引号。在单引号中所有的特殊符号，如“$”和 “`”（反引号）没有特殊含义</td>
+</tr>
+<tr>
+<td>“”</td>
+<td>双引号。在双引号中特殊符号都没有特殊含义，但是 “$”、“`”和“\”是例外，拥有“调用变量的值”、“引用命令”和“转义符”的特殊含义</td>
+</tr>
+<tr>
+<td>`</td>
+<td>反引号。反引号括起来的内容是系统命令，在Bash中会先执行它。和\$()作用一样，不过推荐使用$(),因为反引号非常容易看错。</td>
+</tr>
+<tr>
+<td>$()</td>
+<td>和反引号作用一样，用来引用系统命令。</td>
+</tr>
+<tr>
+<td>#</td>
+<td>在Shell脚本中，#开头的行代表注释</td>
+</tr>
+<tr>
+<td>\$</td>
+<td>用户调用变量的值，如果需要调用变量name的值时，需要用$named 的方式得到变量的值。</td>
+</tr>
+<tr>
+<td>\</td>
+<td>转义符，跟在\之后的特殊符号将失去特殊含义，变为普通字符。如\\$将输出“$”符号，而不当做是变量引用。</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <blockquote>
 <p><em>真的应该是一条幸福的分割线。吐槽一下，写这个东西花的时间比学习的时间还要久，不过这样过后也回顾了一遍基础知识，一字一句呕心沥血打出来的，希望能帮到一些人。另外，此次笔记也加深了对markdown语法的了解，以后要多加勤快才是了。</em></p>
