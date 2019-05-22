@@ -2,7 +2,7 @@
 title: （转）MySQL 性能优化技巧
 date: 2018-11-08 18:13:22
 tags: [mysql, 调优]
-categories: [数据库, 转载]
+categories: [转载,数据库]
 toc: true
 ---
 > 原文作者: MoonlightL

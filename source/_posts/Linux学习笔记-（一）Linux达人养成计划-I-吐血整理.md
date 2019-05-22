@@ -2,7 +2,7 @@
 title: Linux学习笔记 - （一）Linux达人养成计划 I --- 吐血整理
 date: 2018-04-11 21:16:16
 tags: linux
-categories: [教学,原创]
+categories: [原创,笔记]
 toc: true
 ---
 

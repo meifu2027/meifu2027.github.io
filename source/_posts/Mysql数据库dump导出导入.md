@@ -3,7 +3,7 @@ title: Mysql数据库dump导出导入
 toc: true
 date: 2019-04-28 12:44:01
 tags: mysql
-categories: [笔记,原创]
+categories: [原创, 笔记]
 ---
 记录mysql数据库导出导入命令
 <!--more-->
