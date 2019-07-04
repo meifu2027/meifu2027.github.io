@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>linux下常用中间件搭建（一） | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。">
+  <meta name="description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
 <meta name="keywords" content="linux,中间件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下常用中间件搭建（一）">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/linux下常用中间件搭建（一）/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。">
+<meta property="og:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-04T12:17:32.942Z">
+<meta property="og:updated_time" content="2019-07-04T12:38:13.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下常用中间件搭建（一）">
-<meta name="twitter:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。">
+<meta name="twitter:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -201,7 +201,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article" style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#涉及中间件"><span class="toc-number">2.</span> <span class="toc-text">涉及中间件</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">2.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#涉及中间件"><span class="toc-number">3.</span> <span class="toc-text">涉及中间件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用指令"><span class="toc-number">4.</span> <span class="toc-text">常用指令</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -221,7 +221,9 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。<br><a id="more"></a></p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。<br><strong>鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。</strong><br><a id="more"></a></p>
+<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><p><strong>操作系统：</strong> CentOS release 6.5 (Final)<br><strong>中间件存放目录：</strong> /u01/setup (可根据自己喜好而定)<br><strong>可能用到的指令</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可能涉及多台服务器的文件拷贝</span></span><br><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line">scp 本地文件 root@192.168.0.1:/u01/setup</span><br><span class="line"><span class="comment"># 拷贝目录</span></span><br><span class="line">scp -r 本地目录 root@192.168.0.1:/u01/setup</span><br></pre></td></tr></table></figure>
 <h2 id="涉及中间件"><a href="#涉及中间件" class="headerlink" title="涉及中间件"></a>涉及中间件</h2><table>
 <thead>
 <tr>
@@ -268,7 +270,7 @@ function showBtn(){
 </tr>
 </tbody>
 </table>
-<hr>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><hr>
 <p><em>会记录搭建过程的关键步骤以及可能踩到的坑，以备复查。</em></p>
 
       
@@ -330,6 +332,15 @@ function showBtn(){
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/04/linux下常用中间件搭建 - mysql搭建 （二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux下常用中间件搭建 - mysql搭建 （二）
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/" id="article-nav-older" class="article-nav-link-wrap">
@@ -497,11 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,15 +524,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
