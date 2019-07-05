@@ -1,5 +1,5 @@
 ---
-title: linux下常用中间件搭建 - jdk安装 （三）
+title: linux下常用中间件搭建 - jdk安装(三)
 categories: [原创, 教程]
 toc: true
 date: 2019-07-05 09:33:27

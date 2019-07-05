@@ -1,5 +1,5 @@
 ---
-title: linux下常用中间件搭建（一）
+title: linux下常用中间件搭建(一)
 categories: [原创, 教程]
 toc: true
 date: 2019-07-04 20:02:25

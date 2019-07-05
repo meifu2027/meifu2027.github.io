@@ -1,5 +1,5 @@
 ---
-title: linux下常用中间件搭建 - redis集群 （四）
+title: linux下常用中间件搭建 - redis集群(四)
 categories: [原创, 教程]
 toc: true
 date: 2019-07-05 16:28:49
