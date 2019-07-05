@@ -31,7 +31,7 @@ scp -r 本地目录 root@192.168.0.1:/u01/setup
 ---|---
 **Zookeeper** |
 **Nginx** |
-**Redis** |
+**Redis** |3.2.12
 **FastDFS** |
 **ActiveMQ** |
 **JDK** | 1.7.0_67
