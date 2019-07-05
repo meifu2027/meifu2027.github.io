@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>linux下常用中间件搭建（一） | 从何写起</title>
+  <title>linux下常用中间件搭建 - jdk安装(三) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
-<meta name="keywords" content="linux,中间件">
+  <meta name="description" content="概况jdk版本： 1.7.0_67jdk安装包： jdk1.7.0_67.tar.gz">
+<meta name="keywords" content="linux,jdk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux下常用中间件搭建（一）">
-<meta property="og:url" content="http://yoursite.com/2019/07/04/linux下常用中间件搭建（一）/index.html">
+<meta property="og:title" content="linux下常用中间件搭建 - jdk安装(三)">
+<meta property="og:url" content="http://yoursite.com/2019/07/05/linux下常用中间件搭建 - jdk安装(三)/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
+<meta property="og:description" content="概况jdk版本： 1.7.0_67jdk安装包： jdk1.7.0_67.tar.gz">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-05T02:16:53.936Z">
+<meta property="og:image" content="https://i.loli.net/2019/07/05/5d1eabb140efc77166.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/05/5d1eabb17e4c963076.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/05/5d1eabb1696fa81506.png">
+<meta property="og:updated_time" content="2019-07-05T10:11:32.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下常用中间件搭建（一）">
-<meta name="twitter:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
+<meta name="twitter:title" content="linux下常用中间件搭建 - jdk安装(三)">
+<meta name="twitter:description" content="概况jdk版本： 1.7.0_67jdk安装包： jdk1.7.0_67.tar.gz">
+<meta name="twitter:image" content="https://i.loli.net/2019/07/05/5d1eabb140efc77166.png">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -170,20 +174,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux下常用中间件搭建（一）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux下常用中间件搭建 - jdk安装(三)" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      linux下常用中间件搭建（一）
+      linux下常用中间件搭建 - jdk安装(三)
     </h1>
   
 
         
-        <a href="/2019/07/04/linux下常用中间件搭建（一）/" class="archive-article-date">
-  	<time datetime="2019-07-04T12:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+        <a href="/2019/07/05/linux下常用中间件搭建 - jdk安装(三)/" class="archive-article-date">
+  	<time datetime="2019-07-05T01:33:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -201,7 +205,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article" style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">2.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#涉及中间件"><span class="toc-number">3.</span> <span class="toc-text">涉及中间件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用指令"><span class="toc-number">4.</span> <span class="toc-text">常用指令</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压、更名"><span class="toc-number">2.1.</span> <span class="toc-text">解压、更名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境变量"><span class="toc-number">2.2.</span> <span class="toc-text">配置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -221,57 +225,11 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。<br><strong>鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。</strong><br><a id="more"></a></p>
-<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><p><strong>操作系统：</strong> CentOS release 6.5 (Final)<br><strong>中间件存放目录：</strong> /u01/setup (可根据自己喜好而定)<br><strong>可能用到的指令</strong>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可能涉及多台服务器的文件拷贝</span></span><br><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line">scp 本地文件 root@192.168.0.1:/u01/setup</span><br><span class="line"><span class="comment"># 拷贝目录</span></span><br><span class="line">scp -r 本地目录 root@192.168.0.1:/u01/setup</span><br></pre></td></tr></table></figure>
-<h2 id="涉及中间件"><a href="#涉及中间件" class="headerlink" title="涉及中间件"></a>涉及中间件</h2><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Zookeeper</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Nginx</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Redis</strong></td>
-<td>3.2.12</td>
-</tr>
-<tr>
-<td><strong>FastDFS</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>ActiveMQ</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>JDK</strong></td>
-<td>1.7.0_67</td>
-</tr>
-<tr>
-<td><strong>Jboss</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Mysql</strong></td>
-<td>5.7.17</td>
-</tr>
-<tr>
-<td><strong>Oracle</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><hr>
-<p><em>会记录搭建过程的关键步骤以及可能踩到的坑，以备复查。</em></p>
+        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>jdk版本：</strong> 1.7.0_67<br><strong>jdk安装包：</strong> jdk1.7.0_67.tar.gz<br><a id="more"></a></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="解压、更名"><a href="#解压、更名" class="headerlink" title="解压、更名"></a>解压、更名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压到/u01目录下</span></span><br><span class="line">tar -zxvf /u01/setup/jdk1.7.0_67.tar.gz  -C /u01</span><br><span class="line"><span class="comment"># 解压完后重命名为jdk</span></span><br><span class="line">mv /u01/jdk1.7.0_67 /u01/jdk</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一般linux都会自带openjdk，我们可以看下版本（图1）</span></span><br><span class="line">java -version</span><br><span class="line"><span class="comment"># 修改环境变量</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="comment"># 在profile文件中添加配置（图2）</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/u01/jdk</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="comment"># 再次查看java版本（图3）</span></span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<p>图1<br><img src="https://i.loli.net/2019/07/05/5d1eabb140efc77166.png" alt="1原版本.png"><br>图2<br><img src="https://i.loli.net/2019/07/05/5d1eabb17e4c963076.png" alt="配置环境变量.png"><br>图3<br><img src="https://i.loli.net/2019/07/05/5d1eabb1696fa81506.png" alt="3安装后版本.png"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><em>jdk的离线安装相对简单</em></p>
 
       
 
@@ -289,7 +247,7 @@ function showBtn(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jdk</a>
         		</li>
       		
 		</ul>
@@ -333,18 +291,18 @@ function showBtn(){
   
 <nav id="article-nav">
   
-    <a href="/2019/07/04/linux下常用中间件搭建 - mysql搭建 （二）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/05/linux下常用中间件搭建 - redis集群(四)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          linux下常用中间件搭建 - mysql搭建 （二）
+          linux下常用中间件搭建 - redis集群(四)
         
       </div>
     </a>
   
   
-    <a href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">IDEA 同一项目多版本、多窗口打开配置启动配置共享</div>
+    <a href="/2019/07/04/linux下常用中间件搭建 - mysql搭建(二)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下常用中间件搭建 - mysql搭建(二)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -391,7 +349,7 @@ if(true){
   	repo: 'meifu2027.github.io',
   	owner: 'meifu2027',
   	admin: ['meifu2027'],
-  	id: 'Thu Jul 04 2019 20:02:25 GMT+0800',
+  	id: 'Fri Jul 05 2019 09:33:27 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
