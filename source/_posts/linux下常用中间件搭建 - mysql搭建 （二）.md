@@ -18,7 +18,7 @@ tags: [linux,mysql]
 
 ```bash
 # 解压到/u01目录下
-tar -zxvf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /u01
+tar -zxvf /u01/setup/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /u01
 # 解压完后重命名为mysql
 mv /u01/mysql-5.7.17-linux-glibc2.5-x86_64 /u01/mysql
 # 新建data、log目录，后面my.cnf配置会用到
