@@ -9,7 +9,7 @@
   <title>linux下常用中间件搭建 - redis集群(四) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概况redis版本： 3.2.12redis安装包： redis-3.2.12.tar.gz">
-<meta name="keywords" content="linux,redis,集群">
+<meta name="keywords" content="linux,集群,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下常用中间件搭建 - redis集群(四)">
 <meta property="og:url" content="http://yoursite.com/2019/07/05/linux下常用中间件搭建 - redis集群(四)/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="概况redis版本： 3.2.12redis安装包： redis-3.2.12.tar.gz">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/07/05/5d1f16c938e0e79458.png">
-<meta property="og:updated_time" content="2019-07-05T10:11:16.491Z">
+<meta property="og:updated_time" content="2019-07-08T07:21:02.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下常用中间件搭建 - redis集群(四)">
 <meta name="twitter:description" content="概况redis版本： 3.2.12redis安装包： redis-3.2.12.tar.gz">
@@ -231,7 +231,10 @@ function showBtn(){
 <blockquote>
 <p>A：192.168.0.1 （主）节点端口7000、7001、7002<br>B：192.168.0.2 （从）节点端口7003、7004、7005<br>后续安装ruby环境只需要主服务器需要，会标出。<br><strong>如果只有1台</strong>，redis服务节点还是6个，下面所有需要在两台服务器上分别操作的步骤在这台服务器上都要执行一遍。</p>
 </blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="A主机安装zlib"><a href="#A主机安装zlib" class="headerlink" title="A主机安装zlib"></a>A主机安装zlib</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf /u01/setup/zlib-1.2.8.tar.gz -C /u01</span><br><span class="line"><span class="built_in">cd</span> /u01/zlib-1.2.8/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="A主机安装zlib"><a href="#A主机安装zlib" class="headerlink" title="A主机安装zlib"></a>A主机安装zlib</h3><blockquote>
+<p>B主机最好也安装一下，否则后续安装Nginx的时候也需要装。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf /u01/setup/zlib-1.2.8.tar.gz -C /u01</span><br><span class="line"><span class="built_in">cd</span> /u01/zlib-1.2.8/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <h3 id="A主机安装ruby"><a href="#A主机安装ruby" class="headerlink" title="A主机安装ruby"></a>A主机安装ruby</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先查看是否已经有了</span></span><br><span class="line">ruby -v</span><br><span class="line"><span class="comment"># 有的话且版本低于1.9的可以先卸载掉再装</span></span><br><span class="line">yum remove ruby</span><br><span class="line"><span class="comment"># 解压、编译</span></span><br><span class="line">tar -zxvf /u01/setup/ruby-1.9.3.tar.gz -C /u01</span><br><span class="line"><span class="built_in">cd</span> /u01/ruby-1.9.3-p551/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 再查看是否安装成功，版本应该是：ruby 1.9.3p551 (2014-11-13 revision 48407) [x86_64-linux]</span></span><br><span class="line">ruby -v</span><br><span class="line"><span class="comment"># 如果上条指令报错（-bash: /usr/bin/ruby: 没有那个文件或目录），</span></span><br><span class="line"><span class="comment"># 可能是默认安装路径是/usr/local/bin/ruby 这样可以创建一个软链接解决</span></span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/bin/ruby /usr/bin/ruby</span><br></pre></td></tr></table></figure>
 <h3 id="A主机安装rubygem"><a href="#A主机安装rubygem" class="headerlink" title="A主机安装rubygem"></a>A主机安装rubygem</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf /u01/setup/rubygems-1.8.16.tgz -C /u01</span><br><span class="line"><span class="built_in">cd</span> /u01/rubygems-1.8.16</span><br><span class="line">ruby setup.rb</span><br></pre></td></tr></table></figure>
 <h3 id="A主机安装gem-redis"><a href="#A主机安装gem-redis" class="headerlink" title="A主机安装gem-redis"></a>A主机安装gem-redis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install -l /u01/setup/redis-3.0.0.gem</span><br></pre></td></tr></table></figure>
@@ -262,11 +265,11 @@ function showBtn(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
         		</li>
       		
 		</ul>
@@ -309,6 +312,15 @@ function showBtn(){
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/08/linux下常用中间件搭建-fastdfs集群(五)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux下常用中间件搭建 - fastdfs集群(五)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/05/linux下常用中间件搭建 - jdk安装(三)/" id="article-nav-older" class="article-nav-link-wrap">
@@ -472,27 +484,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jdk</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,15 +500,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">

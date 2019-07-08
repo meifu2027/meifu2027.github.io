@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/5 | 从何写起</title>
+  <title>linux下常用中间件搭建 - nginx搭建(六) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/archives/2018/05/index.html">
+  <meta name="description" content="概况nginx版本： 1.16.0nginx安装包： nginx-1.16.0.tar.gz">
+<meta name="keywords" content="linux,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下常用中间件搭建 - nginx搭建(六)">
+<meta property="og:url" content="http://yoursite.com/2019/07/08/linux下常用中间件搭建-nginx搭建-六/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="概况nginx版本： 1.16.0nginx安装包： nginx-1.16.0.tar.gz">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-08T08:27:10.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="linux下常用中间件搭建 - nginx搭建(六)">
+<meta name="twitter:description" content="概况nginx版本： 1.16.0nginx安装包： nginx-1.16.0.tar.gz">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,52 +170,95 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-linux下常用中间件搭建-nginx搭建-六" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/12/git学习入门/" class="archive-article-date">
-  	<time datetime="2018-05-12T09:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/12/git学习入门/">git学习入门</a>
+    <h1 class="article-title" itemprop="name">
+      linux下常用中间件搭建 - nginx搭建(六)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/08/linux下常用中间件搭建-nginx搭建-六/" class="archive-article-date">
+  	<time datetime="2019-07-08T07:58:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article" style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装必须依赖"><span class="toc-number">2.1.</span> <span class="toc-text">安装必须依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装nginx"><span class="toc-number">2.2.</span> <span class="toc-text">安装nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改nginx配置"><span class="toc-number">2.3.</span> <span class="toc-text">修改nginx配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx常用命令"><span class="toc-number">2.4.</span> <span class="toc-text">nginx常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>nginx版本：</strong> 1.16.0<br><strong>nginx安装包：</strong> nginx-1.16.0.tar.gz<br><a id="more"></a><br><strong>其他依赖环境：</strong>  </p>
+<blockquote>
+<p>gcc（本人安装环境已具备，此步骤忽略）<br>pcre-devel-7.8-6.el6.x86_64.rpm<br>pcre-static-7.8-6.el6.x86_64.rpm(这个应该是可以不要的，但是我一起装了)<br>zlib（在装redis的时候已经装过了，此步骤忽略）<br>openssl（本人安装环境已具备，此步骤忽略）</p>
+</blockquote>
+<p><strong>服务器（2台，此nginx配置无主从关系）：</strong>  </p>
+<blockquote>
+<p>A：192.168.0.1<br>B：192.168.0.2<br>所有配置两台服务器都要配置。<br><strong>如果只有1台</strong>，只需要配置1次即可。</p>
+</blockquote>
+<p><strong><em>本文的配置主要针对上一篇的fastdfs下载进行配置。</em></strong></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装必须依赖"><a href="#安装必须依赖" class="headerlink" title="安装必须依赖"></a>安装必须依赖</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/setup</span><br><span class="line">rpm -ivh pcre*.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf /u01/setup/nginx-1.16.0.tar.gz -C /u01</span><br><span class="line"><span class="built_in">cd</span> /u01/nginx-1.16.0</span><br><span class="line"><span class="comment"># 如果不是特定用于fastdfs的下载，"./configure" 即可</span></span><br><span class="line">./configure --add-module=/u01/fastdfs/fastdfs-nginx-module-1.20/src</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h3 id="修改nginx配置"><a href="#修改nginx配置" class="headerlink" title="修改nginx配置"></a>修改nginx配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改配置</span></span><br><span class="line">vim /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</span><br><span class="line"><span class="comment"># 修改内容</span></span><br><span class="line">server&#123;</span><br><span class="line">	    listen      80;</span><br><span class="line">	    server_name localhost;</span><br><span class="line">        <span class="comment"># 在80端口的配置下增加这部分</span></span><br><span class="line">        location /group1/M00 &#123;</span><br><span class="line">            root   /u01/fastdfs/data;</span><br><span class="line">            ngx_fastdfs_module;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="nginx常用命令"><a href="#nginx常用命令" class="headerlink" title="nginx常用命令"></a>nginx常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 启动后可以访问 http://192.168.0.1 或http://192.168.0.2</span></span><br><span class="line"><span class="comment"># 查看是否能正常显示nginx相关页面</span></span><br><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx</span><br><span class="line"><span class="comment"># Nginx配置后重启</span></span><br><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -s reload</span><br><span class="line"><span class="comment"># 停止 </span></span><br><span class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx -s stop</span><br><span class="line"><span class="comment"># 检查 Nginx 进程</span></span><br><span class="line">ps aux | grep nginx</span><br><span class="line"><span class="comment"># 查看错误日志</span></span><br><span class="line">tail -200f /usr/<span class="built_in">local</span>/nginx/logs/error.log</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>nginx正常启动后，就能下载上一篇fastdfs的附件啦。后续还会有nginx做端口转发的相关配置。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">版本管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -220,24 +268,92 @@ ga('send', 'pageview');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/07/08/linux下常用中间件搭建-fastdfs集群(五)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下常用中间件搭建 - fastdfs集群(五)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Mon Jul 08 2019 15:58:32 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
+    
+  
 
 
           </div>
@@ -272,8 +388,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
