@@ -26,6 +26,7 @@ tags: [linux,redis,集群]
 
 ## 步骤
 ### A主机安装zlib
+> B主机最好也安装一下，否则后续安装Nginx的时候也需要装。
 
 ```bash
 tar -xvf /u01/setup/zlib-1.2.8.tar.gz -C /u01

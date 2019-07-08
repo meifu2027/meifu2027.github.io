@@ -30,9 +30,9 @@ scp -r 本地目录 root@192.168.0.1:/u01/setup
 名称 | 版本
 ---|---
 **Zookeeper** |
-**Nginx** |
+**Nginx** |1.16.0
 **Redis** |3.2.12
-**FastDFS** |
+**FastDFS** |5.11
 **ActiveMQ** |
 **JDK** | 1.7.0_67
 **Jboss** |
