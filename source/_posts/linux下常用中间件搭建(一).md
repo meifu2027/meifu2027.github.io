@@ -33,7 +33,7 @@ scp -r 本地目录 root@192.168.0.1:/u01/setup
 **Nginx** |1.16.0
 **Redis** |3.2.12
 **FastDFS** |5.11
-**ActiveMQ** |
+**ActiveMQ** |5.12.0
 **JDK** | 1.7.0_67
 **Jboss** |
 **Mysql** | 5.7.17
