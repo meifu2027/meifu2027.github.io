@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 1992 | 从何写起</title>
+  <title>linux下常用中间件搭建 - zookeeper集群(七) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/archives/1992/index.html">
+  <meta name="description" content="概况zookeeper版本： 3.4.6zookeeper安装包： zookeeper-3.4.6.tar.gz">
+<meta name="keywords" content="linux,集群,zookeeper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下常用中间件搭建 - zookeeper集群(七)">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/linux下常用中间件搭建-zookeeper集群-七/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="概况zookeeper版本： 3.4.6zookeeper安装包： zookeeper-3.4.6.tar.gz">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-09T07:48:16.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="linux下常用中间件搭建 - zookeeper集群(七)">
+<meta name="twitter:description" content="概况zookeeper版本： 3.4.6zookeeper安装包： zookeeper-3.4.6.tar.gz">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,49 +170,196 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-linux下常用中间件搭建-zookeeper集群-七" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/1992" class="archive-year">1992</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/1992/07/23/简历/" class="archive-article-date">
-  	<time datetime="1992-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1992-07-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/1992/07/23/简历/">简历</a>
+    <h1 class="article-title" itemprop="name">
+      linux下常用中间件搭建 - zookeeper集群(七)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/07/09/linux下常用中间件搭建-zookeeper集群-七/" class="archive-article-date">
+  	<time datetime="2019-07-09T05:01:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <!-- 目录内容 -->
 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article" style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压、基本配置"><span class="toc-number">2.1.</span> <span class="toc-text">解压、基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集群配置"><span class="toc-number">2.2.</span> <span class="toc-text">集群配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动脚本"><span class="toc-number">2.3.</span> <span class="toc-text">启动脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>zookeeper版本：</strong> 3.4.6<br><strong>zookeeper安装包：</strong> zookeeper-3.4.6.tar.gz<br><a id="more"></a><br><strong>其他依赖环境：</strong>  </p>
+<blockquote>
+<p>jdk环境（前面章节已安装）</p>
+</blockquote>
+<p><strong>服务器（2台）</strong>  </p>
+<blockquote>
+<p>A：192.168.0.1（4个节点：2181 2182 2183 2184）<br>B：192.168.0.2（3个节点：2185 2186 2187）<br>所有配置两台服务器都要配置。<br><strong>如果只有1台</strong>，建议配置3个集群节点即可。</p>
+</blockquote>
+<p><strong><em>单节点的zookeeper很简单，不需要改配置直接启动就行了。生产上一般使用集群配置，至于需要真集群还是伪集群，视情况而定。本文属于伪集群。</em></strong></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="解压、基本配置"><a href="#解压、基本配置" class="headerlink" title="解压、基本配置"></a>解压、基本配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf /u01/setup/zookeeper-3.4.6.tar.gz  -C /u01</span><br></pre></td></tr></table></figure>
+<h3 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/zookeeper-3.4.6/data</span><br><span class="line"><span class="comment"># A主机创建集群节点目录</span></span><br><span class="line">mkdir -p node2181/<span class="built_in">log</span> node2182/<span class="built_in">log</span> node2183/<span class="built_in">log</span> node2184/<span class="built_in">log</span></span><br><span class="line"><span class="comment"># B主机创建集群节点目录</span></span><br><span class="line">mkdir -p node2185/<span class="built_in">log</span> node2186/<span class="built_in">log</span> node2187/<span class="built_in">log</span></span><br><span class="line"><span class="comment"># 每个节点需要增加一个配置，以2181为例</span></span><br><span class="line">vim /u01/zookeeper-3.4.6/conf/zoo2181.cfg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置内容（注意：所有集群 server.数字 的配置都一样）</span></span><br><span class="line">tickTime=2000</span><br><span class="line">initLimit=10</span><br><span class="line">syncLimit=5</span><br><span class="line">dataDir=/u01/zookeeper-3.4.6/data/node2181</span><br><span class="line">dataLogDir=/u01/zookeeper-3.4.6/data/node2181/<span class="built_in">log</span></span><br><span class="line">clientPort=2181</span><br><span class="line">server.1=192.168.0.1:2881:3881</span><br><span class="line">server.2=192.168.0.1:2882:3882</span><br><span class="line">server.3=192.168.0.1:2883:3883</span><br><span class="line">server.4=192.168.0.1:2884:3884</span><br><span class="line">server.5=192.168.0.2:2885:3885</span><br><span class="line">server.6=192.168.0.2:2886:3886</span><br><span class="line">server.7=192.168.0.2:2887:3887</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># A主机每个集群节点在dataDir目录下增加myid配置</span></span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /u01/zookeeper-3.4.6/data/node2181/myid</span><br><span class="line"><span class="built_in">echo</span> 2 &gt; /u01/zookeeper-3.4.6/data/node2182/myid</span><br><span class="line"><span class="built_in">echo</span> 3 &gt; /u01/zookeeper-3.4.6/data/node2183/myid</span><br><span class="line"><span class="built_in">echo</span> 4 &gt; /u01/zookeeper-3.4.6/data/node2184/myid</span><br><span class="line"></span><br><span class="line"><span class="comment"># B主机每个集群节点在dataDir目录下增加myid配置</span></span><br><span class="line"><span class="built_in">echo</span> 5 &gt; /u01/zookeeper-3.4.6/data/node2185/myid</span><br><span class="line"><span class="built_in">echo</span> 6 &gt; /u01/zookeeper-3.4.6/data/node2186/myid</span><br><span class="line"><span class="built_in">echo</span> 7 &gt; /u01/zookeeper-3.4.6/data/node2187/myid</span><br></pre></td></tr></table></figure>
+<h3 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h3><p>由于集群节点比较多，因此需要一个一键启动的脚本（两台服务器都可以放同一个脚本）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建启动脚本</span></span><br><span class="line">vim /u01/.zookeeperStart.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line">zoo_base=/u01/zookeeper-3.4.6</span><br><span class="line">zkserver=<span class="variable">$zoo_base</span>/bin/zkServer.sh</span><br><span class="line">zk_conf=<span class="variable">$zoo_base</span>/conf/</span><br><span class="line">servip=`/sbin/ip add |grep -oP <span class="string">'(?&lt;=inet )\S+(?=/)'</span> | grep -v <span class="string">"127.0.0.1"</span>  |sort -n | head -n 1|sed <span class="string">'s/\./-/g'</span>`</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$servip</span>"</span> = <span class="string">"192-168-0-1"</span> ] ; <span class="keyword">then</span></span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2181.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2181.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2182.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2182.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2183.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2183.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2184.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2184.cfg</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2185.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2185.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2186.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2186.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> stop  <span class="variable">$zk_conf</span>/zoo2187.cfg</span><br><span class="line">    <span class="variable">$zkserver</span> start <span class="variable">$zk_conf</span>/zoo2187.cfg</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动zookeeper服务</span></span><br><span class="line">sh /u01/.zookeeperStart.sh </span><br><span class="line"><span class="comment"># 查看是否有对应数量的服务启动了</span></span><br><span class="line">ps -ef|grep zookeeper</span><br><span class="line"></span><br><span class="line"><span class="comment"># 另：zookeeper常用操作</span></span><br><span class="line">/u01/zookeeper-3.4.6/bin/zkServer.sh start</span><br><span class="line">/u01/zookeeper-3.4.6/bin/zkServer.sh stop</span><br><span class="line">/u01/zookeeper-3.4.6/bin/zkServer.sh status</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>有优化配置后续再补充。对于zookeeper集群的更详细介绍网上也有很多，有需要可以自己再找。<br><a href="https://www.cnblogs.com/cyfonly/p/5626532.html" target="_blank" rel="noopener">《构建高可用zookeeper集群》</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集群</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">zookeeper</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/07/08/linux下常用中间件搭建-nginx搭建-六/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下常用中间件搭建 - nginx搭建(六)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Tue Jul 09 2019 13:01:50 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
+    
+  
 
 
           </div>
@@ -242,8 +394,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
