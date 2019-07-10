@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-22T07:10:18.732Z">
+<meta property="og:updated_time" content="2019-07-10T06:25:08.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git学习入门">
 <meta name="twitter:description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
@@ -198,7 +198,7 @@ ga('send', 'pageview');
         <span class="btn-bg"></span>
         <span class="btn-text">文章导航</span>
         </p>
-<div id="toc-article" class="toc-article" style="display:none">
+<div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">1.</span> <span class="toc-text">安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux安装Git"><span class="toc-number">1.1.</span> <span class="toc-text">Linux安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac-OS-X-上安装Git"><span class="toc-number">1.2.</span> <span class="toc-text">Mac OS X 上安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows上安装Git"><span class="toc-number">1.3.</span> <span class="toc-text">Windows上安装Git</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-number">2.</span> <span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">3.</span> <span class="toc-text">时光机穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本回退"><span class="toc-number">3.1.</span> <span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">3.2.</span> <span class="toc-text">工作区和暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理修改"><span class="toc-number">3.3.</span> <span class="toc-text">管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销修改"><span class="toc-number">3.4.</span> <span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件"><span class="toc-number">3.5.</span> <span class="toc-text">删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">4.</span> <span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程库"><span class="toc-number">4.1.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从远程库克隆"><span class="toc-number">4.2.</span> <span class="toc-text">从远程库克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">5.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与合并分支"><span class="toc-number">5.1.</span> <span class="toc-text">创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决冲突"><span class="toc-number">5.2.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理策略"><span class="toc-number">5.3.</span> <span class="toc-text">分支管理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bug分支"><span class="toc-number">5.4.</span> <span class="toc-text">Bug分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature分支"><span class="toc-number">5.5.</span> <span class="toc-text">Feature分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作"><span class="toc-number">5.6.</span> <span class="toc-text">多人协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签管理"><span class="toc-number">6.</span> <span class="toc-text">标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建标签"><span class="toc-number">6.1.</span> <span class="toc-text">创建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作标签"><span class="toc-number">6.2.</span> <span class="toc-text">操作标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用GitHub"><span class="toc-number">7.</span> <span class="toc-text">使用GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用码云"><span class="toc-number">8.</span> <span class="toc-text">使用码云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Git"><span class="toc-number">9.</span> <span class="toc-text">自定义Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">10.</span> <span class="toc-text">附录</span></a></li></ol>
@@ -678,15 +678,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -718,10 +718,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
@@ -730,15 +726,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,7 +762,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

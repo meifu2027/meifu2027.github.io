@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -9,7 +9,7 @@
   <title>linux下常用中间件搭建 - mysql搭建(二) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="概况mysql版本： 5.7.17mysql安装包： mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz">
-<meta name="keywords" content="mysql,linux">
+<meta name="keywords" content="linux,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux下常用中间件搭建 - mysql搭建(二)">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/linux下常用中间件搭建 - mysql搭建(二)/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/07/04/5d1dfa1fdbd5698153.png">
 <meta property="og:image" content="https://i.loli.net/2019/07/04/5d1dfcd24cfc384799.png">
 <meta property="og:image" content="https://i.loli.net/2019/07/04/5d1e04303f70047098.png">
-<meta property="og:updated_time" content="2019-07-05T10:11:52.438Z">
+<meta property="og:updated_time" content="2019-07-10T06:25:08.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下常用中间件搭建 - mysql搭建(二)">
 <meta name="twitter:description" content="概况mysql版本： 5.7.17mysql安装包： mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz">
@@ -202,7 +202,7 @@ ga('send', 'pageview');
         <span class="btn-bg"></span>
         <span class="btn-text">文章导航</span>
         </p>
-<div id="toc-article" class="toc-article" style="display:none">
+<div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压、新建目录"><span class="toc-number">2.1.</span> <span class="toc-text">解压、新建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建用户组、用户、授权"><span class="toc-number">2.2.</span> <span class="toc-text">新建用户组、用户、授权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql基本配置"><span class="toc-number">2.3.</span> <span class="toc-text">mysql基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后续配置"><span class="toc-number">2.4.</span> <span class="toc-text">后续配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
@@ -252,11 +252,11 @@ function showBtn(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -471,15 +471,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,10 +511,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
@@ -523,15 +519,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,7 +555,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

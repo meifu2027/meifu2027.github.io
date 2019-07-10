@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="概况fastdfs版本： 5.11fastdfs安装包： fastdfs-5.11.tar.gz">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/07/08/5d22f6e3ec95f96315.png">
-<meta property="og:updated_time" content="2019-07-08T08:23:58.056Z">
+<meta property="og:updated_time" content="2019-07-10T06:25:08.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下常用中间件搭建 - fastdfs集群(五)">
 <meta name="twitter:description" content="概况fastdfs版本： 5.11fastdfs安装包： fastdfs-5.11.tar.gz">
@@ -200,7 +200,7 @@ ga('send', 'pageview');
         <span class="btn-bg"></span>
         <span class="btn-text">文章导航</span>
         </p>
-<div id="toc-article" class="toc-article" style="display:none">
+<div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机安装libfastcommon依赖"><span class="toc-number">2.1.</span> <span class="toc-text">A、B主机安装libfastcommon依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机安装fastdfs"><span class="toc-number">2.2.</span> <span class="toc-text">A、B主机安装fastdfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机新建用户、授权"><span class="toc-number">2.3.</span> <span class="toc-text">A、B主机新建用户、授权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机集群配置"><span class="toc-number">2.4.</span> <span class="toc-text">A、B主机集群配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A主机进行tracker服务器配置"><span class="toc-number">2.5.</span> <span class="toc-text">A主机进行tracker服务器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机进行storage服务器配置"><span class="toc-number">2.6.</span> <span class="toc-text">A、B主机进行storage服务器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机配置Monitor（客户端）"><span class="toc-number">2.7.</span> <span class="toc-text">A、B主机配置Monitor（客户端）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A、B主机配置fastdfs-nginx模块文件"><span class="toc-number">2.8.</span> <span class="toc-text">A、B主机配置fastdfs-nginx模块文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传测试"><span class="toc-number">2.9.</span> <span class="toc-text">上传测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
@@ -477,15 +477,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,10 +517,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
@@ -529,15 +525,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,7 +561,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:

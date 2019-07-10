@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="原文作者: MoonlightL原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/  一、背景最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://images.extlight.com/mysql-optimized.jpg">
-<meta property="og:updated_time" content="2019-05-22T07:10:32.626Z">
+<meta property="og:updated_time" content="2019-07-10T06:25:08.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（转）MySQL 性能优化技巧">
 <meta name="twitter:description" content="原文作者: MoonlightL原文链接: https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/  一、背景最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假">
@@ -200,7 +200,7 @@ ga('send', 'pageview');
         <span class="btn-bg"></span>
         <span class="btn-text">文章导航</span>
         </p>
-<div id="toc-article" class="toc-article" style="display:none">
+<div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、背景"><span class="toc-number">1.</span> <span class="toc-text">一、背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、优化思路"><span class="toc-number">2.</span> <span class="toc-text">二、优化思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、查看-MySQL-服务器运行的状态值"><span class="toc-number">3.</span> <span class="toc-text">三、查看 MySQL 服务器运行的状态值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、获取需要优化的-SQL-语句"><span class="toc-number">4.</span> <span class="toc-text">四、获取需要优化的 SQL 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-方式一：查看运行的线程"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 方式一：查看运行的线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-方式二：开启慢查询日志"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 方式二：开启慢查询日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、分析-SQL-语句"><span class="toc-number">5.</span> <span class="toc-text">五、分析 SQL 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-方式一：explain"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 方式一：explain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-方式二：profiling"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 方式二：profiling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-查看-profile-开启情况"><span class="toc-number">5.2.1.</span> <span class="toc-text">5.2.1 查看 profile 开启情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-启用-profile"><span class="toc-number">5.2.2.</span> <span class="toc-text">5.2.2 启用 profile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3-查看执行的-SQL-列表"><span class="toc-number">5.2.3.</span> <span class="toc-text">5.2.3 查看执行的 SQL 列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-4-查询指定-ID-的执行详细信息"><span class="toc-number">5.2.4.</span> <span class="toc-text">5.2.4 查询指定 ID 的执行详细信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-5-获取-CPU、-Block-IO-等信息"><span class="toc-number">5.2.5.</span> <span class="toc-text">5.2.5 获取 CPU、 Block IO 等信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、优化手段"><span class="toc-number">6.</span> <span class="toc-text">六、优化手段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-查询优化"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 查询优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-索引使用"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 索引使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-1-适合使用索引的场景"><span class="toc-number">6.2.1.</span> <span class="toc-text">6.2.1 适合使用索引的场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-2-不适合使用索引的场景"><span class="toc-number">6.2.2.</span> <span class="toc-text">6.2.2 不适合使用索引的场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-3-索引创建和使用原则"><span class="toc-number">6.2.3.</span> <span class="toc-text">6.2.3 索引创建和使用原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-4-索引失效情况"><span class="toc-number">6.2.4.</span> <span class="toc-text">6.2.4 索引失效情况</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-数据库表结构设计"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 数据库表结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1-选择合适的数据类型"><span class="toc-number">6.3.1.</span> <span class="toc-text">6.3.1 选择合适的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-2-表的拆分"><span class="toc-number">6.3.2.</span> <span class="toc-text">6.3.2 表的拆分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-3-读写分离"><span class="toc-number">6.3.3.</span> <span class="toc-text">6.3.3 读写分离</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、服务器参数调优"><span class="toc-number">7.</span> <span class="toc-text">七、服务器参数调优</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-内存相关"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 内存相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-IO-相关"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 IO 相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-安全相关"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 安全相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-其他"><span class="toc-number">7.4.</span> <span class="toc-text">7.4 其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、硬件选购和参数优化"><span class="toc-number">8.</span> <span class="toc-text">八、硬件选购和参数优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-内存相关"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 内存相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-磁盘-I-O-相关"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 磁盘 I/O 相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-3-配置-CUP-相关"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 配置 CUP 相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、参考资料"><span class="toc-number">9.</span> <span class="toc-text">九、参考资料</span></a></li></ol>
@@ -659,15 +659,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,10 +699,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
@@ -711,15 +707,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,7 +743,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         </div>
         <ul class="search-ul">
           <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
-            缺失模块。<br>1、请确保node版本大于6.2<br>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br> npm i hexo-generator-json-content --save<br><br>
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
             3、在根目录_config.yml里添加配置：
 <pre style="font-size: 12px;" q-show="jsonFail">
   jsonContent:
