@@ -42,5 +42,5 @@ git的离线安装在我这边是比较简单的，但是不同版本的linux可
 
  git装完之后自然是要`下载代码-->mvn打包-->分发到各台服务器指定目录-->启动应用`这么一个过程。等后续涉及一键打包、发布脚本编写的时候再详细介绍。
 
-
+附上[git下载集合](https://mirrors.edge.kernel.org/pub/software/scm/git/)
 
