@@ -70,6 +70,12 @@ git checkout -b local_branch_name remote_branch_name
 git branch
 # 切换分支到master
 git checkout master
+
+# 我们需要配置全局参数，来防止打包后编译出来的文件对更新有影响
+echo *target*/ > ~/.gitignore
+# 配置全局gitignore变量
+git config --global core.excludesFile ~/.gitignore
+# 好啦，这样编译后target目录下的文件就不会干扰我们正常的git操作了
 ```
 ### maven 打包测试
 一般生产的发布都是在master上发布的，所以一般都在master分支上打包。
