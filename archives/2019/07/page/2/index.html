@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>linux下常用中间件搭建 - git安装(十) | 从何写起</title>
+  <title>Archives: 2019/7 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概况git版本： 2.22.0git安装包： git-2.22.0.tar.gz">
-<meta name="keywords" content="linux,git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="linux下常用中间件搭建 - git安装(十)">
-<meta property="og:url" content="http://yoursite.com/2019/07/10/linux下常用中间件搭建-git安装-十/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="从何写起">
+<meta property="og:url" content="http://yoursite.com/archives/2019/07/page/2/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="概况git版本： 2.22.0git安装包： git-2.22.0.tar.gz">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/07/10/5d25a67fee66f64074.png">
-<meta property="og:updated_time" content="2019-07-11T01:41:41.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下常用中间件搭建 - git安装(十)">
-<meta name="twitter:description" content="概况git版本： 2.22.0git安装包： git-2.22.0.tar.gz">
-<meta name="twitter:image" content="https://i.loli.net/2019/07/10/5d25a67fee66f64074.png">
+<meta name="twitter:title" content="从何写起">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -172,84 +165,36 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux下常用中间件搭建-git安装-十" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      linux下常用中间件搭建 - git安装(十)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/07/04/linux下常用中间件搭建(一)/" class="archive-article-date">
+  	<time datetime="2019-07-04T12:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/04/linux下常用中间件搭建(一)/">linux下常用中间件搭建(一)</a>
     </h1>
   
 
-        
-        <a href="/2019/07/10/linux下常用中间件搭建-git安装-十/" class="archive-article-date">
-  	<time datetime="2019-07-10T07:53:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
-        <span class="btn-bg"></span>
-        <span class="btn-text">文章导航</span>
-        </p>
-<div id="toc-article" class="toc-article"  style="display:none">
-    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-  <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压、安装"><span class="toc-number">2.1.</span> <span class="toc-text">解压、安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置SSH-Key"><span class="toc-number">2.2.</span> <span class="toc-text">配置SSH Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#克隆代码"><span class="toc-number">2.3.</span> <span class="toc-text">克隆代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven-打包测试"><span class="toc-number">2.4.</span> <span class="toc-text">maven 打包测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
-       </div>
- <script type="text/javascript">
-function showToc(){
-  var toc_article = document.getElementById("toc-article");
-  var show_toc_btn = document.getElementById("show-toc-btn");
-  toc_article.setAttribute("style","display:block");
-  show_toc_btn.setAttribute("style","display:none");
-  };
-function showBtn(){
-  var toc_article = document.getElementById("toc-article");
-  var show_toc_btn = document.getElementById("show-toc-btn");
-  toc_article.setAttribute("style","display:none");
-  show_toc_btn.setAttribute("style","display:block");
-  };
- </script>
-    		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>git版本：</strong> 2.22.0<br><strong>git安装包：</strong> git-2.22.0.tar.gz<br><a id="more"></a><br><strong>其他依赖环境：</strong>  </p>
-<blockquote>
-<p>zlib-1.2.8.tar.gz（前面章节已安装，可能还会有其他依赖，到时make的时候报错再下载对应的依赖包即可）</p>
-</blockquote>
-<p><strong>服务器（1台）</strong>  </p>
-<blockquote>
-<p>A：192.168.0.1<br>B：192.168.0.2<br>同上一篇当中的maven安装在同一台服务器上。</p>
-</blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="解压、安装"><a href="#解压、安装" class="headerlink" title="解压、安装"></a>解压、安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf /u01/setup/git-2.22.0.tar.gz -C /u01</span><br><span class="line"><span class="comment"># 编译、安装</span></span><br><span class="line"><span class="built_in">cd</span> /u01/git-2.22.0/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment"># 完成之后查看版本</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-<h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><p>一般git安装完之后会生成一组密钥对（公钥、私钥），如果没有的话请查看<a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5" target="_blank" rel="noopener">官方生成密钥教程</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在用户目录下 pub结尾是公钥</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"><span class="comment"># 查看公钥，复制出来</span></span><br><span class="line">cat id_rsa.pub</span><br><span class="line"><span class="comment"># 在gitlab中配置进去，如图1（后续有时间可以写一个gitlab离线搭建的教程）</span></span><br></pre></td></tr></table></figure></p>
-<p>图1<br><img src="https://i.loli.net/2019/07/10/5d25a67fee66f64074.png" alt="1.png"></p>
-<h3 id="克隆代码"><a href="#克隆代码" class="headerlink" title="克隆代码"></a>克隆代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建目录</span></span><br><span class="line">mkdir /u01/.git_project</span><br><span class="line"><span class="built_in">cd</span> /u01/.git_project</span><br><span class="line"><span class="comment"># 因为已经配置了sshkey，因此clone代码时无需输入账号密码</span></span><br><span class="line">git <span class="built_in">clone</span> git@192.168.0.1:pms/demo.git</span><br></pre></td></tr></table></figure>
-<p>git初次clone出来的都是master，一般生产上都会存在开发的分支，因此我们可以检出分支。以下列出几个基本的命令，更详细请移步<a href="https://meifu2027.github.io/2018/05/12/git%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/" target="_blank" rel="noopener">git学习入门</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看远程分支</span></span><br><span class="line">git branch -a </span><br><span class="line"><span class="comment"># 检出上条命令查找到的远程分支：remote_branch_name 本地命名名称：remote_branch_name </span></span><br><span class="line">git checkout -b local_branch_name remote_branch_name</span><br><span class="line"><span class="comment"># 检查下 本地分支是否创建成功</span></span><br><span class="line">git branch</span><br><span class="line"><span class="comment"># 切换分支到master</span></span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们需要配置全局参数，来防止打包后编译出来的文件对更新有影响</span></span><br><span class="line"><span class="built_in">echo</span> *target*/ &gt; ~/.gitignore</span><br><span class="line"><span class="comment"># 配置全局gitignore变量</span></span><br><span class="line">git config --global core.excludesFile ~/.gitignore</span><br><span class="line"><span class="comment"># 好啦，这样编译后target目录下的文件就不会干扰我们正常的git操作了</span></span><br></pre></td></tr></table></figure>
-<h3 id="maven-打包测试"><a href="#maven-打包测试" class="headerlink" title="maven 打包测试"></a>maven 打包测试</h3><p>一般生产的发布都是在master上发布的，所以一般都在master分支上打包。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果能正常结束，恭喜你打包成功</span></span><br><span class="line">mvn clean package</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>git的离线安装在我这边是比较简单的，但是不同版本的linux可能安装会麻烦一些。因为git安装需要依赖很多安装包，如果一开始就是离线环境，那么所有的依赖包都要自己先下过来安装上，最后才能成功。只能是见招拆招了。</p>
-<p> git装完之后自然是要<code>下载代码--&gt;mvn打包--&gt;分发到各台服务器指定目录--&gt;启动应用</code>这么一个过程。等后续涉及一键打包、发布脚本编写的时候再详细介绍。</p>
-<p>附上<a href="https://mirrors.edge.kernel.org/pub/software/scm/git/" target="_blank" rel="noopener">git下载集合</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -259,13 +204,13 @@ function showBtn(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -282,93 +227,20 @@ function showBtn(){
 	</div>
 
 
-      
-
-      
-      
-        <div class="article-category tagcloud">
-          <i class="icon-smile icon"></i>
-          <ul class="article-tag-list">
-                  <li class="article-tag-list-item">
-                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
-                  </li>
-          </ul>
         </div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/07/12/linux下常用中间件搭建-oracle安装-十一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux下常用中间件搭建 - oracle安装(十一)
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/10/linux下常用中间件搭建-maven安装-九/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux下常用中间件搭建 - maven安装(九)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '4c30d1aeafb1fe6f21b0',
-  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
-  	repo: 'meifu2027.github.io',
-  	owner: 'meifu2027',
-  	admin: ['meifu2027'],
-  	id: 'Wed Jul 10 2019 15:53:34 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
     
-    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2019/07/">&laquo; Prev</a><a class="page-number" href="/archives/2019/07/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -404,8 +276,8 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
