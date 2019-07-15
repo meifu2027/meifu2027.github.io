@@ -125,6 +125,21 @@ flush privileges;
 exit
 ```
 
+## 创建数据库
+生产上使用一般不会直接使用root用户，往往会创建一个业务数据库和操作这个数据库的用户。
+```sql
+-- 1.打开Navicat用root用户登录
+-- 2.打开mysql数据库查询页面
+-- 3.更新root授权权限
+update user t set t.Grant_priv = 'Y' WHERE t.`Host`='%' and t.`User` = 'root';
+-- 4.创建数据库
+create database demodatabase;
+-- 5.创建用户并授权
+CREATE USER 'demouser'@'%' IDENTIFIED BY '123456';
+GRANT SELECT, INSERT, UPDATE, REFERENCES, DELETE, CREATE, DROP, ALTER, INDEX, TRIGGER, CREATE VIEW, SHOW VIEW, EXECUTE, ALTER ROUTINE, CREATE ROUTINE, CREATE TEMPORARY TABLES, LOCK TABLES, EVENT ON `demodatabase`.* TO 'demouser'@'%';
+-- 6. 切换到demouser/123456登录
+```
+
 ## 总结
 *发现写文档比搭建一遍更累。*  
 *踩坑难免的，比如：*  
