@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="记录mysql数据库导出导入命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T06:25:08.006Z">
+<meta property="og:updated_time" content="2019-07-15T03:41:46.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql数据库dump导出导入">
 <meta name="twitter:description" content="记录mysql数据库导出导入命令">
@@ -221,7 +221,7 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记录mysql数据库导出导入命令<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全量导出脚本</span></span><br><span class="line">mysqldump source_database  -uroot -p &gt; exportName.sql</span><br><span class="line"><span class="comment"># 全量导入脚本</span></span><br><span class="line">mysql target_database -uroot -p &lt; exportName.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单表导出</span></span><br><span class="line">mysqldump source_database tableName -uroot -p &gt; exportName.sql</span><br><span class="line"><span class="comment"># 全量导入脚本</span></span><br><span class="line">mysql target_database tableName -uroot -p &lt; exportName.sql</span><br></pre></td></tr></table></figure></p>
+        <p>记录mysql数据库导出导入命令<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注：若已在my.cnf中配置了mysqldump命令和client的账号密码，以下的操作都可以省略 -uroot -p 参数</span></span><br><span class="line"><span class="comment"># 全量导出脚本</span></span><br><span class="line">mysqldump source_database  -uroot -p &gt; exportName.sql</span><br><span class="line"><span class="comment"># 全量导入脚本</span></span><br><span class="line">mysql target_database -uroot -p &lt; exportName.sql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单表导出</span></span><br><span class="line">mysqldump source_database tableName -uroot -p &gt; exportName.sql</span><br><span class="line"><span class="comment"># 全量导入脚本</span></span><br><span class="line">mysql target_database tableName -uroot -p &lt; exportName.sql</span><br></pre></td></tr></table></figure></p>
 
       
 
