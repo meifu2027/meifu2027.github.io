@@ -124,6 +124,33 @@ flush privileges;
 # 退出mysql命令行
 exit
 ```
+**为了执行有些步骤无需输入用户密码，也可以直接配到my.cnf中去**
+```bash
+# 修改配置
+vim /etc/my.cnf
+# 增加内容
+[client]
+socket=/u01/mysql/data/mysql.sock
+host=localhost
+user=root
+password=root
+port=3306
+
+[mysqladmin]
+user=root
+password=root
+
+[mysqldump]
+user=root
+password=root
+
+[mysqlshow]
+user=root
+password=root
+
+# 保存后重启数据库
+service mysqld restart
+```
 
 ## 创建数据库
 生产上使用一般不会直接使用root用户，往往会创建一个业务数据库和操作这个数据库的用户。
@@ -139,10 +166,11 @@ CREATE USER 'demouser'@'%' IDENTIFIED BY '123456';
 GRANT SELECT, INSERT, UPDATE, REFERENCES, DELETE, CREATE, DROP, ALTER, INDEX, TRIGGER, CREATE VIEW, SHOW VIEW, EXECUTE, ALTER ROUTINE, CREATE ROUTINE, CREATE TEMPORARY TABLES, LOCK TABLES, EVENT ON `demodatabase`.* TO 'demouser'@'%';
 -- 6. 切换到demouser/123456登录
 ```
+**初始数据库的导入请参见**[Mysql数据库dump导出导入](/2019/04/28/Mysql数据库dump导出导入/)
 
 ## 总结
 *发现写文档比搭建一遍更累。*  
 *踩坑难免的，比如：*  
-- *要是/u01/mysql/data目录和/u01/mysql/log目录要是在* **目录授权** *后才建的，那么会导致初始化的时候可能会没有写权限 ；*
+- *要是`/u01/mysql/data`目录和`/u01/mysql/log`目录要是在* **目录授权** *后才建的，那么会导致初始化的时候可能会没有写权限 ；*
 ----
 *其他的就先不写了，就先这样吧，后面还有要改的再补充；*

@@ -8,6 +8,7 @@ categories: [原创, 笔记]
 记录mysql数据库导出导入命令
 <!--more-->
 ```bash
+# 注：若已在my.cnf中配置了mysqldump命令和client的账号密码，以下的操作都可以省略 -uroot -p 参数
 # 全量导出脚本
 mysqldump source_database  -uroot -p > exportName.sql
 # 全量导入脚本
