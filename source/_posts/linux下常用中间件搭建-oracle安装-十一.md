@@ -281,8 +281,81 @@ alter user sys identified by 123456;
 ```
 再次登录，如下图。这样就初步完成了oracle的安装   
 ![8.png](https://i.loli.net/2019/07/12/5d28717c0eb1d24535.png)
+
+## 导数
+### 创建表空间
+
+```sql
+-- 管理员用户创建表空间
+CREATE SMALLFILE 
+    TABLESPACE "DEMO_TBS" 
+    LOGGING 
+    DATAFILE '/u01/orcl/oracle/oradata/orcl/DEMO001.dbf' SIZE 1024M AUTOEXTEND 
+    ON NEXT  8192K MAXSIZE UNLIMITED, '/u01/orcl/oracle/oradata/orcl/DEMO002.dbf' SIZE 1024M AUTOEXTEND 
+    ON NEXT  8192K MAXSIZE UNLIMITED EXTENT MANAGEMENT LOCAL 
+    SEGMENT SPACE MANAGEMENT  AUTO ;
+```
+### 创建用户
+
+```sql
+-- Create the user 
+create user demouser
+  identified by "123456"
+  default tablespace DEMO_TBS
+  temporary tablespace TEMP
+  profile DEFAULT ;
+-- Grant/Revoke role privileges 
+grant connect to demouser;
+grant exp_full_database to demouser;
+grant imp_full_database to demouser;
+grant resource to demouser;
+
+-- 设置用户表空间配额
+alter user demouser quota unlimited on DEMO_TBS
+
+```
+
+### 导出数据
+从源数据库导出数据，创建的目录要根据实际服务器的目录来。而且要注意oracle用户对于目录是否有读写权限。
+```sql
+-- 查询
+select * from dba_directories;
+-- 先创建需要导出的directory（后续导出的dmp会在该目录）
+create directory demodump as '/u01/orcl';
+```
+
+```bash
+# 该操作在服务器oracle用户下执行，无需进入sqlplus
+# username 源数据库账号
+# password 源数据库密码
+# tnsname 如果服务器的客户端没有配置也需要先配置好，否则无法导出。该配置在tnsname.ora文件里
+# demodump的路径就是导出的包后续的存放路径
+expdp username/password@tnsname schemas=username dumpfile=demodump.dmp directory=demodump  logfile=demo_exp.log
+```
+
+### 导入数据
+导入到目标数据库，我们这次的目标数据库就是我们新建的oracle数据库。
+```sql
+-- 查询
+select * from dba_directories;
+-- 先创建需要导出的directory（后续导入的dmp会在该目录）
+create directory demodump as '/u01/orcl';
+```
+```bash
+# 该操作在服务器oracle用户下执行，无需进入sqlplus
+# username 源数据库账号
+# password 源数据库密码
+# tnsname 如果服务器的客户端没有配置也需要先配置好，否则无法导出。该配置在tnsname.ora文件里
+# demodump的路径就是导入的包的存放路径
+impdp demouser/123456@orcl schemas=demouser directory=demodump dumpfile=demodump.dmp logfile=demo_imp.log
+```
+注：往往源数据库和目标数据库都不是在同一台服务器上。因此在云数据库导出的dmp包要传输到我们的目标数据库上。如果是高版本数据库导入到低版本，导出的时候最好能加上目标数据的版本号 version=xxxxx。
+
+导入完成后用`demouser/123456`登陆上去看看是否已经成功导入数据。
+
+
 ## 总结
-oracle是此次环境搭建中最难装的。第一次搭建花费了一天的时间。总是有各种奇奇怪怪的问题，再加上服务器在内网，有些需要依赖的包需要一个个自己下载过来手动执行。后续还会有新建用户、导数据等操作。
+oracle最难装，哪怕是已经装过一遍再来一次，依然每次都会有各式各样的问题。看造化吧。
 
 ## 参考链接
 1. [Xmanager快速连接Linux图形界面教程](http://www.yelook.com/1858.html)

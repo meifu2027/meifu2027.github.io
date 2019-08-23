@@ -28,6 +28,26 @@ tags: [linux, activemq]
 ```bash
 # 解压
 tar -zxvf /u01/setup/apache-activemq-5.12.0.tar.gz -C /u01
+
+```
+### 修改配置
+```bash
+vim /u01/apache-activemq-5.12.0/conf/
+```
+
+找到并修改成下面这段
+```xml
+<transportConnectors>
+            <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
+            <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;wireFormat.maxInactivityDuration=0"/>
+            <transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;wireFormat.maxInactivityDuration=0"/>
+            <transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;wireFormat.maxInactivityDuration=0"/>
+            <transportConnector name="mqtt" uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;wireFormat.maxInactivityDuration=0"/>
+            <transportConnector name="ws" uri="ws://0.0.0.0:61614?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;wireFormat.maxInactivityDuration=0"/>
+</transportConnectors>
+```
+### 常用命令
+```bash
 # 启动
 /u01/apache-activemq-5.12.0/bin/linux-x86-64/activemq start
 # 停止
@@ -41,8 +61,6 @@ ps -ef |grep activemq
 ps aux |grep activemq
 
 ```
-
-
 
 ## 总结
 不涉及使用说明，启动过于简单，没什么可说的。
