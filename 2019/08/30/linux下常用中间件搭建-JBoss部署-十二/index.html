@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>从何写起</title>
+  <title>linux下常用中间件搭建 - jboss部署(十二) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="概况JBoss版本： 7.1.1JBoss安装包： jboss-as-7.1.1.Final.tar.gz">
+<meta name="keywords" content="linux,jboss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下常用中间件搭建 - jboss部署(十二)">
+<meta property="og:url" content="http://yoursite.com/2019/08/30/linux下常用中间件搭建-JBoss部署-十二/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="概况JBoss版本： 7.1.1JBoss安装包： jboss-as-7.1.1.Final.tar.gz">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-30T07:40:05.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="linux下常用中间件搭建 - jboss部署(十二)">
+<meta name="twitter:description" content="概况JBoss版本： 7.1.1JBoss安装包： jboss-as-7.1.1.Final.tar.gz">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,22 +170,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-linux下常用中间件搭建 - mysql搭建(二)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-linux下常用中间件搭建-JBoss部署-十二" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/04/linux下常用中间件搭建 - mysql搭建(二)/">linux下常用中间件搭建 - mysql搭建(二)</a>
+    <h1 class="article-title" itemprop="name">
+      linux下常用中间件搭建 - jboss部署(十二)
     </h1>
   
 
         
-        <a href="/2019/07/04/linux下常用中间件搭建 - mysql搭建(二)/" class="archive-article-date">
-  	<time datetime="2019-07-04T12:22:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+        <a href="/2019/08/30/linux下常用中间件搭建-JBoss部署-十二/" class="archive-article-date">
+  	<time datetime="2019-08-30T04:13:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -190,14 +193,51 @@ ga('send', 'pageview');
       </header>
     
     <!-- 目录内容 -->
-		
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article"  style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">2.1.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改配置"><span class="toc-number">2.2.</span> <span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#war包部署（部署方式二选一）"><span class="toc-number">2.3.</span> <span class="toc-text">war包部署（部署方式二选一）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件夹部署（部署方式二选一）"><span class="toc-number">2.4.</span> <span class="toc-text">文件夹部署（部署方式二选一）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>mysql版本：</strong> 5.7.17<br><strong>mysql安装包：</strong> mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz<br>
-        
-          <a class="article-more-a" href="/2019/07/04/linux下常用中间件搭建 - mysql搭建(二)/#more">more >></a>
-        
+        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>JBoss版本：</strong> 7.1.1<br><strong>JBoss安装包：</strong> jboss-as-7.1.1.Final.tar.gz<br><a id="more"></a><br><strong>其他依赖环境：</strong>  </p>
+<blockquote>
+<p>jdk环境（前面章节已安装）</p>
+</blockquote>
+<p><strong>服务器（1台）</strong>  </p>
+<blockquote>
+<p>A：192.168.0.1<br>B：192.168.0.2<br>此章节未做集群，任选一台</p>
+</blockquote>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建文件夹jboss（规划该目录下可能存在多个jboss应用）</span></span><br><span class="line">mkdir /u01/jboss</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf /u01/setup/jboss-as-7.1.1.Final.tar.gz -C /u01/jboss</span><br><span class="line"><span class="comment"># 改名成demo1</span></span><br><span class="line">mv /u01/jboss/jboss-as-7.1.2.Final /u01/jboss/demo1</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>视具体情况而定，我的项目中是这么配的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /u01/jboss/demo1/bin/standalone.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最后添加上这么一些配置</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Dcom.sun.management.jmxremote"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Dcom.sun.management.jmxremote.authenticate=false"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Dcom.sun.management.jmxremote.port=33024"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Dcom.sun.management.jmxremote.ssl=false"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Djava.rmi.server.hostname=192.168.0.1"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Xrunjdwp:transport=dt_socket,address=43024,server=y,suspend=n"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Djava.util.logging.manager=org.jboss.logmanager.LogManager"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Xbootclasspath/p:/u01/jboss/demo1/bin/../modules/org/jboss/logmanager/main/jboss-logmanager-1.2.2.GA.jar"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Xbootclasspath/p:/u01/jboss/demo1/bin/../modules/org/jboss/logmanager/log4j/main/jboss-logmanager-log4j-1.0.0.GA.jar"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Xbootclasspath/p:/u01/jboss/demo1/bin/../modules/org/apache/log4j/main/log4j-1.2.16.jar"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Dorg.jboss.logging.Logger.pluginClass=org.jboss.logging.logmanager.LoggerPluginImpl"</span></span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -Dlogging.configuration=file:/u01/jboss/demo1/bin/../standalone/configuration/logging.properties"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改另外一个配置文件</span></span><br><span class="line">vim /u01/jboss/demo1/standalone/configuration/standalone.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置从上到下--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 增加配置 与extensions标签同级--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">system-properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"org.apache.catalina.connector.URI_ENCODING"</span> <span class="attr">value</span>=<span class="string">"UTF-8"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">system-properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">local</span> <span class="attr">default-user</span>=<span class="string">"$local"</span> <span class="attr">allowed-users</span>=<span class="string">"*"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">local</span> <span class="attr">default-user</span>=<span class="string">"$local"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 删除配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">authorization</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">path</span>=<span class="string">"application-roles.properties"</span> <span class="attr">relative-to</span>=<span class="string">"jboss.server.config.dir"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">authorization</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">deployment-scanner</span> <span class="attr">path</span>=<span class="string">"deployments"</span> <span class="attr">relative-to</span>=<span class="string">"jboss.server.base.dir"</span> <span class="attr">scan-interval</span>=<span class="string">"5000"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">deployment-scanner</span> <span class="attr">path</span>=<span class="string">"deployments"</span> <span class="attr">relative-to</span>=<span class="string">"jboss.server.base.dir"</span> <span class="attr">scan-interval</span>=<span class="string">"5000"</span> <span class="attr">deployment-timeout</span>=<span class="string">"300"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 删除配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">spec-descriptor-property-replacement</span>&gt;</span>false<span class="tag">&lt;/<span class="name">spec-descriptor-property-replacement</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jboss-descriptor-property-replacement</span>&gt;</span>true<span class="tag">&lt;/<span class="name">jboss-descriptor-property-replacement</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改3 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">core-threads</span> <span class="attr">count</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">queue-length</span> <span class="attr">count</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">max-threads</span> <span class="attr">count</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">core-threads</span> <span class="attr">count</span>=<span class="string">"2000"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">queue-length</span> <span class="attr">count</span>=<span class="string">"2000"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">max-threads</span> <span class="attr">count</span>=<span class="string">"2000"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改4 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">login-module</span> <span class="attr">code</span>=<span class="string">"RealmDirect"</span> <span class="attr">flag</span>=<span class="string">"required"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module-option</span> <span class="attr">name</span>=<span class="string">"password-stacking"</span> <span class="attr">value</span>=<span class="string">"useFirstPass"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">login-module</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">login-module</span> <span class="attr">code</span>=<span class="string">"RealmUsersRoles"</span> <span class="attr">flag</span>=<span class="string">"required"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module-option</span> <span class="attr">name</span>=<span class="string">"usersProperties"</span> <span class="attr">value</span>=<span class="string">"$&#123;jboss.server.config.dir&#125;/application-users.properties"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module-option</span> <span class="attr">name</span>=<span class="string">"rolesProperties"</span> <span class="attr">value</span>=<span class="string">"$&#123;jboss.server.config.dir&#125;/application-roles.properties"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module-option</span> <span class="attr">name</span>=<span class="string">"realm"</span> <span class="attr">value</span>=<span class="string">"ApplicationRealm"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">module-option</span> <span class="attr">name</span>=<span class="string">"password-stacking"</span> <span class="attr">value</span>=<span class="string">"useFirstPass"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">login-module</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改5 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">virtual-server</span> <span class="attr">name</span>=<span class="string">"default-host"</span> <span class="attr">enable-welcome-root</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">virtual-server</span> <span class="attr">name</span>=<span class="string">"default-host"</span> <span class="attr">enable-welcome-root</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改6 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">interfaces</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interface</span> <span class="attr">name</span>=<span class="string">"management"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">inet-address</span> <span class="attr">value</span>=<span class="string">"$&#123;jboss.bind.address.management:127.0.0.1&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interface</span> <span class="attr">name</span>=<span class="string">"public"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">inet-address</span> <span class="attr">value</span>=<span class="string">"$&#123;jboss.bind.address:127.0.0.1&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- TODO - only show this if the jacorb subsystem is added  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interface</span> <span class="attr">name</span>=<span class="string">"unsecure"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">          ~  Used for IIOP sockets in the standard configuration.</span></span><br><span class="line"><span class="comment">          ~                  To secure JacORB you need to setup SSL </span></span><br><span class="line"><span class="comment">          --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">inet-address</span> <span class="attr">value</span>=<span class="string">"$&#123;jboss.bind.address.unsecure:127.0.0.1&#125;"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interfaces</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">interfaces</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interface</span> <span class="attr">name</span>=<span class="string">"management"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">any-address</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interface</span> <span class="attr">name</span>=<span class="string">"public"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">any-address</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">interface</span> <span class="attr">name</span>=<span class="string">"unsecure"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">any-address</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interfaces</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 修改7 （修改偏移量，多应用需要配置）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">socket-binding-group</span> <span class="attr">name</span>=<span class="string">"standard-sockets"</span> <span class="attr">default-interface</span>=<span class="string">"public"</span> <span class="attr">port-offset</span>=<span class="string">"$&#123;jboss.socket.binding.port-offset:0&#125;"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 改成（偏移量的值只要端口不冲突即可） --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">socket-binding-group</span> <span class="attr">name</span>=<span class="string">"standard-sockets"</span> <span class="attr">default-interface</span>=<span class="string">"public"</span> <span class="attr">port-offset</span>=<span class="string">"$&#123;jboss.socket.binding.port-offset:1&#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="war包部署（部署方式二选一）"><a href="#war包部署（部署方式二选一）" class="headerlink" title="war包部署（部署方式二选一）"></a>war包部署（部署方式二选一）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将war包放到指定目录下</span></span><br><span class="line">mv demo1 /u01/jboss/demo1/standalone/deployments/</span><br><span class="line"><span class="comment"># 后台启动，并将启动日志保存到指定文件</span></span><br><span class="line">nohup /u01/jboss/demo1/bin/standalone.sh &gt;&gt; /u01/jboss/demo1/standalone/<span class="built_in">log</span>/web.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="文件夹部署（部署方式二选一）"><a href="#文件夹部署（部署方式二选一）" class="headerlink" title="文件夹部署（部署方式二选一）"></a>文件夹部署（部署方式二选一）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建文件夹demo1.war</span></span><br><span class="line">mkdir /u01/jboss/demo1/standalone/deployments/demo1.war</span><br><span class="line"><span class="comment"># 将准备部署的war包解压到上述文件夹下</span></span><br><span class="line">unzip -q demo1.war -d /u01/jboss/demo1/standalone/deployments/demo1.war</span><br><span class="line"><span class="comment"># 建一个空的启动文件</span></span><br><span class="line">touch /u01/jboss/demo1/standalone/deployments/demo1.war.dodeploy</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">nohup /u01/jboss/demo1/bin/standalone.sh &gt;&gt; /u01/jboss/demo1/standalone/<span class="built_in">log</span>/web.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文只涉及到我们生产上使用的配置，并未对各配置项做具体的说明。若配置中出现异常情况实属正常，google一下你就知道。</p>
+
       
 
       
@@ -210,11 +250,11 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">jboss</a>
         		</li>
       		
 		</ul>
@@ -238,17 +278,34 @@ ga('send', 'pageview');
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/04/linux下常用中间件搭建 - mysql搭建(二)/">更多 >></a>
-        </p>
-      
 
       
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
+        </div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/12/linux下常用中间件搭建-oracle安装-十一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下常用中间件搭建 - oracle安装(十一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -268,939 +325,36 @@ ga('send', 'pageview');
 
 
 
+  
+  
+  
 
   
-    <article id="post-linux下常用中间件搭建(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Fri Aug 30 2019 12:13:40 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/04/linux下常用中间件搭建(一)/">linux下常用中间件搭建(一)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/04/linux下常用中间件搭建(一)/" class="archive-article-date">
-  	<time datetime="2019-07-04T12:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
     
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。<br><strong>鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。</strong><br>
-        
-          <a class="article-more-a" href="/2019/07/04/linux下常用中间件搭建(一)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/04/linux下常用中间件搭建(一)/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IDEA-同一项目多版本、多窗口打开配置启动配置共享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/">IDEA 同一项目多版本、多窗口打开配置启动配置共享</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/" class="archive-article-date">
-  	<time datetime="2019-06-18T05:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>使用IDEA做java项目开发的朋友可能经历过这样的情况：需要检出多个版本的代码或者需要打开新检出的项目的时候，发现在启动模块的时候需要重新配置。这个时候，做分布式开发的朋友就很痛苦了，是不是所有模块的启动配置都要重新配置呢？答案显然是否定的。<br>
-        
-          <a class="article-more-a" href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">idea</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-rz-未找到命令-安装lrzsz" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/rz-未找到命令-安装lrzsz/">rz: 未找到命令|安装lrzsz</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/22/rz-未找到命令-安装lrzsz/" class="archive-article-date">
-  	<time datetime="2019-05-22T07:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>rz</code> 和 <code>sz</code> 命令能够脱离ftp工具进行快速、方便地在linux服务器上上传和下载文件;<br>
-        
-          <a class="article-more-a" href="/2019/05/22/rz-未找到命令-安装lrzsz/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/rz-未找到命令-安装lrzsz/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux下备份、替换、重启tomcat简单shell脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/">linux下备份、替换、重启tomcat简单shell脚本</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/" class="archive-article-date">
-  	<time datetime="2019-05-16T01:16:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在开发一个项目，部署应用的环境是linux、tomcat8，因为之前的项目都是由专业的实施人员负责部署，对于我来讲linux的掌握程度则相对较低。尽管在 <a href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/"><em>Linux学习笔记 - （一）Linux达人养成计划 I — 吐血整理</em></a>  中分享过自己学习的记录，但是并未真正实践过。<br>谨以此项目来练手第一个shell实战脚本。<br>
-        
-          <a class="article-more-a" href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql数据库dump导出导入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/28/Mysql数据库dump导出导入/">Mysql数据库dump导出导入</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/28/Mysql数据库dump导出导入/" class="archive-article-date">
-  	<time datetime="2019-04-28T04:44:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录mysql数据库导出导入命令<br>
-        
-          <a class="article-more-a" href="/2019/04/28/Mysql数据库dump导出导入/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/28/Mysql数据库dump导出导入/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-还没有一个男孩坚强" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/04/还没有一个男孩坚强/">还没有一个男孩坚强</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/04/还没有一个男孩坚强/" class="archive-article-date">
-  	<time datetime="2019-04-04T13:04:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近电影看得不多，晚上却被这个小子感动了好几回。专业的评述不会，聊聊自己的一点感想。<br>
-        
-          <a class="article-more-a" href="/2019/04/04/还没有一个男孩坚强/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">迦百农</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">何以为家</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/随想//" class="article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/04/还没有一个男孩坚强/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-（转）MySQL-性能优化技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/08/（转）MySQL-性能优化技巧/">（转）MySQL 性能优化技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/08/（转）MySQL-性能优化技巧/" class="archive-article-date">
-  	<time datetime="2018-11-08T10:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>原文作者: MoonlightL<br>原文链接: <a href="https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/" target="_blank" rel="noopener">https://www.extlight.com/2017/10/07/MySQL-性能优化技巧/</a></p>
-</blockquote>
-<h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>最近公司项目添加新功能，上线后发现有些功能的列表查询时间很久。原因是新功能用到旧功能的接口，而这些旧接口的 SQL 查询语句关联5,6张表且编写不够规范，导致 MySQL 在执行 SQL 语句时索引失效，进行全表扫描。原本负责优化的同事有事请假回家，因此优化查询数据的问题落在笔者手中。笔者在查阅网上 SQL 优化的资料后成功解决了问题，在此从<strong>全局角度</strong>记录和总结 MySQL 查询优化相关技巧。<br>
-        
-          <a class="article-more-a" href="/2018/11/08/（转）MySQL-性能优化技巧/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调优</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/转载//" class="article-tag-list-link color3">转载</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/转载/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/08/（转）MySQL-性能优化技巧/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-git学习入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/12/git学习入门/">git学习入门</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/12/git学习入门/" class="archive-article-date">
-  	<time datetime="2018-05-12T09:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git教程</a>，<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python教程</a>。  </p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/05/12/git学习入门/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">版本管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/12/git学习入门/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux学习笔记-（一）Linux达人养成计划-I-吐血整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/">Linux学习笔记 - （一）Linux达人养成计划 I --- 吐血整理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/" class="archive-article-date">
-  	<time datetime="2018-04-11T13:16:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>最近一段时间负责的系统频频出现各种诡异的问题，也给了自己一个偷懒的借口没有更新博客。说来惭愧，入行以来，对于Linux的基本操作是知之甚少，抽空学习了下基本的一些概念和指令。废话不多说，记录下在慕课网学习的一些总结。<a href="https://www.imooc.com/learn/175" target="_blank" rel="noopener"><em>Linux达人养成计划</em></a></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -1235,8 +389,8 @@ ga('send', 'pageview');
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
