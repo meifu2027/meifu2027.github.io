@@ -35,9 +35,9 @@ scp -r 本地目录 root@192.168.0.1:/u01/setup
 **FastDFS** |5.11
 **ActiveMQ** |5.12.0
 **JDK** | 1.7.0_67
-**Jboss** |
+**Jboss** | 7.1.1
 **Mysql** | 5.7.17
-**Oracle** |
+**Oracle** | 12.2.0.1.0
 **Maven** |3.5.0
 **Git** |2.22.0
 
