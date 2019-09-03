@@ -353,6 +353,20 @@ impdp demouser/123456@orcl schemas=demouser directory=demodump dumpfile=demodump
 
 导入完成后用`demouser/123456`登陆上去看看是否已经成功导入数据。
 
+## 常用命令
+```bash
+# 切换到oracle用户
+su - oracle
+# 管理员身份进入命令行
+sqlplus / as sysdba
+# 启动
+startup
+# 关闭
+shutdown immediate # 推荐
+shutdown nomal
+shutdown transactional
+shutdown abort # 不推荐
+```
 
 ## 总结
 oracle最难装，哪怕是已经装过一遍再来一次，依然每次都会有各式各样的问题。看造化吧。
