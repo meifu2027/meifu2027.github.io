@@ -17,7 +17,7 @@
 <meta property="og:description" content="概况git版本： 2.22.0git安装包： git-2.22.0.tar.gz">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/07/10/5d25a67fee66f64074.png">
-<meta property="og:updated_time" content="2019-07-11T01:41:41.089Z">
+<meta property="og:updated_time" content="2019-09-04T02:56:56.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下常用中间件搭建 - git安装(十)">
 <meta name="twitter:description" content="概况git版本： 2.22.0git安装包： git-2.22.0.tar.gz">
@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压、安装"><span class="toc-number">2.1.</span> <span class="toc-text">解压、安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置SSH-Key"><span class="toc-number">2.2.</span> <span class="toc-text">配置SSH Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#克隆代码"><span class="toc-number">2.3.</span> <span class="toc-text">克隆代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven-打包测试"><span class="toc-number">2.4.</span> <span class="toc-text">maven 打包测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压、安装"><span class="toc-number">2.1.</span> <span class="toc-text">解压、安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置SSH-Key"><span class="toc-number">2.2.</span> <span class="toc-text">配置SSH Key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#克隆代码"><span class="toc-number">2.3.</span> <span class="toc-text">克隆代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven-打包测试"><span class="toc-number">2.4.</span> <span class="toc-text">maven 打包测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关导航"><span class="toc-number">4.</span> <span class="toc-text">相关导航</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -242,6 +242,7 @@ function showBtn(){
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>git的离线安装在我这边是比较简单的，但是不同版本的linux可能安装会麻烦一些。因为git安装需要依赖很多安装包，如果一开始就是离线环境，那么所有的依赖包都要自己先下过来安装上，最后才能成功。只能是见招拆招了。</p>
 <p> git装完之后自然是要<code>下载代码--&gt;mvn打包--&gt;分发到各台服务器指定目录--&gt;启动应用</code>这么一个过程。等后续涉及一键打包、发布脚本编写的时候再详细介绍。</p>
 <p>附上<a href="https://mirrors.edge.kernel.org/pub/software/scm/git/" target="_blank" rel="noopener">git下载集合</a></p>
+<h2 id="相关导航"><a href="#相关导航" class="headerlink" title="相关导航"></a>相关导航</h2><p><a href="/2019/07/04/linux下常用中间件搭建一/"><em>linux下常用中间件搭建(一)</em></a><br><a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/"><em>linux下常用中间件搭建 - mysql搭建(二)</em></a><br><a href="/2019/07/05/linux下常用中间件搭建-jdk安装三/"><em>linux下常用中间件搭建 - jdk安装(三)</em></a><br><a href="/2019/07/05/linux下常用中间件搭建-redis集群四/"><em>linux下常用中间件搭建 - redis集群(四)</em></a><br><a href="/2019/07/08/linux下常用中间件搭建-fastdfs集群五/"><em>linux下常用中间件搭建 - fastdfs集群(五)</em></a><br><a href="/2019/07/08/linux下常用中间件搭建-nginx搭建-六/"><em>linux下常用中间件搭建 - nginx搭建(六)</em></a><br><a href="/2019/07/09/linux下常用中间件搭建-zookeeper集群-七/"><em>linux下常用中间件搭建 - zookeeper集群(七)</em></a><br><a href="/2019/07/09/linux下常用中间件搭建-activemq启动-八/"><em>linux下常用中间件搭建 - activemq启动(八)</em></a><br><a href="/2019/07/10/linux下常用中间件搭建-maven安装-九/"><em>linux下常用中间件搭建 - maven安装(九)</em></a><br><a href="/2019/07/10/linux下常用中间件搭建-git安装-十/"><em>linux下常用中间件搭建 - git安装(十)</em></a><br><a href="/2019/07/12/linux下常用中间件搭建-oracle安装-十一/"><em>linux下常用中间件搭建 - oracle安装(十一)</em></a><br><a href="/2019/08/30/linux下常用中间件搭建-JBoss部署-十二/"><em>linux下常用中间件搭建 - jboss部署(十二)</em></a></p>
 
       
 

@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/7 | 从何写起</title>
+  <title>linux下常用中间件搭建(一) | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/page/3/index.html">
+  <meta name="description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
+<meta name="keywords" content="linux,中间件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下常用中间件搭建(一)">
+<meta property="og:url" content="http://yoursite.com/2019/07/04/linux下常用中间件搭建一/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-04T02:51:29.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="linux下常用中间件搭建(一)">
+<meta name="twitter:description" content="背景最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,36 +170,125 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-linux下常用中间件搭建一" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/linux下常用中间件搭建(一)/" class="archive-article-date">
-  	<time datetime="2019-07-04T12:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/linux下常用中间件搭建(一)/">linux下常用中间件搭建(一)</a>
+    <h1 class="article-title" itemprop="name">
+      linux下常用中间件搭建(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/04/linux下常用中间件搭建一/" class="archive-article-date">
+  	<time datetime="2019-07-04T12:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article"  style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">2.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#涉及中间件、数据库、工具"><span class="toc-number">3.</span> <span class="toc-text">涉及中间件、数据库、工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关导航"><span class="toc-number">4.</span> <span class="toc-text">相关导航</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近需要开发一个新系统，也就意味着开发环境需要重新搭建一套。虽然有专门的实施部门可以负责搭建，本着自己也了解的心态把搭建部署环境的工作揽了过来。接下来会记录各个要用到的中间件的搭建及部署过程。<br><strong>鉴于此次服务器全部为内网环境，因此全部采用离线搭建的方式。</strong><br><a id="more"></a></p>
+<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><p><strong>操作系统：</strong> CentOS release 6.5 (Final)<br><strong>中间件存放目录：</strong> /u01/setup (可根据自己喜好而定)<br><strong>可能用到的指令</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可能涉及多台服务器的文件拷贝</span></span><br><span class="line"><span class="comment"># 拷贝文件</span></span><br><span class="line">scp 本地文件 root@192.168.0.1:/u01/setup</span><br><span class="line"><span class="comment"># 拷贝目录</span></span><br><span class="line">scp -r 本地目录 root@192.168.0.1:/u01/setup</span><br></pre></td></tr></table></figure>
+<h2 id="涉及中间件、数据库、工具"><a href="#涉及中间件、数据库、工具" class="headerlink" title="涉及中间件、数据库、工具"></a>涉及中间件、数据库、工具</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Zookeeper</strong></td>
+<td>3.4.6</td>
+</tr>
+<tr>
+<td><strong>Nginx</strong></td>
+<td>1.16.0</td>
+</tr>
+<tr>
+<td><strong>Redis</strong></td>
+<td>3.2.12</td>
+</tr>
+<tr>
+<td><strong>FastDFS</strong></td>
+<td>5.11</td>
+</tr>
+<tr>
+<td><strong>ActiveMQ</strong></td>
+<td>5.12.0</td>
+</tr>
+<tr>
+<td><strong>JDK</strong></td>
+<td>1.7.0_67</td>
+</tr>
+<tr>
+<td><strong>Jboss</strong></td>
+<td>7.1.1</td>
+</tr>
+<tr>
+<td><strong>Mysql</strong></td>
+<td>5.7.17</td>
+</tr>
+<tr>
+<td><strong>Oracle</strong></td>
+<td>12.2.0.1.0</td>
+</tr>
+<tr>
+<td><strong>Maven</strong></td>
+<td>3.5.0</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>2.22.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相关导航"><a href="#相关导航" class="headerlink" title="相关导航"></a>相关导航</h2><p><a href="/2019/07/04/linux下常用中间件搭建一/"><em>linux下常用中间件搭建(一)</em></a><br><a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/"><em>linux下常用中间件搭建 - mysql搭建(二)</em></a><br><a href="/2019/07/05/linux下常用中间件搭建-jdk安装三/"><em>linux下常用中间件搭建 - jdk安装(三)</em></a><br><a href="/2019/07/05/linux下常用中间件搭建-redis集群四/"><em>linux下常用中间件搭建 - redis集群(四)</em></a><br><a href="/2019/07/08/linux下常用中间件搭建-fastdfs集群五/"><em>linux下常用中间件搭建 - fastdfs集群(五)</em></a><br><a href="/2019/07/08/linux下常用中间件搭建-nginx搭建-六/"><em>linux下常用中间件搭建 - nginx搭建(六)</em></a><br><a href="/2019/07/09/linux下常用中间件搭建-zookeeper集群-七/"><em>linux下常用中间件搭建 - zookeeper集群(七)</em></a><br><a href="/2019/07/09/linux下常用中间件搭建-activemq启动-八/"><em>linux下常用中间件搭建 - activemq启动(八)</em></a><br><a href="/2019/07/10/linux下常用中间件搭建-maven安装-九/"><em>linux下常用中间件搭建 - maven安装(九)</em></a><br><a href="/2019/07/10/linux下常用中间件搭建-git安装-十/"><em>linux下常用中间件搭建 - git安装(十)</em></a><br><a href="/2019/07/12/linux下常用中间件搭建-oracle安装-十一/"><em>linux下常用中间件搭建 - oracle安装(十一)</em></a><br><a href="/2019/08/30/linux下常用中间件搭建-JBoss部署-十二/"><em>linux下常用中间件搭建 - jboss部署(十二)</em></a></p>
+<hr>
+<p><em>会记录搭建过程的关键步骤以及可能踩到的坑，以备复查。</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,7 +304,7 @@ ga('send', 'pageview');
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -227,20 +321,93 @@ ga('send', 'pageview');
 	</div>
 
 
+      
+
+      
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux下常用中间件搭建 - mysql搭建(二)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IDEA 同一项目多版本、多窗口打开配置启动配置共享</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Thu Jul 04 2019 20:02:25 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/07/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2019/07/">1</a><a class="page-number" href="/archives/2019/07/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+    
   
 
 
@@ -276,8 +443,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
