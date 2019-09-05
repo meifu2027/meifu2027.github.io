@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://0d077ef9e74d8.cdn.sohucs.com/rmSrcQd_png">
 <meta property="og:image" content="https://0d077ef9e74d8.cdn.sohucs.com/rmSrcQn_png">
-<meta property="og:updated_time" content="2019-07-10T06:25:07.995Z">
+<meta property="og:updated_time" content="2019-09-05T02:43:14.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习笔记 - （一）Linux达人养成计划 I --- 吐血整理">
 <meta name="twitter:description" content="最近一段时间负责的系统频频出现各种诡异的问题，也给了自己一个偷懒的借口没有更新博客。说来惭愧，入行以来，对于Linux的基本操作是知之甚少，抽空学习了下基本的一些概念和指令。废话不多说，记录下在慕课网学习的一些总结。Linux达人养成计划">
@@ -204,7 +204,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第3章-命令基本格式及文件处理命令"><span class="toc-number">1.</span> <span class="toc-text">第3章 命令基本格式及文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux命令格式"><span class="toc-number">1.1.</span> <span class="toc-text">Linux命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux目录处理命令"><span class="toc-number">1.2.</span> <span class="toc-text">Linux目录处理命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux常见目录作用"><span class="toc-number">1.3.</span> <span class="toc-text">Linux常见目录作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux链接命令"><span class="toc-number">1.4.</span> <span class="toc-text">Linux链接命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第4章-文件搜索命令"><span class="toc-number">2.</span> <span class="toc-text">第4章 文件搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中文件搜索命令locate"><span class="toc-number">2.1.</span> <span class="toc-text">Linux中文件搜索命令locate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中命令搜索命令"><span class="toc-number">2.2.</span> <span class="toc-text">Linux中命令搜索命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-find命令"><span class="toc-number">2.3.</span> <span class="toc-text">Linux中 find命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-grep命令"><span class="toc-number">2.4.</span> <span class="toc-text">Linux中 grep命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-帮助命令"><span class="toc-number">2.5.</span> <span class="toc-text">Linux中 帮助命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-其他帮助命令"><span class="toc-number">2.6.</span> <span class="toc-text">Linux中 其他帮助命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-中的压缩命令"><span class="toc-number">2.7.</span> <span class="toc-text">Linux 中的压缩命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中关机与重启命令"><span class="toc-number">2.8.</span> <span class="toc-text">Linux中关机与重启命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中挂载命令"><span class="toc-number">2.9.</span> <span class="toc-text">Linux中挂载命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中用户登录查看命令"><span class="toc-number">2.10.</span> <span class="toc-text">Linux中用户登录查看命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell概述"><span class="toc-number">2.11.</span> <span class="toc-text">shell概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本执行方式"><span class="toc-number">2.12.</span> <span class="toc-text">脚本执行方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#别名与快捷键"><span class="toc-number">2.13.</span> <span class="toc-text">别名与快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#历史命令"><span class="toc-number">2.14.</span> <span class="toc-text">历史命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出重定向"><span class="toc-number">2.15.</span> <span class="toc-text">输出重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管道符"><span class="toc-number">2.16.</span> <span class="toc-text">管道符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符"><span class="toc-number">2.17.</span> <span class="toc-text">通配符</span></a></li></ol></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第3章-命令基本格式及文件处理命令"><span class="toc-number">1.</span> <span class="toc-text">第3章 命令基本格式及文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux命令格式"><span class="toc-number">1.1.</span> <span class="toc-text">Linux命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux目录处理命令"><span class="toc-number">1.2.</span> <span class="toc-text">Linux目录处理命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux常见目录作用"><span class="toc-number">1.3.</span> <span class="toc-text">Linux常见目录作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux链接命令"><span class="toc-number">1.4.</span> <span class="toc-text">Linux链接命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第4章-文件搜索命令"><span class="toc-number">2.</span> <span class="toc-text">第4章 文件搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中文件搜索命令locate"><span class="toc-number">2.1.</span> <span class="toc-text">Linux中文件搜索命令locate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中命令搜索命令"><span class="toc-number">2.2.</span> <span class="toc-text">Linux中命令搜索命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-find命令"><span class="toc-number">2.3.</span> <span class="toc-text">Linux中 find命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-grep命令"><span class="toc-number">2.4.</span> <span class="toc-text">Linux中 grep命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第5章-帮助命令"><span class="toc-number">3.</span> <span class="toc-text">第5章 帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-帮助命令"><span class="toc-number">3.1.</span> <span class="toc-text">Linux中 帮助命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中-其他帮助命令"><span class="toc-number">3.2.</span> <span class="toc-text">Linux中 其他帮助命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第6章-压缩命令"><span class="toc-number">4.</span> <span class="toc-text">第6章 压缩命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-中的压缩命令"><span class="toc-number">4.1.</span> <span class="toc-text">Linux 中的压缩命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第7章-关机与重启命令"><span class="toc-number">5.</span> <span class="toc-text">第7章 关机与重启命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中关机与重启命令"><span class="toc-number">5.1.</span> <span class="toc-text">Linux中关机与重启命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第8章-其他常用命令"><span class="toc-number">6.</span> <span class="toc-text">第8章 其他常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中挂载命令"><span class="toc-number">6.1.</span> <span class="toc-text">Linux中挂载命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux中用户登录查看命令"><span class="toc-number">6.2.</span> <span class="toc-text">Linux中用户登录查看命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第9章-Shell基础"><span class="toc-number">7.</span> <span class="toc-text">第9章 Shell基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shell概述"><span class="toc-number">7.1.</span> <span class="toc-text">shell概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本执行方式"><span class="toc-number">7.2.</span> <span class="toc-text">脚本执行方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#别名与快捷键"><span class="toc-number">7.3.</span> <span class="toc-text">别名与快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#历史命令"><span class="toc-number">7.4.</span> <span class="toc-text">历史命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出重定向"><span class="toc-number">7.5.</span> <span class="toc-text">输出重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管道符"><span class="toc-number">7.6.</span> <span class="toc-text">管道符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符"><span class="toc-number">7.7.</span> <span class="toc-text">通配符</span></a></li></ol></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -325,8 +325,7 @@ function showBtn(){
 <blockquote>
 <p>在文件当中匹配符合条件的字符串<br><strong>选项：</strong><br><code>-i</code> 忽略大小写<br><code>-v</code> 排除制定字符串<br><strong>与find的区别：</strong><br>find命令：在系统当中搜索符合条件的文件名，如果需要匹配，使用通配符能完全匹配；<br>grep命令：在文件当中搜索符合条件的字符串，如果需要匹配，使用正则表达是进行匹配；</p>
 </blockquote>
-<p>##第5章 帮助命令</p>
-<h3 id="Linux中-帮助命令"><a href="#Linux中-帮助命令" class="headerlink" title="Linux中 帮助命令"></a>Linux中 帮助命令</h3><p><code>man 命令</code></p>
+<h2 id="第5章-帮助命令"><a href="#第5章-帮助命令" class="headerlink" title="第5章 帮助命令"></a>第5章 帮助命令</h2><h3 id="Linux中-帮助命令"><a href="#Linux中-帮助命令" class="headerlink" title="Linux中 帮助命令"></a>Linux中 帮助命令</h3><p><code>man 命令</code></p>
 <blockquote>
 <p>获取制定命令的帮助,如：<code>man ls</code><br>打开帮助文档之后，快速查找可以先输入 <code>/</code> 再输入要查找的内容;<br>查到之后 <code>n</code>表示 往下查找，<code>p</code>或<code>shift + n</code> 往上查找<br><code>man -k passwd</code> 查看所有包含该命令的帮助文档 等同于 <code>apropos passwd</code> 可认为在帮助文档中用字符串搜索</p>
 </blockquote>
@@ -359,8 +358,7 @@ function showBtn(){
 <blockquote>
 <p><code>回车</code> 进入子帮助页面（带有*号标记）<br><code>u</code> 进入上层页面<br><code>n</code> 进入下一个帮助小节<br><code>p</code> 进入上一个帮助小节<br><code>q</code> 退出</p>
 </blockquote>
-<p>##第6章 压缩命令</p>
-<h3 id="Linux-中的压缩命令"><a href="#Linux-中的压缩命令" class="headerlink" title="Linux 中的压缩命令"></a>Linux 中的压缩命令</h3><p><strong>常用的压缩格式</strong></p>
+<h2 id="第6章-压缩命令"><a href="#第6章-压缩命令" class="headerlink" title="第6章 压缩命令"></a>第6章 压缩命令</h2><h3 id="Linux-中的压缩命令"><a href="#Linux-中的压缩命令" class="headerlink" title="Linux 中的压缩命令"></a>Linux 中的压缩命令</h3><p><strong>常用的压缩格式</strong></p>
 <blockquote>
 <p><code>.zip .gz .bz2</code><br><code>.tar.gz .tar.bz2</code> 实际情况下更加常用</p>
 </blockquote>
@@ -413,8 +411,7 @@ function showBtn(){
 <li>多个文件压缩到一起只需要把用空格隔开多个文件即可</li>
 <li><code>-t</code> 选项可以只查看压缩文件而不打开</li>
 </ul>
-<p>##第7章 关机与重启命令</p>
-<h3 id="Linux中关机与重启命令"><a href="#Linux中关机与重启命令" class="headerlink" title="Linux中关机与重启命令"></a>Linux中关机与重启命令</h3><p><code>shutdown [选项] 时间 &amp;</code></p>
+<h2 id="第7章-关机与重启命令"><a href="#第7章-关机与重启命令" class="headerlink" title="第7章 关机与重启命令"></a>第7章 关机与重启命令</h2><h3 id="Linux中关机与重启命令"><a href="#Linux中关机与重启命令" class="headerlink" title="Linux中关机与重启命令"></a>Linux中关机与重启命令</h3><p><code>shutdown [选项] 时间 &amp;</code></p>
 <blockquote>
 <p><code>&amp;</code>表示后台执行<br>选项：<br><code>-c</code> 取消<br><code>-h</code> 关机<br><code>-r</code> 重启<br>例：<br><code>shutdown -r 05:30 &amp;</code>5:30分重启</p>
 </blockquote>
@@ -440,8 +437,7 @@ function showBtn(){
 </li>
 </ul>
 <p><code>logout</code> 退出登录命令</p>
-<p>##第8章 其他常用命令</p>
-<h3 id="Linux中挂载命令"><a href="#Linux中挂载命令" class="headerlink" title="Linux中挂载命令"></a>Linux中挂载命令</h3><p><a href="https://man.linuxde.net/mount" target="_blank" rel="noopener"><code>mount</code></a> 查询系统同已经挂载设备</p>
+<h2 id="第8章-其他常用命令"><a href="#第8章-其他常用命令" class="headerlink" title="第8章 其他常用命令"></a>第8章 其他常用命令</h2><h3 id="Linux中挂载命令"><a href="#Linux中挂载命令" class="headerlink" title="Linux中挂载命令"></a>Linux中挂载命令</h3><p><a href="https://man.linuxde.net/mount" target="_blank" rel="noopener"><code>mount</code></a> 查询系统同已经挂载设备</p>
 <blockquote>
 <p><code>mount -a</code> 依据配置文件<code>/etc/fstab</code>的内容自动挂载<br><strong>注</strong>：因为光盘或U盘不能保证每次都能开机挂载，因此不建议自动挂载，否则可能导致系统由于找不到挂载目录而启动崩溃<br><code>mount [-t 文件系统]  [-o特殊选项] 设备文件名 挂载点</code><br>选项：<br><code>-t</code> 文件系统：假如文件系统类型来指定挂载的类型，可以ext3、ext4、iso9660（光盘的文件系统）等文件系统<br><code>-o</code> 特殊选项：可以指定挂载的额外选线</p>
 </blockquote>
@@ -535,8 +531,7 @@ function showBtn(){
 <blockquote>
 <p><code>lastlog</code> 命令默认是读取<code>/var/log/lastlog</code>文件内容<br>命令输出：<br>用户名<br>登录终端<br>登录IP<br>最后一次登录时间</p>
 </blockquote>
-<p>##第9章 Shell基础</p>
-<h3 id="shell概述"><a href="#shell概述" class="headerlink" title="shell概述"></a>shell概述</h3><p><strong>什么是shell</strong></p>
+<h2 id="第9章-Shell基础"><a href="#第9章-Shell基础" class="headerlink" title="第9章 Shell基础"></a>第9章 Shell基础</h2><h3 id="shell概述"><a href="#shell概述" class="headerlink" title="shell概述"></a>shell概述</h3><p><strong>什么是shell</strong></p>
 <blockquote>
 <p>shell是一个命令行解释器，它为用户提供了一个向Linux内核发送请求以便运行程序的界面系统级程序，用户可以用shell来启动，挂起，停止甚至是编写一些程序；<br>shell还是一个功能强大的编程语言，易编写，易调试，灵活性较强。shell是解释执行的脚本语言，在shell中可以直接调用Linux系统命令.</p>
 </blockquote>
@@ -598,7 +593,7 @@ function showBtn(){
 <blockquote>
 <p>30m=黑色,31m=红色,32m=绿色,33m=黄色<br>34m=蓝色,35m=洋红,36m=青色,37m=白色</p>
 </blockquote>
-<p><strong>第一个脚本</strong><br><code>vi helloworld.sh</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo -e "\e[1;34m hello world! \e[0m"</span><br></pre></td></tr></table></figure></p>
+<p><strong>第一个脚本</strong><br><code>vi helloworld.sh</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo -e "\e[1;34m hello world! \e[0m"</span><br></pre></td></tr></table></figure></p>
 <p><strong>脚本执行</strong></p>
 <blockquote>
 <p>赋予执行权限，直接运行<br><code>chmod 755 helloworld.sh</code><br><code>./helloworld.sh</code><br>通过Bash调用执行脚本<br><code>bash helloworld.sh</code></p>
