@@ -203,7 +203,7 @@ echo 1 > /proc/sys/net/ipv4/tcp_tw_reuse
 
 ```bash
 # ip和端口视实际情况而定
-redis-cli -c -p 7000 –h 192.168.0.1
+redis-cli -c -p 7000 -h 192.168.0.1
 # 查看当前节点下的缓存
 192.168.0.1:7000> keys *
 # 清空当前节点下所有数据库的缓存
