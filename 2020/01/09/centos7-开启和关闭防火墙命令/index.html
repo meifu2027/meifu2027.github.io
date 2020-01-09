@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="防火墙 查看防火墙状态 firewall-cmd --state">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-09T04:13:06.364Z">
+<meta property="og:updated_time" content="2020-01-09T04:20:47.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7 开启和关闭防火墙、端口命令">
 <meta name="twitter:description" content="防火墙 查看防火墙状态 firewall-cmd --state">
@@ -252,7 +252,13 @@ function showBtn(){
 <p><code>firewall-cmd --zone=public --add-port=80/tcp --permanent</code></p>
 </blockquote>
 </li>
-<li><strong>关闭端口</strong><blockquote>
+<li><p><strong>开启多个端口</strong></p>
+<blockquote>
+<p><code>firewall-cmd --zone=public --add-port=80-200/tcp --permanent</code></p>
+</blockquote>
+</li>
+<li><p><strong>关闭端口</strong></p>
+<blockquote>
 <p><code>firewall-cmd --zone=public --remove-port=80/tcp --permanent</code></p>
 </blockquote>
 </li>
@@ -262,7 +268,7 @@ function showBtn(){
 </li>
 </ul>
 <p><strong>一般而言，服务器会只开放特定端口，而不是关闭整个防火墙。所以最好还是根据端口来开放而不是关闭整个防火墙。</strong></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/qq_24232123/article/details/79781527" target="_blank" rel="noopener"><strong>centos 7.3 开放端口并对外开放</strong></a><br><a href="https://blog.csdn.net/duzhanxiaosa/article/details/78890277" target="_blank" rel="noopener"><strong>Centos7,配置防火墙，开启端口</strong></a><br><a href="https://blog.csdn.net/ytangdigl/article/details/79796961" target="_blank" rel="noopener"><strong>CentOS7查看和关闭防火墙</strong></a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/qq_24232123/article/details/79781527" target="_blank" rel="noopener"><strong>centos 7.3 开放端口并对外开放</strong></a><br><a href="https://blog.csdn.net/duzhanxiaosa/article/details/78890277" target="_blank" rel="noopener"><strong>Centos7,配置防火墙，开启端口</strong></a><br><a href="https://blog.csdn.net/ytangdigl/article/details/79796961" target="_blank" rel="noopener"><strong>CentOS7查看和关闭防火墙</strong></a><br><a href="https://blog.csdn.net/achang21/article/details/52538049" target="_blank" rel="noopener"><strong>CentOS 7 开放防火墙端口命令</strong></a></p>
 
       
 
@@ -495,7 +501,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,15 +513,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,7 +525,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jboss</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,6 +534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">jboss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,19 +561,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">

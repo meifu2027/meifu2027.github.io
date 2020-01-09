@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>git学习入门 | 从何写起</title>
+  <title>linux下mysql整库迁移 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
-<meta name="keywords" content="git,版本管理">
+  <meta name="description" content="最近要进行服务器的整体迁移，此篇记录一下linux服务器下mysql数据库的整体迁移。mysql数据的搭建可查看之前的教程。">
+<meta name="keywords" content="linux,mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git学习入门">
-<meta property="og:url" content="http://yoursite.com/2018/05/12/git学习入门/index.html">
+<meta property="og:title" content="linux下mysql整库迁移">
+<meta property="og:url" content="http://yoursite.com/2020/01/09/linux下mysql整库迁移/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
+<meta property="og:description" content="最近要进行服务器的整体迁移，此篇记录一下linux服务器下mysql数据库的整体迁移。mysql数据的搭建可查看之前的教程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-10T06:25:08.012Z">
+<meta property="og:image" content="http://yoursite.com/img/blog/mysql-migration.png">
+<meta property="og:updated_time" content="2020-01-09T10:54:04.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git学习入门">
-<meta name="twitter:description" content="前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，Git教程，Python教程。">
+<meta name="twitter:title" content="linux下mysql整库迁移">
+<meta name="twitter:description" content="最近要进行服务器的整体迁移，此篇记录一下linux服务器下mysql数据库的整体迁移。mysql数据的搭建可查看之前的教程。">
+<meta name="twitter:image" content="http://yoursite.com/img/blog/mysql-migration.png">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -170,20 +172,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git学习入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux下mysql整库迁移" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      git学习入门
+      linux下mysql整库迁移
     </h1>
   
 
         
-        <a href="/2018/05/12/git学习入门/" class="archive-article-date">
-  	<time datetime="2018-05-12T09:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
+        <a href="/2020/01/09/linux下mysql整库迁移/" class="archive-article-date">
+  	<time datetime="2020-01-09T10:14:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -201,7 +203,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Git"><span class="toc-number">1.</span> <span class="toc-text">安装Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux安装Git"><span class="toc-number">1.1.</span> <span class="toc-text">Linux安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac-OS-X-上安装Git"><span class="toc-number">1.2.</span> <span class="toc-text">Mac OS X 上安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows上安装Git"><span class="toc-number">1.3.</span> <span class="toc-text">Windows上安装Git</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建版本库"><span class="toc-number">2.</span> <span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时光机穿梭"><span class="toc-number">3.</span> <span class="toc-text">时光机穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本回退"><span class="toc-number">3.1.</span> <span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">3.2.</span> <span class="toc-text">工作区和暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管理修改"><span class="toc-number">3.3.</span> <span class="toc-text">管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销修改"><span class="toc-number">3.4.</span> <span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除文件"><span class="toc-number">3.5.</span> <span class="toc-text">删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">4.</span> <span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加远程库"><span class="toc-number">4.1.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从远程库克隆"><span class="toc-number">4.2.</span> <span class="toc-text">从远程库克隆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-number">5.</span> <span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与合并分支"><span class="toc-number">5.1.</span> <span class="toc-text">创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决冲突"><span class="toc-number">5.2.</span> <span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理策略"><span class="toc-number">5.3.</span> <span class="toc-text">分支管理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bug分支"><span class="toc-number">5.4.</span> <span class="toc-text">Bug分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature分支"><span class="toc-number">5.5.</span> <span class="toc-text">Feature分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多人协作"><span class="toc-number">5.6.</span> <span class="toc-text">多人协作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签管理"><span class="toc-number">6.</span> <span class="toc-text">标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建标签"><span class="toc-number">6.1.</span> <span class="toc-text">创建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作标签"><span class="toc-number">6.2.</span> <span class="toc-text">操作标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用GitHub"><span class="toc-number">7.</span> <span class="toc-text">使用GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用码云"><span class="toc-number">8.</span> <span class="toc-text">使用码云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Git"><span class="toc-number">9.</span> <span class="toc-text">自定义Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">10.</span> <span class="toc-text">附录</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#整体迁移示例"><span class="toc-number">1.</span> <span class="toc-text">整体迁移示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移步骤"><span class="toc-number">2.</span> <span class="toc-text">迁移步骤</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -221,231 +223,28 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>前段时间学习了廖雪峰老师的Python教程，学完后准备跟着一起做实战，发现第一步便是使用GitHub。注册是挺久了，由于项目中用的都是SVN，也没去了解Git和GitHub的使用，趁这个机会记录下Git学习的入门知识点。学习地址，<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git教程</a>，<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">Python教程</a>。  </p>
-</blockquote>
-<a id="more"></a>
-<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><h3 id="Linux安装Git"><a href="#Linux安装Git" class="headerlink" title="Linux安装Git"></a>Linux安装Git</h3><p>试着输入<code>git</code>，看看系统有没有安装Git，如果没有安装：</p>
-<blockquote>
-<p>Debian或Ubuntu Linux:<br> <code>sudo apt-get install git</code><br> 老一点的Debian或Ubuntu Linux，命令改为：<br> <code>sudo apt-get install git-core</code><br>其他Linux版本，可直接通过源码安装。官网下载–&gt;解压–&gt;依次输入：<code>./config</code>,<code>make</code>,<code>sudo make install</code>这几个安装命令</p>
-</blockquote>
-<h3 id="Mac-OS-X-上安装Git"><a href="#Mac-OS-X-上安装Git" class="headerlink" title="Mac OS X 上安装Git"></a>Mac OS X 上安装Git</h3><ul>
-<li>一、通过homebrew安装Git；</li>
-<li>二、通过安装Xcode安装Git；<h3 id="Windows上安装Git"><a href="#Windows上安装Git" class="headerlink" title="Windows上安装Git"></a>Windows上安装Git</h3>直接从官网下载安装程序，然后默认选项安装即可；<br>安装完成后，需要设置：<blockquote>
-<p>git config –global user.name “<code>Your Name</code>“<br>git config –global user.email “<a href="mailto:`email@example.com" target="_blank" rel="noopener">`email@example.com</a>`”</p>
-</blockquote>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2></li>
-<li>创建空目录：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learngit </span><br><span class="line">$ <span class="built_in">cd</span> learngit</span><br><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">/Users/michael/learngit</span><br></pre></td></tr></table></figure>
-<ul>
-<li>通过<code>git init</code>把目录变成Git可以管理的仓库；（文件夹下会多了一个.git的隐藏文件）</li>
-<li>git添加分为两步：<ol>
-<li>使用命令<code>git add &lt;file&gt;</code>，注意，可反复多次使用，添加多个文件；</li>
-<li>使用命令<code>git commit -m &quot;&lt;comment&gt;&quot;</code>，完成。</li>
-</ol>
+        <p>最近要进行服务器的整体迁移，此篇记录一下linux服务器下mysql数据库的整体迁移。mysql数据的搭建可查看之前的教程。<br><a id="more"></a><br><a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/"><em>linux下常用中间件搭建 - mysql搭建(二)</em></a></p>
+<h2 id="整体迁移示例"><a href="#整体迁移示例" class="headerlink" title="整体迁移示例"></a>整体迁移示例</h2><p><strong>先看下整体迁移的图例，比较简单</strong><br><img src="/img/blog/mysql-migration.png" alt="mysql-migration.png"></p>
+<h2 id="迁移步骤"><a href="#迁移步骤" class="headerlink" title="迁移步骤"></a>迁移步骤</h2><ol>
+<li><p><strong>在新服务器B上面创建mysql用户</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line">useradd -g mysql -s /bin/<span class="literal">false</span> mysql</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<h2 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h2><blockquote>
-<p><code>git status</code> 查看工作区状态；<br><code>git diff</code> 查看修改内容；</p>
-</blockquote>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
-<li><p>HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令:</p>
-<blockquote>
-<p>根据提交版本号回退：<code>git reset --hard commit_id</code><br>提交到上一个版本：<code>git reset --hard HEAD^</code><br>提交往前100个版本：<code>git reset --hard HEAD~100</code>  </p>
-</blockquote>
+<li><p><strong>在旧服务器A上面停止数据库服务</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>穿梭前，用<code>git log --pretty=oneline</code>可以查看提交历史，以便确定要回退到哪个版本。</p>
+<li><p><strong>配置好免密的前提下开始同步</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在A服务器上执行</span></span><br><span class="line">rsync -avzP /u01/mysql root@192.168.1.2:/u01</span><br><span class="line"><span class="comment"># 或在B服务器上执行</span></span><br><span class="line">rsync -avzP root@192.168.1.1:/u01/mysql /u01</span><br><span class="line"><span class="comment"># rsync为增量同步指令，若下次有增量部分，可以重复执行2、3步骤即可</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</p>
-<h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><blockquote>
-<p><code>git add</code>是先把工作区的所有修改放到暂存区；<br><code>git commit</code>是把暂存区的所有分支提交到分支，之后暂存区就没有任何内容了；</p>
-</blockquote>
-<h3 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h3><p>对同一个文件进行多次修改提交两种方式：</p>
+<li><p><strong>拷贝旧服务器A上的配置文件到B相同目录</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/my.cnf</span><br><span class="line">/etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ol>
-<li>第一次修改–&gt;第二次修改–&gt;<code>git add</code>–&gt;<code>git commit</code></li>
-<li>第一次修改–&gt;<code>git add</code>–&gt;第二次修改–&gt;<code>git add</code>–&gt;<code>git commit</code></li>
-</ol>
-<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><ol>
-<li>工作区修改，但并未提交到暂存区的，用命令<code>git checkout -- file</code>可以还原；</li>
-<li>工作区已经提交至暂存区，需要先<code>git reset HEAD file</code>，然后操作步骤1；</li>
-<li>已经提交到分支上了并且没有推送到远程库的，使用版本回退命令；<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3></li>
-</ol>
-<ul>
-<li><code>git rm file</code>删除本地文件，并且<code>git commit</code> 就会删掉版本库；</li>
-<li>本地若是错删，可以使用<code>git checkout -- file</code>恢复（只能恢复最新的，本地的修改都不会被恢复）；</li>
-</ul>
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><ol>
-<li><p>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
-<blockquote>
-<p><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code><br>其中，<code>id_rsa</code>是私钥，<code>id_rsa.pub</code>是公钥;</p>
-</blockquote>
+<li><p><strong>新服务器B启动前配置</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 迁移过来后可能会导致路径无法找到</span></span><br><span class="line"><span class="comment"># 方式一：增加软链接</span></span><br><span class="line">ln -s  /u01/mysql /usr/<span class="built_in">local</span>/mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：修改mysqld_safe配置</span></span><br><span class="line">vim /u01/mysql/bin/mysqld_safe</span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">MY_PWD=<span class="string">'/usr/local/mysql'</span></span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">MY_PWD=<span class="string">'/u01/mysql'</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>登陆GitHub，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容;</p>
-<h3 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h3><p>登陆GitHub找到<code>Create a new repo</code>,在<code>Repository name</code>填入<code>learngit</code>，其他保持默认设置，点击<code>Create repository</code>按钮，就成功地创建了一个新的Git仓库;<br>根据GitHub的提示，在本地的<code>learngit</code>仓库下运行命令：</p>
-<blockquote>
-<p>远程库的名字默认叫做<code>origin</code><br><code>git remote add origin git@github.com:michaelliao/learngit.git</code><br>把本地库的所有内容推送到远程库上：<br><code>git push -u origin master</code></p>
-</blockquote>
+<li><p><strong>新服务器B启动</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。<br>从现在起，只要本地作了提交，就可以通过命令：</p>
-<blockquote>
-<p>把本地master分支的最新修改推送至GitHub<br><code>git push origin master</code></p>
-</blockquote>
-<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><blockquote>
-<p><code>git clone git@github.com:michaelliao/gitskills.git</code><br>Git支持多种协议，包括<code>https</code>，但通过<code>ssh</code>支持的原生<code>git</code>协议速度最快</p>
-</blockquote>
-<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>创建并切换到<code>dev</code>分支:</p>
-<blockquote>
-<p><code>git checkout -b dev</code>  </p>
-</blockquote>
-<p> 相当于：</p>
-<blockquote>
-<p><code>git branch dev</code> 创建<br><code>git checkout dev</code>  切换</p>
-</blockquote>
-<p>查看当前分支：</p>
-<blockquote>
-<p><code>git branch</code></p>
-</blockquote>
-<p> 切换<code>master</code>分支：</p>
-<blockquote>
-<p><code>git checkout master</code></p>
-</blockquote>
-<p>合并<code>dev</code>上的代码到<code>master</code>上:</p>
-<blockquote>
-<p><code>git merge dev</code></p>
-</blockquote>
-<p>删除<code>dev</code>分支:</p>
-<blockquote>
-<p><code>git branch -d dev</code></p>
-</blockquote>
-<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>当<code>git merge feature1</code>命令展示冲突信息，需要手动去合并冲突信息；<br>合并后再<code>git add</code>,<code>git commit</code>;<br>查看分支合并情况：</p>
-<blockquote>
-<p><code>git log --graph --pretty=oneline --abbrev-commit</code></p>
-</blockquote>
-<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>合并分支使用：</p>
-<blockquote>
-<p><code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code></p>
-</blockquote>
-<h3 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h3><p>若当前在<code>dev</code>分支上开发，但是需要修复<code>master</code>上的缺陷，那么需要：<br>储藏当前开发现场：</p>
-<blockquote>
-<p><code>git stash</code></p>
-</blockquote>
-<p>切换<code>master</code>分支：</p>
-<blockquote>
-<p><code>git checkout master</code></p>
-</blockquote>
-<p>创建<code>bug-101</code>分支：</p>
-<blockquote>
-<p><code>git checkout -b bug-101</code></p>
-</blockquote>
-<p>修复完成后切回<code>master</code>，合并<code>bug-101</code>，最后并删除<code>bug-101</code>分支:</p>
-<blockquote>
-<p><code>git checkout master</code><br><code>git merge --no-ff -m &quot;fixed bug-101&quot; bug-101</code><br><code>git branch -d bug-101</code></p>
-</blockquote>
-<p>切回<code>dev</code>开发并查看前面保存的现场:</p>
-<blockquote>
-<p><code>git checkout dev</code><br><code>git stash list</code></p>
-</blockquote>
-<p>恢复现场：</p>
-<blockquote>
-<p>方式1：恢复和删除分开（当然也可以不删除stash）<br><code>git stash apply</code><br><code>git stash drop</code><br>方式2：恢复的同时删除stash<br><code>git stash pop</code></p>
-</blockquote>
-<p>可以多次<code>stash</code>，恢复的时候，先用<code>git stash list</code>查看，然后恢复指定的<code>stash</code>，用命令：</p>
-<blockquote>
-<p><code>git stash apply stash@{0}</code></p>
-</blockquote>
-<h3 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h3><p>如果要丢弃一个没有被合并过的分支，可以强行删除:</p>
-<blockquote>
-<p><code>git branch -D &lt;name&gt;</code></p>
-</blockquote>
-<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><p>查看远程库的信息：</p>
-<blockquote>
-<p><code>git remote</code><br>或展示更详细信息：<br><code>git remote -v</code></p>
-</blockquote>
-<p>推送本地分支到远程库：</p>
-<blockquote>
-<p><code>git push origin master</code><br><code>git push origin dev</code></p>
-</blockquote>
-<p>分支是否推送:</p>
-<ul>
-<li><code>master分支</code>是主分支，因此要时刻与远程同步；</li>
-<li><p><code>dev分支</code>是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
-</li>
-<li><p><code>bug分支</code>只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
-</li>
-<li><p><code>feature分支</code>是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
-</li>
-</ul>
-<p>抓取分支：</p>
-<blockquote>
-<p>克隆目录：<br><code>git clone git@github.com:michaelliao/learngit.git</code><br>创建目录：<br><code>git checkout -b dev origin/dev</code><br>推送目录：<br><code>git push origin dev</code><br>若有冲突,拉取到本地解决冲突再推送：<br><code>git pull</code></p>
-</blockquote>
-<p>若<code>git pull</code>也失败了，原因是没有指定本地<code>dev分支</code>与远程<code>origin/dev分支</code>的链接，根据提示，设置<code>dev</code>和<code>origin/dev</code>的链接：</p>
-<blockquote>
-<p><code>git branch --set-upstream dev origin/dev</code></p>
-</blockquote>
-<p>小结：</p>
-<ul>
-<li><p>查看远程库信息，使用<code>git remote -v</code>；<br>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
-</li>
-<li><p>从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交；</p>
-</li>
-<li><p>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</p>
-</li>
-<li><p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</p>
-</li>
-<li><p>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</p>
-<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>切换到分支：</p>
-<blockquote>
-<p><code>git checkout master</code></p>
-</blockquote>
-</li>
-</ul>
-<p>给分支打上标签：</p>
-<blockquote>
-<p><code>git tag v1.0</code></p>
-</blockquote>
-<p>查看所有标签：</p>
-<blockquote>
-<p>按照字面排序，非时间排序<br><code>git tag</code></p>
-</blockquote>
-<p>给之前提交的版本打分支：</p>
-<blockquote>
-<p>第一步，先找到提交的版本号：<br><code>git log --pretty=oneline --abbrev-commit</code><br>第二步，指定版本号打上标签：<br><code>git tag v0.9 6224937</code></p>
-</blockquote>
-<p>查看标签信息：</p>
-<blockquote>
-<p><code>git show &lt;tagname&gt;</code></p>
-</blockquote>
-<p>创建带有说明的标签:</p>
-<blockquote>
-<p>用<code>-a</code>指定标签名，<code>-m</code>指定说明文字<br><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; 3628164</code></p>
-</blockquote>
-<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><p>删除标签：</p>
-<blockquote>
-<p><code>git tag -d v0.1</code></p>
-</blockquote>
-<p>推送标签到远程:</p>
-<blockquote>
-<p><code>git push origin &lt;tagname&gt;</code></p>
-</blockquote>
-<p>一次性推送全部尚未推送到远程的本地标签:</p>
-<blockquote>
-<p><code>git push origin --tags</code></p>
-</blockquote>
-<p>删除已推送远程标签：</p>
-<blockquote>
-<p>第一步，删除本地：<br><code>git tag -d v0.9</code><br>第二步，从远程删除：<br><code>git push origin :refs/tags/v0.9</code></p>
-</blockquote>
-<h2 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h2><ul>
-<li>在GitHub上，可以任意Fork开源仓库；</li>
-<li>自己拥有Fork后的仓库的读写权限；</li>
-<li>可以推送pull request给官方仓库来贡献代码<h2 id="使用码云"><a href="#使用码云" class="headerlink" title="使用码云"></a>使用码云</h2>暂不使用，先不记录；<h2 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h2>暂不使用，先不记录；</li>
-</ul>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://pan.baidu.com/s/1kU5OCOB#list/path=/pub/git" target="_blank" rel="noopener">Git Cheat Sheet</a></p>
 
       
 
@@ -459,11 +258,11 @@ function showBtn(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">版本管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -479,7 +278,7 @@ function showBtn(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
         		</li>
       		
 		</ul>
@@ -507,18 +306,9 @@ function showBtn(){
   
 <nav id="article-nav">
   
-    <a href="/2018/11/08/（转）MySQL-性能优化技巧/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          （转）MySQL 性能优化技巧
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux学习笔记 - （一）Linux达人养成计划 I --- 吐血整理</div>
+    <a href="/2020/01/09/linux服务器之间配置免密登录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux服务器之间配置免密登录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -565,7 +355,7 @@ if(true){
   	repo: 'meifu2027.github.io',
   	owner: 'meifu2027',
   	admin: ['meifu2027'],
-  	id: 'Sat May 12 2018 17:51:43 GMT+0800',
+  	id: 'Thu Jan 09 2020 18:14:18 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
