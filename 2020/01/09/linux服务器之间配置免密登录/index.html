@@ -17,7 +17,7 @@
 <meta property="og:description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/blog/nologin.png">
-<meta property="og:updated_time" content="2020-01-09T03:09:09.760Z">
+<meta property="og:updated_time" content="2020-01-09T03:13:02.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux服务器之间配置免密登录">
 <meta name="twitter:description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
@@ -232,6 +232,9 @@ function showBtn(){
 </ul>
 <p><img src="/img/blog/nologin.png" alt="nologin.png"></p>
 <p>把A服务器的通过上述指令生成的<code>id_rsa.pub</code> 生成的key 配置到B服务器的<code>authorized_keys</code>(该文件的目录一般也是<code>/home/$USER/.ssh</code>)文件中去，就可以实现免密登录啦。<br><strong>是不是很简单呢，你会了吗？</strong></p>
+<ul>
+<li>参考链接<br><a href="https://blog.csdn.net/zhuying_linux/article/details/7049078" target="_blank" rel="noopener">linux远程登录ssh免密码</a></li>
+</ul>
 
       
 
