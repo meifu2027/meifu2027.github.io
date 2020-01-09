@@ -15,3 +15,6 @@ tags: [linux]
 
 把A服务器的通过上述指令生成的`id_rsa.pub` 生成的key 配置到B服务器的`authorized_keys`(该文件的目录一般也是`/home/$USER/.ssh`)文件中去，就可以实现免密登录啦。  
 **是不是很简单呢，你会了吗？**
+
+* 参考链接
+[linux远程登录ssh免密码](https://blog.csdn.net/zhuying_linux/article/details/7049078)
