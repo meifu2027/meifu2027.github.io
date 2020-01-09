@@ -26,9 +26,9 @@ service mysqld stop
 3. **配置好免密的前提下开始同步**
 ```bash
 # 在A服务器上执行
-rsync -avzP /u01/mysql root@192.168.1.2:/u01
+rsync -avzP /u01/mysql root@192.168.0.2:/u01
 # 或在B服务器上执行
-rsync -avzP root@192.168.1.1:/u01/mysql /u01
+rsync -avzP root@192.168.0.1:/u01/mysql /u01
 # rsync为增量同步指令，若下次有增量部分，可以重复执行2、3步骤即可
 ```
 4. **拷贝旧服务器A上的配置文件到B相同目录**
