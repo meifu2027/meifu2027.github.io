@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>还没有一个男孩坚强 | 从何写起</title>
+  <title>linux服务器之间配置免密登录 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近电影看得不多，晚上却被这个小子感动了好几回。专业的评述不会，聊聊自己的一点感想。">
-<meta name="keywords" content="迦百农,何以为家,电影">
+  <meta name="description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="还没有一个男孩坚强">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/还没有一个男孩坚强/index.html">
+<meta property="og:title" content="linux服务器之间配置免密登录">
+<meta property="og:url" content="http://yoursite.com/2020/01/09/linux服务器之间配置免密登录/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="最近电影看得不多，晚上却被这个小子感动了好几回。专业的评述不会，聊聊自己的一点感想。">
+<meta property="og:description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/04/04/5ca6009fb0382.jpeg">
-<meta property="og:updated_time" content="2019-07-10T06:25:08.060Z">
+<meta property="og:image" content="http://yoursite.com/img/blog/nologin.png">
+<meta property="og:updated_time" content="2020-01-09T03:09:09.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="还没有一个男孩坚强">
-<meta name="twitter:description" content="最近电影看得不多，晚上却被这个小子感动了好几回。专业的评述不会，聊聊自己的一点感想。">
-<meta name="twitter:image" content="https://i.loli.net/2019/04/04/5ca6009fb0382.jpeg">
+<meta name="twitter:title" content="linux服务器之间配置免密登录">
+<meta name="twitter:description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
+<meta name="twitter:image" content="http://yoursite.com/img/blog/nologin.png">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -172,20 +172,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-还没有一个男孩坚强" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux服务器之间配置免密登录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      还没有一个男孩坚强
+      linux服务器之间配置免密登录
     </h1>
   
 
         
-        <a href="/2019/04/04/还没有一个男孩坚强/" class="archive-article-date">
-  	<time datetime="2019-04-04T13:04:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+        <a href="/2020/01/09/linux服务器之间配置免密登录/" class="archive-article-date">
+  	<time datetime="2020-01-09T02:53:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#剧情简介"><span class="toc-number">1.</span> <span class="toc-text">剧情简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一点点感想"><span class="toc-number">2.</span> <span class="toc-text">一点点感想</span></a></li></ol>
+         
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -223,19 +223,15 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近电影看得不多，晚上却被这个小子感动了好几回。专业的评述不会，聊聊自己的一点感想。<br><a id="more"></a><br><img src="https://i.loli.net/2019/04/04/5ca6009fb0382.jpeg" alt="fullsizeoutput_44a.jpeg"></p>
-<h2 id="剧情简介"><a href="#剧情简介" class="headerlink" title="剧情简介"></a>剧情简介</h2><p>故事的发生在黎巴嫩，主人公小男孩名叫扎因，大约12岁，为什么说大约呢？因为他的混蛋父母根本记不清他的具体出生日期，最后医生根据乳牙已脱完推测出扎因大约12岁了。  </p>
-<p>扎因的家庭是个大家庭，兄弟姐妹众多，却一家子都是非法居留者，居住在光棍房东阿萨德的家里，而且扎因还要给阿萨德干活。在众多的兄弟姐妹中，扎因最爱的妹妹萨哈，却被阿萨德看上了。有一天扎因发现妹妹来了初潮，他意识到不久后妹妹也会像身边的其他同龄女孩一样，被送到那些猪一样的光棍身边。爱妹心切的哥哥有一天偷了阿萨德店里的食物，准备带着妹妹离家出走，然而，妹妹还是被无情的父母粗暴地送往了阿萨德家里，只为了不被赶出房屋。</p>
-<p>失去了心爱的妹妹，对父母失望透顶，扎因离家出走。他遇见了一个同样没有证件的埃塞俄比亚单身妈妈泰格斯，就这样，他们还有泰格斯还在吃奶的儿子组建了一个临时家庭。泰格斯白天出去工作，扎因在家里带小孩，然后晚上一家人在一起等泰格斯回来做饭。泰格斯因为签证到期需要办理假证，而办假证的老板阿斯普洛不但办理假证，还是个人贩子，他一直想让泰格斯把儿子卖给他。好日子没持续多久，泰格斯在一次外出被作为非法居民拘留了。  </p>
-<p>扎因并没有因为泰格斯的消失，更没有拿走泰格斯为办理假证而攒的1000美元，反而独自承担起照顾泰格斯儿子的责任。也不知过了多少天，扎因每天带着孩子外出“谋生”，或是卖废旧品，或是编造谎言换取救济粮，或是卖违禁“药水”，他真的把这个孩子当成是自己弟弟了，直到家里的门锁被房东换了，连之前积攒的钱都拿不回来了。无法再继续生存下去的扎因便找到了阿斯普洛，以泰格斯儿子换取了400美金以及一张去往瑞典的船票。  </p>
-<p>若是扎因去了瑞典，故事也就到此结束了。扎因在回家拿有效证件的时候，得知了妹妹已经死去的消息，被愤怒冲昏头脑的他拿起厨房的尖刀跑向阿萨德。  </p>
-<p>扎因因为捅人被关进了监狱，在这里，他遇到了同样被拘留的泰格斯，他交代了把孩子卖给阿斯普洛的经过，最终帮助泰格斯找回了孩子。此外，他在监狱中还通过电视节目的帮助起诉了自己的父母，他不想没有养育能力的父母再生育。</p>
-<p>因为，<strong>你怀的孩子会像我一样</strong>。</p>
-<h2 id="一点点感想"><a href="#一点点感想" class="headerlink" title="一点点感想"></a>一点点感想</h2><p>我不知道这么大的一个孩子，如何能在这么残忍的生活中做到这样的不卑不亢。他具备了这个年龄不该有的意志、意识、勇气、责任心、爱心。不吃嗟来之食，不为金钱所惑，不为恐吓所惧。每每看到他维护妹妹，照顾孩子，反抗父母，为活下去拼尽全力，都自愧不如。  </p>
-<p>对比看看为了更好生活的扎因父母“卖女儿”和泰格斯的“不卖儿子”，唏嘘不已。如果说因为孩子很多就可以为了生活卖孩子的话，这样的父母不要也罢。扎因才是那个只是身体还没长大的成年人。</p>
-<p>再说说演员和剧情，简直被扎因这个演员赞恩·阿尔·拉菲亚圈粉，作为一个15岁的男孩，颜值在线，演技爆棚，真的是没有对比就没有伤害。剧情也反映了中东地区的一些现实问题，比如落后的习俗童婚、因为常年战争导致的移民、贫穷等，让人不得不感慨生在中国还是挺幸福的。</p>
-<p>反观最近才看的贺岁片《飞驰人生》，典型的寒式喜剧，虽然我也是寒粉，但是不得不承认除了一些老套路的梗和演员自带的喜剧效果，电影真的没什么剧情。《疯狂的外星人》更是看了一半就看不下去了，希望黄渤和沈腾珍惜自己的名声。</p>
-<p>原来还是会有电影让我泪流满面，推荐这部好片《<strong>迦百农</strong>》，又名《<strong>何以为家</strong>》。</p>
+        <p>最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。<br><a id="more"></a></p>
+<ul>
+<li>生成ssh key(默认生成路径是 /home/$USER/.ssh)<blockquote>
+<p><code>ssh-keygen -t  rsa</code></p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/img/blog/nologin.png" alt="nologin.png"></p>
+<p>把A服务器的通过上述指令生成的<code>id_rsa.pub</code> 生成的key 配置到B服务器的<code>authorized_keys</code>(该文件的目录一般也是<code>/home/$USER/.ssh</code>)文件中去，就可以实现免密登录啦。<br><strong>是不是很简单呢，你会了吗？</strong></p>
 
       
 
@@ -249,15 +245,7 @@ function showBtn(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">迦百农</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">何以为家</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -273,7 +261,7 @@ function showBtn(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创/随想//" class="article-tag-list-link color3">随想</a>
+        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -301,18 +289,9 @@ function showBtn(){
   
 <nav id="article-nav">
   
-    <a href="/2019/04/28/Mysql数据库dump导出导入/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Mysql数据库dump导出导入
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/11/08/（转）MySQL-性能优化技巧/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">（转）MySQL 性能优化技巧</div>
+    <a href="/2020/01/09/hexo个人常用指令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo个人常用指令</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,7 +338,7 @@ if(true){
   	repo: 'meifu2027.github.io',
   	owner: 'meifu2027',
   	admin: ['meifu2027'],
-  	id: 'Thu Apr 04 2019 21:04:37 GMT+0800',
+  	id: 'Thu Jan 09 2020 10:53:03 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
