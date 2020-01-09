@@ -4,3 +4,17 @@ db.json
 *.log
 node_modules/
 .deploy*/
+public/2019/
+public/2020/
+public/2021/
+public/2022/
+public/2023/
+public/2024/
+public/2025/
+public/2026/
+public/2027/
+public/archives/
+public/categories/
+public/tags/
+public/content.json
+public/index.html
