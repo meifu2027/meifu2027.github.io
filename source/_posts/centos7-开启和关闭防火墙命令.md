@@ -23,6 +23,9 @@ tags: [linux, centos]
 > `firewall-cmd --query-port=80/tcp`
 * **永久开启端口**
 > `firewall-cmd --zone=public --add-port=80/tcp --permanent`
+* **开启多个端口**
+> `firewall-cmd --zone=public --add-port=80-200/tcp --permanent`
+
 * **关闭端口**
 > `firewall-cmd --zone=public --remove-port=80/tcp --permanent`
 * **重启防火墙**
@@ -35,3 +38,4 @@ tags: [linux, centos]
 [**centos 7.3 开放端口并对外开放**](https://blog.csdn.net/qq_24232123/article/details/79781527)
 [**Centos7,配置防火墙，开启端口**](https://blog.csdn.net/duzhanxiaosa/article/details/78890277)
 [**CentOS7查看和关闭防火墙**](https://blog.csdn.net/ytangdigl/article/details/79796961)
+[**CentOS 7 开放防火墙端口命令**](https://blog.csdn.net/achang21/article/details/52538049)
