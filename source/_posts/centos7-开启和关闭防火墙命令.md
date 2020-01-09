@@ -29,6 +29,8 @@ tags: [linux, centos]
 > `firewall-cmd --reload`
 
 
+**一般而言，服务器会只开放特定端口，而不是关闭整个防火墙。所以最好还是根据端口来开放而不是关闭整个防火墙。**
+
 ## 参考链接
 [**centos 7.3 开放端口并对外开放**](https://blog.csdn.net/qq_24232123/article/details/79781527)
 [**Centos7,配置防火墙，开启端口**](https://blog.csdn.net/duzhanxiaosa/article/details/78890277)
