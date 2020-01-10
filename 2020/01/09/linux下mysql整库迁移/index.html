@@ -17,7 +17,7 @@
 <meta property="og:description" content="最近要进行服务器的整体迁移，此篇记录一下linux服务器下mysql数据库的整体迁移。mysql数据的搭建可查看之前的教程。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/blog/mysql-migration.png">
-<meta property="og:updated_time" content="2020-01-09T10:54:04.354Z">
+<meta property="og:updated_time" content="2020-01-09T11:17:28.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下mysql整库迁移">
 <meta name="twitter:description" content="最近要进行服务器的整体迁移，此篇记录一下linux服务器下mysql数据库的整体迁移。mysql数据的搭建可查看之前的教程。">
@@ -233,7 +233,7 @@ function showBtn(){
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld stop</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>配置好免密的前提下开始同步</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在A服务器上执行</span></span><br><span class="line">rsync -avzP /u01/mysql root@192.168.1.2:/u01</span><br><span class="line"><span class="comment"># 或在B服务器上执行</span></span><br><span class="line">rsync -avzP root@192.168.1.1:/u01/mysql /u01</span><br><span class="line"><span class="comment"># rsync为增量同步指令，若下次有增量部分，可以重复执行2、3步骤即可</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在A服务器上执行</span></span><br><span class="line">rsync -avzP /u01/mysql root@192.168.0.2:/u01</span><br><span class="line"><span class="comment"># 或在B服务器上执行</span></span><br><span class="line">rsync -avzP root@192.168.0.1:/u01/mysql /u01</span><br><span class="line"><span class="comment"># rsync为增量同步指令，若下次有增量部分，可以重复执行2、3步骤即可</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>拷贝旧服务器A上的配置文件到B相同目录</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/my.cnf</span><br><span class="line">/etc/init.d/mysqld</span><br></pre></td></tr></table></figure>
@@ -305,6 +305,15 @@ function showBtn(){
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/01/10/git检出远程分支/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          git检出远程分支
+        
+      </div>
+    </a>
   
   
     <a href="/2020/01/09/linux服务器之间配置免密登录/" id="article-nav-older" class="article-nav-link-wrap">
@@ -468,11 +477,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,19 +489,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">版本管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +505,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jboss</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">版本管理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">activemq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">jboss</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,10 +526,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,7 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color4">jdk</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,7 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
