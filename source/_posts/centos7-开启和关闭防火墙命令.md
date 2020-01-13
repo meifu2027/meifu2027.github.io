@@ -10,7 +10,7 @@ tags: [linux, centos]
 > `firewall-cmd --state`
 <!--more-->
 * **关闭防火墙**
-> `systemctl start firewalld.service`
+> `systemctl stop firewalld.service`
 * **禁止防火墙开机启动**
 > `systemctl disable firewalld.service`
 * **开启防火墙**
