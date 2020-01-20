@@ -17,7 +17,7 @@
 <meta property="og:description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/blog/nologin.png">
-<meta property="og:updated_time" content="2020-01-09T03:13:02.451Z">
+<meta property="og:updated_time" content="2020-01-09T09:08:50.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux服务器之间配置免密登录">
 <meta name="twitter:description" content="最近在做服务器搭建的时候，总是需要再多台服务器之间频繁发送文件，因此免密是十分必要的。仅此记录。">
@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">1.</span> <span class="toc-text">参考链接</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -231,10 +231,11 @@ function showBtn(){
 </li>
 </ul>
 <p><img src="/img/blog/nologin.png" alt="nologin.png"></p>
-<p>把A服务器的通过上述指令生成的<code>id_rsa.pub</code> 生成的key 配置到B服务器的<code>authorized_keys</code>(该文件的目录一般也是<code>/home/$USER/.ssh</code>)文件中去，就可以实现免密登录啦。<br><strong>是不是很简单呢，你会了吗？</strong></p>
-<ul>
-<li>参考链接<br><a href="https://blog.csdn.net/zhuying_linux/article/details/7049078" target="_blank" rel="noopener">linux远程登录ssh免密码</a></li>
-</ul>
+<p>把A服务器的通过上述指令生成的<code>id_rsa.pub</code> 生成的key 配置到B服务器的<code>authorized_keys</code>(该文件的目录一般也是<code>/home/$USER/.ssh</code>)文件中去，就可以实现免密登录啦。  </p>
+<hr>
+<p><strong>注：若服务器一开始设置了不允许root用户登录，则需要修改一下root用户登录的权限</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 修改选项 </span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="comment"># 保存退出后重启sshd</span></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure></p>
+<p><strong>是不是很简单呢，你会了吗？</strong></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/zhuying_linux/article/details/7049078" target="_blank" rel="noopener">linux远程登录ssh免密码</a></p>
 
       
 
@@ -291,6 +292,15 @@ function showBtn(){
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/01/09/linux下mysql整库迁移/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux下mysql整库迁移
+        
+      </div>
+    </a>
   
   
     <a href="/2020/01/09/hexo个人常用指令/" id="article-nav-older" class="article-nav-link-wrap">
@@ -454,11 +464,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,15 +472,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">idea</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">activemq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,18 +520,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">activemq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集群</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jdk</a>
               </li>
              
@@ -514,7 +528,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">oracle</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,15 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
