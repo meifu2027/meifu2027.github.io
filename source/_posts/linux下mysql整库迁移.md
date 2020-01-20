@@ -54,3 +54,5 @@ MY_PWD='/u01/mysql'
 service mysqld start
 ```
 
+## 相关导航  
+[*linux下oracle整库迁移*](/2020/01/19/linux下oracle整库迁移/)
