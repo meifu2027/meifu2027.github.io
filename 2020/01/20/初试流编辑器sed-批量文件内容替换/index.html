@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="迁移环境的时候需要批量修改配置文件中的ip地址，初试下流编辑器sed的强大。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-20T06:32:10.387Z">
+<meta property="og:updated_time" content="2020-01-20T06:45:48.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初试流编辑器sed-批量文件内容替换">
 <meta name="twitter:description" content="迁移环境的时候需要批量修改配置文件中的ip地址，初试下流编辑器sed的强大。">
@@ -221,7 +221,7 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>迁移环境的时候需要批量修改配置文件中的ip地址，初试下流编辑器sed的强大。<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将找到的所有符合条件的文件中的ip 192.168.1.1 替换成 192.168.1.2</span></span><br><span class="line"><span class="comment"># 注：sed后需要加上 -i 参数，否则只是把替换的结果打印出来而已</span></span><br><span class="line">find /u01/jboss -name standalone.conf |xargs sed -i <span class="string">'s/192.168.1.1/192.168.1.2/g'</span></span><br></pre></td></tr></table></figure></p>
+        <p>迁移环境的时候需要批量修改配置文件中的ip地址，初试下流编辑器sed的强大。<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将找到的所有符合条件的文件中的ip 192.168.1.1 替换成 192.168.1.2</span></span><br><span class="line"><span class="comment"># 注：sed后需要加上 -i 参数，否则只是把替换的结果打印出来而已</span></span><br><span class="line">find /u01/jboss -name standalone.conf |xargs sed -i <span class="string">'s/192.168.1.1/192.168.1.2/g'</span></span><br><span class="line"><span class="comment"># 若使用vim编辑器大体相同</span></span><br><span class="line">:%s/192.168.1.1/192.168.1.2/g</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -274,6 +274,15 @@ function showBtn(){
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/01/20/centos8下新建LVM分区并挂载/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          centos8下新建LVM分区并挂载
+        
+      </div>
+    </a>
   
   
     <a href="/2020/01/19/linux下oracle整库迁移/" id="article-nav-older" class="article-nav-link-wrap">
@@ -437,19 +446,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">idea</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">centos</a>
+                <a href="javascript:void(0)" class="js-tag color5">idea</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,15 +478,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">jboss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">jboss</a>
               </li>
              
               <li class="article-tag-list-item">
