@@ -21,3 +21,22 @@ visudo
 # 4. 打开新的终端，已经可以免密切换啦
 sudo su
 ```
+
+## 其他用户配置失败情况
+
+若存在配置其他用户（非root）单点登录失败的情况，可以查看目标主机的日志。`tail -200f /var/log/secure`  
+若出现的日志信息类似以下错误(我这里新建了app用户)
+> Authentication refused: bad ownership or modes for file /home/app/.ssh/authorized_keys 
+
+那么可以进行配置（需要root用户）
+```bash
+chmod g-w /home/app
+chmod 700 /home/app/.ssh
+chmod 600 /home/app/.ssh/authorized_keys
+# 重启ssh
+service sshd restart
+# 重启后再试下应该没问题
+```
+
+## 相关链接
+[解决SSH免密登录配置成功后不生效问题](https://blog.csdn.net/lisongjia123/article/details/78513244)
