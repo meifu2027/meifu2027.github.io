@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="从何写起">
 <meta property="og:description" content="最近在做系统的迁移，迁移后的服务器全部由堡垒机进行访问，因此配置堡垒机用户切换至root用户免密十分必要。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-20T07:52:00.600Z">
+<meta property="og:updated_time" content="2020-01-21T08:45:43.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堡垒机切换root用户免密配置">
 <meta name="twitter:description" content="最近在做系统的迁移，迁移后的服务器全部由堡垒机进行访问，因此配置堡垒机用户切换至root用户免密十分必要。">
@@ -201,7 +201,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他用户配置失败情况"><span class="toc-number">2.</span> <span class="toc-text">其他用户配置失败情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">3.</span> <span class="toc-text">相关链接</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -223,6 +223,13 @@ function showBtn(){
       
         <p>最近在做系统的迁移，迁移后的服务器全部由堡垒机进行访问，因此配置堡垒机用户切换至root用户免密十分必要。<br><a id="more"></a></p>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 堡垒机打开后再次使用输入密码的方式登录root用户</span></span><br><span class="line">su - root</span><br><span class="line"><span class="comment"># 2. 将堡垒机用户添加到wheel用户组，需root用户执行否则无权限，我的堡垒机账号为subadmin</span></span><br><span class="line">usermod -aG wheel subadmin</span><br><span class="line"><span class="comment"># 3. 修改配置</span></span><br><span class="line">visudo</span><br><span class="line"><span class="comment"># 找到这一行，并将注释去掉，保存退出</span></span><br><span class="line">%wheel        ALL=(ALL)       NOPASSWD: ALL</span><br><span class="line"><span class="comment"># 4. 打开新的终端，已经可以免密切换啦</span></span><br><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+<h2 id="其他用户配置失败情况"><a href="#其他用户配置失败情况" class="headerlink" title="其他用户配置失败情况"></a>其他用户配置失败情况</h2><p>若存在配置其他用户（非root）单点登录失败的情况，可以查看目标主机的日志。<code>tail -200f /var/log/secure</code><br>若出现的日志信息类似以下错误(我这里新建了app用户)</p>
+<blockquote>
+<p>Authentication refused: bad ownership or modes for file /home/app/.ssh/authorized_keys </p>
+</blockquote>
+<p>那么可以进行配置（需要root用户）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chmod g-w /home/app</span><br><span class="line">chmod 700 /home/app/.ssh</span><br><span class="line">chmod 600 /home/app/.ssh/authorized_keys</span><br><span class="line"><span class="comment"># 重启ssh</span></span><br><span class="line">service sshd restart</span><br><span class="line"><span class="comment"># 重启后再试下应该没问题</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://blog.csdn.net/lisongjia123/article/details/78513244" target="_blank" rel="noopener">解决SSH免密登录配置成功后不生效问题</a></p>
+
       
 
       
