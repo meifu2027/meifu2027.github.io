@@ -98,6 +98,6 @@ put 'test', 'row3', 'cf:c', 'value3'
 
 
 ## 相关链接
-[*大数据技术原理与应用*](https://study.163.com/course/courseMain.htm?courseId=1002887002)
-[Quick Start - Standalone HBase](https://hbase.apache.org/book.html#quickstart)
+[**大数据技术原理与应用**](https://study.163.com/course/courseMain.htm?courseId=1002887002)
+[**Quick Start - Standalone HBase**](https://hbase.apache.org/book.html#quickstart)
 [**大数据入门笔记-hadoop上手**](/2020/02/05/大数据入门笔记-hadoop上手/)
