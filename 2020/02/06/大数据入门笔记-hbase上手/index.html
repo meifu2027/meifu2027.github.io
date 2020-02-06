@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: mysql | 从何写起</title>
+  <title>大数据入门笔记-hbase上手 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/tags/mysql/index.html">
+  <meta name="description" content="学习下分布式结构化数据库HBase。">
+<meta name="keywords" content="大数据,hbase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据入门笔记-hbase上手">
+<meta property="og:url" content="http://yoursite.com/2020/02/06/大数据入门笔记-hbase上手/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="学习下分布式结构化数据库HBase。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/blog/20200207-1.png">
+<meta property="og:image" content="http://yoursite.com/img/blog/20200207-2.png">
+<meta property="og:image" content="http://yoursite.com/img/blog/20200207-3.png">
+<meta property="og:updated_time" content="2020-02-06T16:45:45.389Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="大数据入门笔记-hbase上手">
+<meta name="twitter:description" content="学习下分布式结构化数据库HBase。">
+<meta name="twitter:image" content="http://yoursite.com/img/blog/20200207-1.png">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,172 +174,119 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据入门笔记-hbase上手" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/09/linux下mysql整库迁移/" class="archive-article-date">
-  	<time datetime="2020-01-09T10:14:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/09/linux下mysql整库迁移/">linux下mysql整库迁移</a>
+    <h1 class="article-title" itemprop="name">
+      大数据入门笔记-hbase上手
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/06/大数据入门笔记-hbase上手/" class="archive-article-date">
+  	<time datetime="2020-02-06T15:04:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article"  style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HBASE版本"><span class="toc-number">1.</span> <span class="toc-text">HBASE版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建用户、授权"><span class="toc-number">2.</span> <span class="toc-text">新建用户、授权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单节点启动"><span class="toc-number">3.</span> <span class="toc-text">单节点启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪分布式启动"><span class="toc-number">4.</span> <span class="toc-text">伪分布式启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">5.</span> <span class="toc-text">相关链接</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习下分布式结构化数据库HBase。<br><a id="more"></a></p>
+<h2 id="HBASE版本"><a href="#HBASE版本" class="headerlink" title="HBASE版本"></a>HBASE版本</h2><p><a href="http://mirror.bit.edu.cn/apache/hbase/2.2.3/hbase-2.2.3-bin.tar.gz" target="_blank" rel="noopener">hbase-2.2.3-bin.tar.gz</a>(该版本对应jdk版本为1.8，查看版本对应关系看<a href="https://hbase.apache.org/book.html#java" target="_blank" rel="noopener">这里</a>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照国际惯例还是下到 /u01/setup目录下</span></span><br><span class="line"><span class="built_in">cd</span> /u01/setup</span><br><span class="line">wget http://mirror.bit.edu.cn/apache/hbase/2.2.3/hbase-2.2.3-bin.tar.gz</span><br><span class="line">tar -zxvf /u01/setup/hbase-2.2.3-bin.tar.gz -C /u01</span><br><span class="line">mv /u01/hbase-2.2.3-bin /u01/hbase</span><br></pre></td></tr></table></figure></p>
+<h2 id="新建用户、授权"><a href="#新建用户、授权" class="headerlink" title="新建用户、授权"></a>新建用户、授权</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd hbase</span><br><span class="line">useradd -g hbase hbase</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"your_password"</span> | passwd --stdin hbase</span><br><span class="line">chown -R hbase:hbase /u01/hbase</span><br><span class="line"><span class="comment"># 切换至hbase用户</span></span><br><span class="line">su - hbase</span><br></pre></td></tr></table></figure>
+<h2 id="单节点启动"><a href="#单节点启动" class="headerlink" title="单节点启动"></a>单节点启动</h2><ol>
+<li><p>在hbase的配置文件中配置JAVA_HOME</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /u01/hbase/conf/hbase-env.sh</span><br><span class="line"><span class="comment"># 增加配置 /u01/jdk1.8.0_201 是我的服务器上的配置</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/u01/jdk1.8.0_201</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑HBase的主要配置文件 <code>/u01/hbase/conf/hbase-site.xml</code>。指定一个系统路径以便HBase、Zookeeper可以写入数据和确认风险。虽然默认的路径为<code>/tmp</code>，但是由于很多服务的默认路径都是<code>/tmp</code>，且重启后会删除该目录下文件，因此需要更换路径。以下配置会在让HBase的数据存放在 <code>/home/hbase/hbase</code>目录下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">vim /u01/hbase/conf/hbase-site.xml</span><br><span class="line"><span class="comment"># 改成</span></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:///home/hbase/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/hbase/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.unsafe.stream.capability.enforce&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;<span class="literal">false</span>&lt;/value&gt;</span><br><span class="line">    &lt;description&gt;</span><br><span class="line">      Controls whether HBase will check <span class="keyword">for</span> stream capabilities (hflush/hsync).</span><br><span class="line"></span><br><span class="line">      Disable this <span class="keyword">if</span> you intend to run on LocalFileSystem, denoted by a rootdir</span><br><span class="line">      with the <span class="string">'file://'</span> scheme, but be mindful of the NOTE below.</span><br><span class="line"></span><br><span class="line">      WARNING: Setting this to <span class="literal">false</span> blinds you to potential data loss and</span><br><span class="line">      inconsistent system state <span class="keyword">in</span> the event of process and/or node failures. If</span><br><span class="line">      HBase is complaining of an inability to use hsync or hflush it is most</span><br><span class="line">      likely not a <span class="literal">false</span> positive.</span><br><span class="line">    &lt;/description&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意：</strong>你无需事先建好HBase的数据目录，HBase会自己建好的，如果你创建了该目录，HBase会做一个迁移，这与你的初衷背道而驰。</p>
+<blockquote>
+<p>上述配置中的<code>hbase.rootdir</code>指向了本地文件系统的目录，前缀<code>file://</code>就是为了表示是本地文件系统。你应该牢记上述配置中WARNING的内容。在单节点模式中HBase使用Apache Hadoop项目中的本地文件系统抽象。这种抽象不能提供HBase安全运行所需的持久性保证。这对于本地开发很运行测试用例很好，避免了分布式失败带来的时间成本。这种方式不适合生产环境，最终会丢失数据。</p>
+</blockquote>
+<p>要将HBase放在现有HDFS实例上，请将hbase.rootdir设置为指向实例上的目录，比如：<code>hdfs://meifu:9000/user/hbase</code> 其中hdfs中hbase目录需要自己重新建一下，hadoop上手的笔记中有说过，可以看下。有关此变体的更多信息，请参见下面有关基于HDFS的独立HBase的部分<a href="https://hbase.apache.org/book.html#standalone_dist" target="_blank" rel="noopener">Standalone HBase over HDFS</a></p>
+<ol>
+<li><p><code>/u01/hbase/bin/start-hbase.sh</code>提供了便捷的启动方式，执行后会有打印日志告诉你启动成功，可以使用<code>jps</code>命令检验启动的程序名称为<code>HMaster</code>,然后打开<code>http://localhost:16010</code>你就可以看到HBase的web页面（云服务器的端口记得开放）。<br><img src="/img/blog/20200207-1.png" alt="20200207-1.png"><br><img src="/img/blog/20200207-2.png" alt="20200207-2.png"><br><img src="/img/blog/20200207-3.png" alt="20200207-3.png"></p>
+</li>
+<li><p>打开hbase命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hbase</span><br><span class="line">./bin/hbase shell</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开后若要显示HBase的帮助文档可直接输入<code>help</code></p>
+</li>
+<li>建表 <code>create &#39;test&#39;, &#39;cf&#39;</code></li>
+<li>查看表<code>list &#39;test&#39;</code>;使用<code>describe &#39;test&#39;</code>可查看更多细节;</li>
+<li><p>将数据插入表中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test为表，row1表示第1行，cf表示列族，a表示列限定符，value1为值；默认还会插入时间戳，也可以自己插入</span></span><br><span class="line">put <span class="string">'test'</span>, <span class="string">'row1'</span>, <span class="string">'cf:a'</span>, <span class="string">'value1'</span></span><br><span class="line">put <span class="string">'test'</span>, <span class="string">'row2'</span>, <span class="string">'cf:b'</span>, <span class="string">'value2'</span></span><br><span class="line">put <span class="string">'test'</span>, <span class="string">'row3'</span>, <span class="string">'cf:c'</span>, <span class="string">'value3'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可使用<code>scan &#39;test&#39;</code>一次性查看表中所有的数据，也可以限定条件，具体可以看用法<code>help &quot;scan&quot;</code></p>
+</li>
+<li>获取单行数据<code>get &#39;test&#39;, &#39;row1&#39;</code></li>
+<li>使一张表失效或生效 <code>disable &#39;test&#39;</code> <code>enable &#39;test&#39;</code></li>
+<li>删除表<code>drop &#39;test&#39;</code>（需要先使表失效）</li>
+<li>退出HBase命令行<code>quit</code></li>
+<li>停止HBase运行 <code>./bin/stop-hbase.sh</code> ;停止后可再次使用<code>jps</code>命令确认<code>HMaster</code>和<code>HRegionServer</code>确实已关闭</li>
+</ol>
+<h2 id="伪分布式启动"><a href="#伪分布式启动" class="headerlink" title="伪分布式启动"></a>伪分布式启动</h2><h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://study.163.com/course/courseMain.htm?courseId=1002887002" target="_blank" rel="noopener"><em>大数据技术原理与应用</em></a><br><a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="noopener">Quick Start - Standalone HBase</a><br><a href="/2020/02/05/大数据入门笔记-hadoop上手/"><strong>大数据入门笔记-hadoop上手</strong></a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hbase</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/" class="archive-article-date">
-  	<time datetime="2019-07-04T12:22:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/">linux下常用中间件搭建 - mysql搭建(二)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/28/Mysql数据库dump导出导入/" class="archive-article-date">
-  	<time datetime="2019-04-28T04:44:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/28/Mysql数据库dump导出导入/">Mysql数据库dump导出导入</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -347,84 +303,85 @@ ga('send', 'pageview');
 	</div>
 
 
+      
+
+      
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/06/大数据入门笔记-hadoop上手之java编码踩坑笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据入门笔记-hadoop上手之java编码踩坑笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Thu Feb 06 2020 23:04:23 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/08/（转）MySQL-性能优化技巧/" class="archive-article-date">
-  	<time datetime="2018-11-08T10:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/08/（转）MySQL-性能优化技巧/">（转）MySQL 性能优化技巧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调优</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/转载//" class="article-tag-list-link color3">转载</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/转载/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
     
+  
 
 
           </div>
@@ -459,9 +416,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
