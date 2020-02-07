@@ -23,7 +23,7 @@ tags: [大数据, hadoop]
 下载完后可以解压到 `/u01`目录下
 ```bash
 tar -zxvf /u01/setup/hadoop-3.2.1.tar.gz -C /u01
-mv /u01/setup/hadoop-3.2.1 /u01/setup/hadoop
+mv /u01/hadoop-3.2.1 /u01/setup/hadoop
 ```
 ## 创建hadoop用户（官网教程没有这一步）
 ```bash
@@ -49,7 +49,7 @@ export JAVA_HOME=/u01/jdk1.8.0_201
 /u01/hadoop/bin/hadoop
 ```
 ![20200205-1.png](/img/blog/20200205-1.png)
-**注意：**若系统已经配置JAVA_HOME路径（可以使用`echo $JAVA_HOME`查看），也可以不再修改上述文件，但是一定要确保**hadoop版本和java版本对应**起来，具体版本对应最后有链接补充说明。本案例中hadoop3.2.1对应jdk1.8版本。  
+**注意：**一定要确保**hadoop版本和java版本对应**起来，具体版本对应最后有链接补充说明。本案例中hadoop3.2.1对应jdk1.8版本。  
 ## 单机运行
 
 ```bash
