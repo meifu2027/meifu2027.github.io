@@ -19,7 +19,9 @@
 <meta property="og:image" content="http://yoursite.com/img/blog/20200207-1.png">
 <meta property="og:image" content="http://yoursite.com/img/blog/20200207-2.png">
 <meta property="og:image" content="http://yoursite.com/img/blog/20200207-3.png">
-<meta property="og:updated_time" content="2020-02-06T16:49:06.689Z">
+<meta property="og:image" content="http://yoursite.com/img/blog/20200207-4.png">
+<meta property="og:image" content="http://yoursite.com/img/blog/20200207-5.png">
+<meta property="og:updated_time" content="2020-02-07T12:41:23.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据入门笔记-hbase上手">
 <meta name="twitter:description" content="学习下分布式结构化数据库HBase。">
@@ -205,7 +207,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HBASE版本"><span class="toc-number">1.</span> <span class="toc-text">HBASE版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建用户、授权"><span class="toc-number">2.</span> <span class="toc-text">新建用户、授权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单节点启动"><span class="toc-number">3.</span> <span class="toc-text">单节点启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪分布式启动"><span class="toc-number">4.</span> <span class="toc-text">伪分布式启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">5.</span> <span class="toc-text">相关链接</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HBASE版本"><span class="toc-number">1.</span> <span class="toc-text">HBASE版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建用户、授权"><span class="toc-number">2.</span> <span class="toc-text">新建用户、授权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单节点启动"><span class="toc-number">3.</span> <span class="toc-text">单节点启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪分布式启动"><span class="toc-number">4.</span> <span class="toc-text">伪分布式启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式运行"><span class="toc-number">5.</span> <span class="toc-text">分布式运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">6.</span> <span class="toc-text">相关链接</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -226,7 +228,7 @@ function showBtn(){
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习下分布式结构化数据库HBase。<br><a id="more"></a></p>
-<h2 id="HBASE版本"><a href="#HBASE版本" class="headerlink" title="HBASE版本"></a>HBASE版本</h2><p><a href="http://mirror.bit.edu.cn/apache/hbase/2.2.3/hbase-2.2.3-bin.tar.gz" target="_blank" rel="noopener">hbase-2.2.3-bin.tar.gz</a>(该版本对应jdk版本为1.8，查看版本对应关系看<a href="https://hbase.apache.org/book.html#java" target="_blank" rel="noopener">这里</a>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照国际惯例还是下到 /u01/setup目录下</span></span><br><span class="line"><span class="built_in">cd</span> /u01/setup</span><br><span class="line">wget http://mirror.bit.edu.cn/apache/hbase/2.2.3/hbase-2.2.3-bin.tar.gz</span><br><span class="line">tar -zxvf /u01/setup/hbase-2.2.3-bin.tar.gz -C /u01</span><br><span class="line">mv /u01/hbase-2.2.3-bin /u01/hbase</span><br></pre></td></tr></table></figure></p>
+<h2 id="HBASE版本"><a href="#HBASE版本" class="headerlink" title="HBASE版本"></a>HBASE版本</h2><p><a href="http://mirror.bit.edu.cn/apache/hbase/2.2.3/hbase-2.2.3-bin.tar.gz" target="_blank" rel="noopener">hbase-2.2.3-bin.tar.gz</a>(该版本对应jdk版本为1.8，查看版本对应关系看<a href="https://hbase.apache.org/book.html#java" target="_blank" rel="noopener">这里</a>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照国际惯例还是下到 /u01/setup目录下</span></span><br><span class="line"><span class="built_in">cd</span> /u01/setup</span><br><span class="line">wget http://mirror.bit.edu.cn/apache/hbase/2.2.3/hbase-2.2.3-bin.tar.gz</span><br><span class="line">tar -zxvf /u01/setup/hbase-2.2.3-bin.tar.gz -C /u01</span><br><span class="line">mv /u01/hbase-2.2.3 /u01/hbase</span><br></pre></td></tr></table></figure></p>
 <h2 id="新建用户、授权"><a href="#新建用户、授权" class="headerlink" title="新建用户、授权"></a>新建用户、授权</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">groupadd hbase</span><br><span class="line">useradd -g hbase hbase</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"your_password"</span> | passwd --stdin hbase</span><br><span class="line">chown -R hbase:hbase /u01/hbase</span><br><span class="line"><span class="comment"># 切换至hbase用户</span></span><br><span class="line">su - hbase</span><br></pre></td></tr></table></figure>
 <h2 id="单节点启动"><a href="#单节点启动" class="headerlink" title="单节点启动"></a>单节点启动</h2><ol>
 <li><p>在hbase的配置文件中配置JAVA_HOME</p>
@@ -260,9 +262,33 @@ function showBtn(){
 <li>使一张表失效或生效 <code>disable &#39;test&#39;</code> <code>enable &#39;test&#39;</code></li>
 <li>删除表<code>drop &#39;test&#39;</code>（需要先使表失效）</li>
 <li>退出HBase命令行<code>quit</code></li>
-<li>停止HBase运行 <code>./bin/stop-hbase.sh</code> ;停止后可再次使用<code>jps</code>命令确认<code>HMaster</code>和<code>HRegionServer</code>确实已关闭</li>
+<li>停止HBase运行 <code>/u01/hbase/bin/stop-hbase.sh</code> ;停止后可再次使用<code>jps</code>命令确认<code>HMaster</code>和<code>HRegionServer</code>确实已关闭</li>
 </ol>
-<h2 id="伪分布式启动"><a href="#伪分布式启动" class="headerlink" title="伪分布式启动"></a>伪分布式启动</h2><h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://study.163.com/course/courseMain.htm?courseId=1002887002" target="_blank" rel="noopener"><strong>大数据技术原理与应用</strong></a><br><a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="noopener"><strong>Quick Start - Standalone HBase</strong></a><br><a href="/2020/02/05/大数据入门笔记-hadoop上手/"><strong>大数据入门笔记-hadoop上手</strong></a></p>
+<h2 id="伪分布式启动"><a href="#伪分布式启动" class="headerlink" title="伪分布式启动"></a>伪分布式启动</h2><ol>
+<li>若上述单节点HBase还在运行，则需要停止，且我认为你已经启动了hadoop了。最后有我hadoop的笔记链接。</li>
+<li>修改HBase的分布式配置<code>vim /u01/hbase/conf/hbase-site.xml</code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--目录同样无需提前设置，hbase自己会建目录--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://meifu:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意：</strong>确保没有<code>hbase.unsafe.stream.capability.enforce</code>属性配置或将其属性值设置为<code>true</code>；另外，此处需要解决hbase用户在hadoop用户下写权限问题，否则会出现hadoop客户端往hadoop写文件的同样的权限的报错导致目录无法正常生成。</p>
+<ol start="3">
+<li><p>HBase应用也存在需要免密登录的需求，因此可以执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -P <span class="string">''</span> -f ~/.ssh/id_rsa</span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动HBase，<code>/u01/hbase/bin/start-hbase.sh</code> 同样用<code>jps</code>查看启动情况<br><img src="/img/blog/20200207-4.png" alt="20200207-4.png"></p>
+</li>
+<li>命令查看HBase运行文件是否已生成<code>./bin/hadoop fs -ls /hbase</code><br><img src="/img/blog/20200207-5.png" alt="20200207-5.png"></li>
+<li>其实启动、hbase shell、数据库增删改查、关闭服务都同上述单节点1~12步骤一样的；</li>
+<li><p>启动、关闭HBase Master的备份服务。最多可以再另外启动9个HMaster备份服务，默认使用的端口为<code>16000</code>和<code>16010</code>，启动的时候可以通过设置偏移量的方式指定端口和数量，例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hbase</span><br><span class="line"><span class="comment"># 启动的3个服务端口为`16002``16012`、`16003``16013`、`16005``16015`</span></span><br><span class="line">./bin/<span class="built_in">local</span>-master-backup.sh start 2 3 5</span><br><span class="line"><span class="comment"># 启动后关闭</span></span><br><span class="line"><span class="comment"># 固定的格式为 /tmp/hbase-USER-X-master.pid</span></span><br><span class="line">cat /tmp/hbase-hbase-2-master.pid |xargs <span class="built_in">kill</span> -9</span><br><span class="line">cat /tmp/hbase-hbase-3-master.pid |xargs <span class="built_in">kill</span> -9</span><br><span class="line">cat /tmp/hbase-hbase-5-master.pid |xargs <span class="built_in">kill</span> -9</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启停额外的RegionServers与上述类似，默认端口<code>16020</code>和<code>16030</code>。若10个偏移量不够，还可以自己在文件<code>local-regionservers.sh</code>中设置<code>HBASE_RS_BASE_PORT</code>和<code>HBASE_RS_INFO_BASE_PORT</code>变量指定最多99个额外的RegionServers,此处的默认端口为<code>16200</code>和<code>16300</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hbase</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">./bin/<span class="built_in">local</span>-regionservers.sh start 2 3 4 5</span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">./bin/<span class="built_in">local</span>-regionservers.sh stop 2 3 4 5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止HBase命令同单节点<code>/u01/hbase/bin/stop-hbase.sh</code></p>
+</li>
+</ol>
+<h2 id="分布式运行"><a href="#分布式运行" class="headerlink" title="分布式运行"></a>分布式运行</h2><p>因为只有一台服务器没办法搞真实的分布式，所以有条件的同学请参照分布式配置<a href="https://hbase.apache.org/book.html#quickstart_fully_distributed" target="_blank" rel="noopener">Advanced - Fully Distributed</a></p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://study.163.com/course/courseMain.htm?courseId=1002887002" target="_blank" rel="noopener"><strong>大数据技术原理与应用</strong></a><br><a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="noopener"><strong>Quick Start - Standalone HBase</strong></a><br><a href="/2020/02/05/大数据入门笔记-hadoop上手/"><strong>大数据入门笔记-hadoop上手</strong></a></p>
 
       
 
