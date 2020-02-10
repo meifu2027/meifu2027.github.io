@@ -103,9 +103,11 @@ put 'test', 'row3', 'cf:c', 'value3'
   <value>true</value>
 </property>
 <!--目录同样无需提前设置，hbase自己会建目录-->
+<!--这里用localhost而不用meifu是因为meifu会被自己之前配置的域名解析为0.0.0.0
+    而localhost 是127.0.0.1，可以找到hdfs的服务ip，也就是本机-->
 <property>
   <name>hbase.rootdir</name>
-  <value>hdfs://meifu:9000/hbase</value>
+  <value>hdfs://localhost:9000/hbase</value>
 </property>
 ```
 **注意：**确保没有`hbase.unsafe.stream.capability.enforce`属性配置或将其属性值设置为`true`；另外，此处需要解决hbase用户在hadoop用户下写权限问题，否则会出现hadoop客户端往hadoop写文件的同样的权限的报错导致目录无法正常生成。
