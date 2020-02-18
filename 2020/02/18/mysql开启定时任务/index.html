@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>大数据入门笔记-hadoop上手 | 从何写起</title>
+  <title>mysql开启定时任务 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。以下内容主要参考自Hadoop官网教程。">
-<meta name="keywords" content="大数据,hadoop">
+  <meta name="description" content="需要用定时任务处理报表分析数据，记录下mysql定时任务开启。">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据入门笔记-hadoop上手">
-<meta property="og:url" content="http://yoursite.com/2020/02/05/大数据入门笔记-hadoop上手/index.html">
+<meta property="og:title" content="mysql开启定时任务">
+<meta property="og:url" content="http://yoursite.com/2020/02/18/mysql开启定时任务/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。以下内容主要参考自Hadoop官网教程。">
+<meta property="og:description" content="需要用定时任务处理报表分析数据，记录下mysql定时任务开启。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/blog/20200205-1.png">
-<meta property="og:image" content="http://yoursite.com/img/blog/20200205-2.png">
-<meta property="og:image" content="http://yoursite.com/img/blog/20200205-3.png">
-<meta property="og:updated_time" content="2020-02-07T08:53:15.012Z">
+<meta property="og:updated_time" content="2020-02-18T07:10:58.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据入门笔记-hadoop上手">
-<meta name="twitter:description" content="受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。以下内容主要参考自Hadoop官网教程。">
-<meta name="twitter:image" content="http://yoursite.com/img/blog/20200205-1.png">
+<meta name="twitter:title" content="mysql开启定时任务">
+<meta name="twitter:description" content="需要用定时任务处理报表分析数据，记录下mysql定时任务开启。">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -174,20 +170,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-大数据入门笔记-hadoop上手" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql开启定时任务" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      大数据入门笔记-hadoop上手
+      mysql开启定时任务
     </h1>
   
 
         
-        <a href="/2020/02/05/大数据入门笔记-hadoop上手/" class="archive-article-date">
-  	<time datetime="2020-02-05T03:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
+        <a href="/2020/02/18/mysql开启定时任务/" class="archive-article-date">
+  	<time datetime="2020-02-18T06:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -205,7 +201,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-number">1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先决条件"><span class="toc-number">2.</span> <span class="toc-text">先决条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#平台"><span class="toc-number">2.1.</span> <span class="toc-text">平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必备软件"><span class="toc-number">2.2.</span> <span class="toc-text">必备软件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-number">3.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建hadoop用户（官网教程没有这一步）"><span class="toc-number">4.</span> <span class="toc-text">创建hadoop用户（官网教程没有这一步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备启动Hadoop集群"><span class="toc-number">5.</span> <span class="toc-text">准备启动Hadoop集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单机运行"><span class="toc-number">6.</span> <span class="toc-text">单机运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪分布式运行"><span class="toc-number">7.</span> <span class="toc-text">伪分布式运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">7.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置ssh免密登录"><span class="toc-number">7.2.</span> <span class="toc-text">设置ssh免密登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行"><span class="toc-number">7.3.</span> <span class="toc-text">执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单节点运行YARN"><span class="toc-number">7.4.</span> <span class="toc-text">单节点运行YARN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式运行"><span class="toc-number">8.</span> <span class="toc-text">分布式运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">9.</span> <span class="toc-text">参考链接</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定时任务创建测试"><span class="toc-number">1.</span> <span class="toc-text">定时任务创建测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#event时间设置规则"><span class="toc-number">2.</span> <span class="toc-text">event时间设置规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -225,63 +221,10 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。<em>以下内容主要参考自<a href="http://hadoop.apache.org/" target="_blank" rel="noopener">Hadoop官网</a>教程。</em><br><a id="more"></a></p>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>本文档主要是加深印象并记录搭建过程中一些遇到的问题，供自己查看。</p>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><h3 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h3><p>本案例使用<strong>腾讯云服务器</strong>，操作系统为<code>CentOS Linux release 7.6.1810 (Core)</code></p>
-<h3 id="必备软件"><a href="#必备软件" class="headerlink" title="必备软件"></a>必备软件</h3><ul>
-<li>Java (本案例使用版本<code>jdk-8u201-linux-x64.tar.gz</code>)</li>
-<li>ssh (这个不用说了，服务器已自带了)</li>
-</ul>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://mirror.bit.edu.cn/apache/hadoop/common/" target="_blank" rel="noopener"><strong>官方仓库</strong></a><br>我选择的版本(按照以往的尿性我还是放在了<code>/u01/setup</code>目录下)<br><a href="http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz" target="_blank" rel="noopener"><strong>hadoop-3.2.1.tar.gz</strong></a><br>下载完后可以解压到 <code>/u01</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf /u01/setup/hadoop-3.2.1.tar.gz -C /u01</span><br><span class="line">mv /u01/hadoop-3.2.1 /u01/setup/hadoop</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建hadoop用户（官网教程没有这一步）"><a href="#创建hadoop用户（官网教程没有这一步）" class="headerlink" title="创建hadoop用户（官网教程没有这一步）"></a>创建hadoop用户（官网教程没有这一步）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd hadoop</span><br><span class="line"><span class="comment"># 创建用户</span></span><br><span class="line">useradd -g hadoop hadoop</span><br><span class="line"><span class="comment"># 设置密码</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"your_password"</span> | passwd --stdin hadoop</span><br><span class="line"><span class="comment"># 目录授权</span></span><br><span class="line">chown -R hadoop:hadoop /u01/hadoop</span><br><span class="line"><span class="comment"># 切换用户</span></span><br><span class="line">su - hadoop</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>后续操作都在hadoop用户下执行。</p>
-<h2 id="准备启动Hadoop集群"><a href="#准备启动Hadoop集群" class="headerlink" title="准备启动Hadoop集群"></a>准备启动Hadoop集群</h2><p>修改配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /u01/hadoop/etc/hadoop/hadoop-env.sh</span><br><span class="line"><span class="comment"># 增加JAVA_HOME路径</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/u01/jdk1.8.0_201</span><br><span class="line"><span class="comment"># 保存退出后 尝试执行以下命令，若正常则可以看到类似如下图片信息</span></span><br><span class="line">/u01/hadoop/bin/hadoop</span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/blog/20200205-1.png" alt="20200205-1.png"><br><strong>注意：</strong>一定要确保<strong>hadoop版本和java版本对应</strong>起来，具体版本对应最后有链接补充说明。本案例中hadoop3.2.1对应jdk1.8版本。  </p>
-<h2 id="单机运行"><a href="#单机运行" class="headerlink" title="单机运行"></a>单机运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">mkdir input</span><br><span class="line">cp etc/hadoop/*.xml input</span><br><span class="line">bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar grep input output <span class="string">'dfs[a-z.]+'</span></span><br><span class="line">cat output/*</span><br><span class="line"><span class="comment"># 能有正常输出就说明没有问题</span></span><br></pre></td></tr></table></figure>
-<h2 id="伪分布式运行"><a href="#伪分布式运行" class="headerlink" title="伪分布式运行"></a>伪分布式运行</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><code>vim /u01/hadoop/etc/hadoop/core-site.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><code>vim /u01/hadoop/etc/hadoop/hdfs-site.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="设置ssh免密登录"><a href="#设置ssh免密登录" class="headerlink" title="设置ssh免密登录"></a>设置ssh免密登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果提示你需要输入密码则配置下免密</span></span><br><span class="line">ssh localhost</span><br><span class="line"><span class="comment"># 配置免密</span></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span> -f ~/.ssh/id_rsa</span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br><span class="line"><span class="comment"># 配置好再试下应该不需要再输入密码了</span></span><br></pre></td></tr></table></figure>
-<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><ol>
-<li><p>格式化文件系统（只需要执行一次即可） </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动NameNode和DataNode的守护进程（可以自定义环境变量<code>$HADOOP_LOG_DIR</code>指定日志输出路径，默认路径为<code>$HADOOP_HOME/logs</code>）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器查看NameNode - <code>http://localhost:9870/</code> (注意：腾讯云服务器需要在控制台开通访问端口)<br><img src="/img/blog/20200205-2.png" alt="20200205-2.png"></p>
-</li>
-<li><p>创建HDFS目录，以执行MapReduce任务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">bin/hdfs dfs -mkdir /user</span><br><span class="line"><span class="comment"># bin/hdfs dfs -mkdir /user/&lt;username&gt;</span></span><br><span class="line">bin/hdfs dfs -mkdir /user/hadoop</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝文件到HDFS的input目录中去</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">bin/hdfs dfs -mkdir input</span><br><span class="line">bin/hdfs dfs -put etc/hadoop/*.xml input</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行hadoop提供的示例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar grep input output <span class="string">'dfs[a-z.]+'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查输出文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line"><span class="comment"># 将HDFS中的文件拷贝到本地并检查</span></span><br><span class="line">bin/hdfs dfs -get output output</span><br><span class="line">cat output/*</span><br><span class="line"><span class="comment"># 或直接在HDFS中查看</span></span><br><span class="line">bin/hdfs dfs -cat output/*</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果你不想玩了，关掉的命令是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="单节点运行YARN"><a href="#单节点运行YARN" class="headerlink" title="单节点运行YARN"></a>单节点运行YARN</h3><p>上述步骤的1~4需要确保已经执行过了</p>
-<ol>
-<li><p>修改配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">vim etc/hadoop/mapred-site.xml</span><br><span class="line"><span class="comment"># 改成</span></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.application.classpath&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;<span class="variable">$HADOOP_MAPRED_HOME</span>/share/hadoop/mapreduce/*:<span class="variable">$HADOOP_MAPRED_HOME</span>/share/hadoop/mapreduce/lib/*&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"><span class="comment"># 保存退出后再修改另一个文件</span></span><br><span class="line">vim etc/hadoop/yarn-site.xml</span><br><span class="line"><span class="comment"># 改成</span></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.env-whitelist&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器查看资源管理界面 - <code>http://localhost:8088/</code> (注意：腾讯云服务器需要在控制台开通访问端口)<br><img src="/img/blog/20200205-3.png" alt="20200205-3.png"></p>
-</li>
-<li>启动一个MapReduce任务</li>
-<li>玩够了，想关了 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/stop-yarn.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="分布式运行"><a href="#分布式运行" class="headerlink" title="分布式运行"></a>分布式运行</h2><p>因为只有一台服务器没办法搞真实的分布式，所以有条件的同学请参照分布式配置<a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Hadoop Cluster Setup</a></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener"><em>Hadoop: Setting up a Single Node Cluster</em></a><br><a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions" target="_blank" rel="noopener"><em>Hadoop Java Versions</em></a><br><a href="https://study.163.com/course/courseMain.htm?courseId=1002887002" target="_blank" rel="noopener"><em>大数据技术原理与应用</em></a></p>
+        <p>需要用定时任务处理报表分析数据，记录下mysql定时任务开启。<br><a id="more"></a></p>
+<h2 id="定时任务创建测试"><a href="#定时任务创建测试" class="headerlink" title="定时任务创建测试"></a>定时任务创建测试</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1、创建测试表</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="keyword">test</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">test</span> (</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> (<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> auto_increment PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">	<span class="built_in">time</span> datetime <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">) <span class="keyword">ENGINE</span> = <span class="keyword">INNODB</span> <span class="keyword">DEFAULT</span> <span class="keyword">charset</span> = utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2、创建测试存储过程</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> test_proce ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> test_proce ()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">test</span> (<span class="built_in">time</span>) <span class="keyword">VALUES</span> (<span class="keyword">now</span>());</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3、开启event</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'event_scheduler'</span>;</span><br><span class="line"><span class="comment">-- 若`event_scheduler`状态是OFF 则设置为ON，可能需要root用户执行</span></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> event_scheduler = <span class="string">'on'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4、创建事件（每1秒钟插入一条数据）</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">EVENT</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> test_event;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">EVENT</span> test_event <span class="keyword">ON</span> SCHEDULE EVERY <span class="number">1</span> <span class="keyword">SECOND</span> <span class="keyword">ON</span> COMPLETION <span class="keyword">PRESERVE</span> <span class="keyword">DISABLE</span> <span class="keyword">DO</span></span><br><span class="line">	<span class="keyword">CALL</span> test_proce ();</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5、开启事件执行定时任务</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">EVENT</span> test_event <span class="keyword">ON</span> COMPLETION <span class="keyword">PRESERVE</span> <span class="keyword">ENABLE</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 6、关闭定时任务</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">EVENT</span> test_event <span class="keyword">ON</span> COMPLETION <span class="keyword">PRESERVE</span> <span class="keyword">DISABLE</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 7、查看测试表</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">test</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="event时间设置规则"><a href="#event时间设置规则" class="headerlink" title="event时间设置规则"></a>event时间设置规则</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- EVERY 后面的是时间间隔，可以选 1 second，3 minute，5 hour，9 day，1 month，1 quarter（季度），1 year </span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">EVENT</span> test_event <span class="keyword">ON</span> SCHEDULE EVERY <span class="number">1</span> <span class="keyword">DAY</span> STARTS <span class="string">'2012-09-24 00:00:00'</span> <span class="keyword">ON</span> COMPLETION <span class="keyword">PRESERVE</span> <span class="keyword">ENABLE</span> <span class="keyword">DO</span></span><br><span class="line">	<span class="keyword">CALL</span> test_procedure ();</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 从2013年1月13号0点开始，每天运行一次</span></span><br><span class="line">ON SCHEDULE EVERY 1 DAY STARTS '2013-01-13 00:00:00';</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 从现在开始每隔九天定时执行</span></span><br><span class="line">ON SCHEDULE EVERY 9 DAY STARTS NOW() ;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 每个月的一号凌晨1 点执行</span></span><br><span class="line">ON SCHEDULE EVERY 1 MONTH STARTS date_add(</span><br><span class="line">	date_add(</span><br><span class="line">		date_sub(</span><br><span class="line">			curdate(),</span><br><span class="line">			INTERVAL DAY (curdate()) - 1 DAY</span><br><span class="line">		),</span><br><span class="line">		INTERVAL 1 MONTH</span><br><span class="line">	),</span><br><span class="line">	INTERVAL 1 HOUR</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 每个季度一号的凌晨1点执行</span></span><br><span class="line">ON SCHEDULE EVERY 1 QUARTER STARTS date_add(</span><br><span class="line">	date_add(</span><br><span class="line">		date(</span><br><span class="line">			concat(</span><br><span class="line">				YEAR (curdate()),'-',elt(QUARTER (curdate()),1,4,7,10),'-',1</span><br><span class="line">			)</span><br><span class="line">		),</span><br><span class="line">		INTERVAL 1 QUARTER</span><br><span class="line">	),</span><br><span class="line">	INTERVAL 1 HOUR</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://blog.csdn.net/qq_34082034/article/details/56290920" target="_blank" rel="noopener"><strong>Mysql 查看定时器 打开定时器 设置定时器时间</strong></a></p>
 
       
 
@@ -295,11 +238,7 @@ function showBtn(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -311,11 +250,11 @@ function showBtn(){
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
+        			<a href="/categories/转载//" class="article-tag-list-link color3">转载</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/转载/笔记//" class="article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
@@ -343,18 +282,9 @@ function showBtn(){
   
 <nav id="article-nav">
   
-    <a href="/2020/02/06/大数据入门笔记-hadoop上手之java编码踩坑笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          大数据入门笔记-hadoop上手之java编码踩坑笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/20/堡垒机切换root用户免密配置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">堡垒机切换root用户免密配置</div>
+    <a href="/2020/02/11/mysql下的dblink-FEDERATED引擎/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql下的dblink---FEDERATED引擎</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -401,7 +331,7 @@ if(true){
   	repo: 'meifu2027.github.io',
   	owner: 'meifu2027',
   	admin: ['meifu2027'],
-  	id: 'Wed Feb 05 2020 11:38:18 GMT+0800',
+  	id: 'Tue Feb 18 2020 14:29:01 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 

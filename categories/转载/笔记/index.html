@@ -6,24 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>大数据入门笔记-hadoop上手 | 从何写起</title>
+  <title>Category: 笔记 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。以下内容主要参考自Hadoop官网教程。">
-<meta name="keywords" content="大数据,hadoop">
-<meta property="og:type" content="article">
-<meta property="og:title" content="大数据入门笔记-hadoop上手">
-<meta property="og:url" content="http://yoursite.com/2020/02/05/大数据入门笔记-hadoop上手/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="从何写起">
+<meta property="og:url" content="http://yoursite.com/categories/转载/笔记/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。以下内容主要参考自Hadoop官网教程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/img/blog/20200205-1.png">
-<meta property="og:image" content="http://yoursite.com/img/blog/20200205-2.png">
-<meta property="og:image" content="http://yoursite.com/img/blog/20200205-3.png">
-<meta property="og:updated_time" content="2020-02-07T08:53:15.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据入门笔记-hadoop上手">
-<meta name="twitter:description" content="受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。以下内容主要参考自Hadoop官网教程。">
-<meta name="twitter:image" content="http://yoursite.com/img/blog/20200205-1.png">
+<meta name="twitter:title" content="从何写起">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -174,242 +165,75 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-大数据入门笔记-hadoop上手" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      大数据入门笔记-hadoop上手
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/18/mysql开启定时任务/" class="archive-article-date">
+  	<time datetime="2020-02-18T06:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/18/mysql开启定时任务/">mysql开启定时任务</a>
     </h1>
   
 
-        
-        <a href="/2020/02/05/大数据入门笔记-hadoop上手/" class="archive-article-date">
-  	<time datetime="2020-02-05T03:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-
-  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
-        <span class="btn-bg"></span>
-        <span class="btn-text">文章导航</span>
-        </p>
-<div id="toc-article" class="toc-article"  style="display:none">
-    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-  <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-number">1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#先决条件"><span class="toc-number">2.</span> <span class="toc-text">先决条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#平台"><span class="toc-number">2.1.</span> <span class="toc-text">平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必备软件"><span class="toc-number">2.2.</span> <span class="toc-text">必备软件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-number">3.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建hadoop用户（官网教程没有这一步）"><span class="toc-number">4.</span> <span class="toc-text">创建hadoop用户（官网教程没有这一步）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备启动Hadoop集群"><span class="toc-number">5.</span> <span class="toc-text">准备启动Hadoop集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单机运行"><span class="toc-number">6.</span> <span class="toc-text">单机运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#伪分布式运行"><span class="toc-number">7.</span> <span class="toc-text">伪分布式运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">7.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置ssh免密登录"><span class="toc-number">7.2.</span> <span class="toc-text">设置ssh免密登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行"><span class="toc-number">7.3.</span> <span class="toc-text">执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单节点运行YARN"><span class="toc-number">7.4.</span> <span class="toc-text">单节点运行YARN</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式运行"><span class="toc-number">8.</span> <span class="toc-text">分布式运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">9.</span> <span class="toc-text">参考链接</span></a></li></ol>
-       </div>
- <script type="text/javascript">
-function showToc(){
-  var toc_article = document.getElementById("toc-article");
-  var show_toc_btn = document.getElementById("show-toc-btn");
-  toc_article.setAttribute("style","display:block");
-  show_toc_btn.setAttribute("style","display:none");
-  };
-function showBtn(){
-  var toc_article = document.getElementById("toc-article");
-  var show_toc_btn = document.getElementById("show-toc-btn");
-  toc_article.setAttribute("style","display:none");
-  show_toc_btn.setAttribute("style","display:block");
-  };
- </script>
-    		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>受疫情影响，我被困在家里不能出门了。学习大数据一方面是想以后从java web转型到另一个领域，另外一方面我也在思考：国家危难之际，我能为社会做点什么贡献？相比而言，大数据可能对于社会的作用更加的明显，那就开始愉快地学习吧。<em>以下内容主要参考自<a href="http://hadoop.apache.org/" target="_blank" rel="noopener">Hadoop官网</a>教程。</em><br><a id="more"></a></p>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>本文档主要是加深印象并记录搭建过程中一些遇到的问题，供自己查看。</p>
-<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><h3 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h3><p>本案例使用<strong>腾讯云服务器</strong>，操作系统为<code>CentOS Linux release 7.6.1810 (Core)</code></p>
-<h3 id="必备软件"><a href="#必备软件" class="headerlink" title="必备软件"></a>必备软件</h3><ul>
-<li>Java (本案例使用版本<code>jdk-8u201-linux-x64.tar.gz</code>)</li>
-<li>ssh (这个不用说了，服务器已自带了)</li>
-</ul>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://mirror.bit.edu.cn/apache/hadoop/common/" target="_blank" rel="noopener"><strong>官方仓库</strong></a><br>我选择的版本(按照以往的尿性我还是放在了<code>/u01/setup</code>目录下)<br><a href="http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz" target="_blank" rel="noopener"><strong>hadoop-3.2.1.tar.gz</strong></a><br>下载完后可以解压到 <code>/u01</code>目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf /u01/setup/hadoop-3.2.1.tar.gz -C /u01</span><br><span class="line">mv /u01/hadoop-3.2.1 /u01/setup/hadoop</span><br></pre></td></tr></table></figure></p>
-<h2 id="创建hadoop用户（官网教程没有这一步）"><a href="#创建hadoop用户（官网教程没有这一步）" class="headerlink" title="创建hadoop用户（官网教程没有这一步）"></a>创建hadoop用户（官网教程没有这一步）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建用户组</span></span><br><span class="line">groupadd hadoop</span><br><span class="line"><span class="comment"># 创建用户</span></span><br><span class="line">useradd -g hadoop hadoop</span><br><span class="line"><span class="comment"># 设置密码</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"your_password"</span> | passwd --stdin hadoop</span><br><span class="line"><span class="comment"># 目录授权</span></span><br><span class="line">chown -R hadoop:hadoop /u01/hadoop</span><br><span class="line"><span class="comment"># 切换用户</span></span><br><span class="line">su - hadoop</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>后续操作都在hadoop用户下执行。</p>
-<h2 id="准备启动Hadoop集群"><a href="#准备启动Hadoop集群" class="headerlink" title="准备启动Hadoop集群"></a>准备启动Hadoop集群</h2><p>修改配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /u01/hadoop/etc/hadoop/hadoop-env.sh</span><br><span class="line"><span class="comment"># 增加JAVA_HOME路径</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/u01/jdk1.8.0_201</span><br><span class="line"><span class="comment"># 保存退出后 尝试执行以下命令，若正常则可以看到类似如下图片信息</span></span><br><span class="line">/u01/hadoop/bin/hadoop</span><br></pre></td></tr></table></figure></p>
-<p><img src="/img/blog/20200205-1.png" alt="20200205-1.png"><br><strong>注意：</strong>一定要确保<strong>hadoop版本和java版本对应</strong>起来，具体版本对应最后有链接补充说明。本案例中hadoop3.2.1对应jdk1.8版本。  </p>
-<h2 id="单机运行"><a href="#单机运行" class="headerlink" title="单机运行"></a>单机运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">mkdir input</span><br><span class="line">cp etc/hadoop/*.xml input</span><br><span class="line">bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar grep input output <span class="string">'dfs[a-z.]+'</span></span><br><span class="line">cat output/*</span><br><span class="line"><span class="comment"># 能有正常输出就说明没有问题</span></span><br></pre></td></tr></table></figure>
-<h2 id="伪分布式运行"><a href="#伪分布式运行" class="headerlink" title="伪分布式运行"></a>伪分布式运行</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><code>vim /u01/hadoop/etc/hadoop/core-site.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><code>vim /u01/hadoop/etc/hadoop/hdfs-site.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="设置ssh免密登录"><a href="#设置ssh免密登录" class="headerlink" title="设置ssh免密登录"></a>设置ssh免密登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果提示你需要输入密码则配置下免密</span></span><br><span class="line">ssh localhost</span><br><span class="line"><span class="comment"># 配置免密</span></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span> -f ~/.ssh/id_rsa</span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br><span class="line"><span class="comment"># 配置好再试下应该不需要再输入密码了</span></span><br></pre></td></tr></table></figure>
-<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><ol>
-<li><p>格式化文件系统（只需要执行一次即可） </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动NameNode和DataNode的守护进程（可以自定义环境变量<code>$HADOOP_LOG_DIR</code>指定日志输出路径，默认路径为<code>$HADOOP_HOME/logs</code>）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器查看NameNode - <code>http://localhost:9870/</code> (注意：腾讯云服务器需要在控制台开通访问端口)<br><img src="/img/blog/20200205-2.png" alt="20200205-2.png"></p>
-</li>
-<li><p>创建HDFS目录，以执行MapReduce任务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">bin/hdfs dfs -mkdir /user</span><br><span class="line"><span class="comment"># bin/hdfs dfs -mkdir /user/&lt;username&gt;</span></span><br><span class="line">bin/hdfs dfs -mkdir /user/hadoop</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拷贝文件到HDFS的input目录中去</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">bin/hdfs dfs -mkdir input</span><br><span class="line">bin/hdfs dfs -put etc/hadoop/*.xml input</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行hadoop提供的示例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.1.jar grep input output <span class="string">'dfs[a-z.]+'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查输出文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line"><span class="comment"># 将HDFS中的文件拷贝到本地并检查</span></span><br><span class="line">bin/hdfs dfs -get output output</span><br><span class="line">cat output/*</span><br><span class="line"><span class="comment"># 或直接在HDFS中查看</span></span><br><span class="line">bin/hdfs dfs -cat output/*</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果你不想玩了，关掉的命令是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="单节点运行YARN"><a href="#单节点运行YARN" class="headerlink" title="单节点运行YARN"></a>单节点运行YARN</h3><p>上述步骤的1~4需要确保已经执行过了</p>
-<ol>
-<li><p>修改配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /u01/hadoop</span><br><span class="line">vim etc/hadoop/mapred-site.xml</span><br><span class="line"><span class="comment"># 改成</span></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.application.classpath&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;<span class="variable">$HADOOP_MAPRED_HOME</span>/share/hadoop/mapreduce/*:<span class="variable">$HADOOP_MAPRED_HOME</span>/share/hadoop/mapreduce/lib/*&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"><span class="comment"># 保存退出后再修改另一个文件</span></span><br><span class="line">vim etc/hadoop/yarn-site.xml</span><br><span class="line"><span class="comment"># 改成</span></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.env-whitelist&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器查看资源管理界面 - <code>http://localhost:8088/</code> (注意：腾讯云服务器需要在控制台开通访问端口)<br><img src="/img/blog/20200205-3.png" alt="20200205-3.png"></p>
-</li>
-<li>启动一个MapReduce任务</li>
-<li>玩够了，想关了 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/u01/hadoop/sbin/stop-yarn.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="分布式运行"><a href="#分布式运行" class="headerlink" title="分布式运行"></a>分布式运行</h2><p>因为只有一台服务器没办法搞真实的分布式，所以有条件的同学请参照分布式配置<a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Hadoop Cluster Setup</a></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener"><em>Hadoop: Setting up a Single Node Cluster</em></a><br><a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions" target="_blank" rel="noopener"><em>Hadoop Java Versions</em></a><br><a href="https://study.163.com/course/courseMain.htm?courseId=1002887002" target="_blank" rel="noopener"><em>大数据技术原理与应用</em></a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
+        			<a href="/categories/转载//" class="article-tag-list-link color3">转载</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
+        			<a href="/categories/转载/笔记//" class="article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-      
-        <div class="article-category tagcloud">
-          <i class="icon-smile icon"></i>
-          <ul class="article-tag-list">
-                  <li class="article-tag-list-item">
-                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
-                  </li>
-          </ul>
         </div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/06/大数据入门笔记-hadoop上手之java编码踩坑笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          大数据入门笔记-hadoop上手之java编码踩坑笔记
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/01/20/堡垒机切换root用户免密配置/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">堡垒机切换root用户免密配置</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '4c30d1aeafb1fe6f21b0',
-  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
-  	repo: 'meifu2027.github.io',
-  	owner: 'meifu2027',
-  	admin: ['meifu2027'],
-  	id: 'Wed Feb 05 2020 11:38:18 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
     
-    
-  
 
 
           </div>
@@ -444,10 +268,10 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
