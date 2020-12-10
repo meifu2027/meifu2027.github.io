@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>linux下常用中间件搭建 - maven安装(九) | 从何写起</title>
+  <title>Linux系统下Mysql定时任务备份脚本 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概况maven版本： 5.12.0maven安装包： apache-maven-3.5.0.zip">
-<meta name="keywords" content="linux,maven">
+  <meta name="description" content="生产系统需要在每天凌晨定时做数据库的备份，因此记录下数据库冷备脚本及配置过程。">
+<meta name="keywords" content="linux,mysql,shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux下常用中间件搭建 - maven安装(九)">
-<meta property="og:url" content="http://yoursite.com/2019/07/10/linux下常用中间件搭建-maven安装-九/index.html">
+<meta property="og:title" content="Linux系统下Mysql定时任务备份脚本">
+<meta property="og:url" content="http://yoursite.com/2020/12/10/Linux系统下Mysql定时任务备份脚本/index.html">
 <meta property="og:site_name" content="从何写起">
-<meta property="og:description" content="概况maven版本： 5.12.0maven安装包： apache-maven-3.5.0.zip">
+<meta property="og:description" content="生产系统需要在每天凌晨定时做数据库的备份，因此记录下数据库冷备脚本及配置过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/07/10/5d2569ff1b2cb38427.png">
-<meta property="og:updated_time" content="2019-09-04T02:53:22.207Z">
+<meta property="og:updated_time" content="2020-12-10T03:56:23.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下常用中间件搭建 - maven安装(九)">
-<meta name="twitter:description" content="概况maven版本： 5.12.0maven安装包： apache-maven-3.5.0.zip">
-<meta name="twitter:image" content="https://i.loli.net/2019/07/10/5d2569ff1b2cb38427.png">
+<meta name="twitter:title" content="Linux系统下Mysql定时任务备份脚本">
+<meta name="twitter:description" content="生产系统需要在每天凌晨定时做数据库的备份，因此记录下数据库冷备脚本及配置过程。">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -172,20 +170,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux下常用中间件搭建-maven安装-九" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux系统下Mysql定时任务备份脚本" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      linux下常用中间件搭建 - maven安装(九)
+      Linux系统下Mysql定时任务备份脚本
     </h1>
   
 
         
-        <a href="/2019/07/10/linux下常用中间件搭建-maven安装-九/" class="archive-article-date">
-  	<time datetime="2019-07-10T04:20:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-10</time>
+        <a href="/2020/12/10/Linux系统下Mysql定时任务备份脚本/" class="archive-article-date">
+  	<time datetime="2020-12-10T03:07:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-10</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -203,7 +201,7 @@ ga('send', 'pageview');
 <div id="toc-article" class="toc-article"  style="display:none">
     <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
   <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概况"><span class="toc-number">1.</span> <span class="toc-text">概况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">2.1.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置环境变量"><span class="toc-number">2.2.</span> <span class="toc-text">配置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关导航"><span class="toc-number">4.</span> <span class="toc-text">相关导航</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定时任务脚本"><span class="toc-number">1.</span> <span class="toc-text">定时任务脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置定时任务"><span class="toc-number">2.</span> <span class="toc-text">配置定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">3.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-number">4.</span> <span class="toc-text">相关链接</span></a></li></ol>
        </div>
  <script type="text/javascript">
 function showToc(){
@@ -223,21 +221,18 @@ function showBtn(){
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p><strong>maven版本：</strong> 5.12.0<br><strong>maven安装包：</strong> apache-maven-3.5.0.zip<br><a id="more"></a><br><strong>其他依赖环境：</strong>  </p>
-<blockquote>
-<p>jdk环境（前面章节已安装）</p>
-</blockquote>
-<p><strong>服务器（1台）</strong>  </p>
-<blockquote>
-<p>A：192.168.0.1<br>B：192.168.0.2<br>配合后续git完成打包发布，任意选择一台安装即可。</p>
-</blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">unzip apache-maven-3.5.0.zip -d /u01</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里配置到用户的环境变量（系统的环境变量是 /etc/profile）</span></span><br><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="comment"># 最后增加</span></span><br><span class="line"><span class="built_in">export</span> M2_HOME=/u01/apache-maven-3.5.0</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span>:/sbin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使配置生效</span></span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br><span class="line"><span class="comment"># 查看版本（能正常看到就是配置生效了,如图1）</span></span><br><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
-<p>图1<br><img src="https://i.loli.net/2019/07/10/5d2569ff1b2cb38427.png" alt="2.png"></p>
-<p>由于是在内网环境，因此直接将maven仓库上传至<code>/u01/.m2report</code>目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改仓库地址</span></span><br><span class="line">vim /u01/apache-maven-3.5.0/conf/settings.xml</span><br><span class="line"><span class="comment"># 修改内容</span></span><br><span class="line">&lt;localRepository&gt;/u01/.m2report&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>mvn的配置比较简单。比较麻烦的是后续如果有新的依赖，内网无法下载镜像仓库的jar包，就只能本地上传。</p>
-<h2 id="相关导航"><a href="#相关导航" class="headerlink" title="相关导航"></a>相关导航</h2><p><a href="/2019/07/04/linux下常用中间件搭建一/"><em>linux下常用中间件搭建(一)</em></a><br><a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/"><em>linux下常用中间件搭建 - mysql搭建(二)</em></a><br><a href="/2019/07/05/linux下常用中间件搭建-jdk安装三/"><em>linux下常用中间件搭建 - jdk安装(三)</em></a><br><a href="/2019/07/05/linux下常用中间件搭建-redis集群四/"><em>linux下常用中间件搭建 - redis集群(四)</em></a><br><a href="/2019/07/08/linux下常用中间件搭建-fastdfs集群五/"><em>linux下常用中间件搭建 - fastdfs集群(五)</em></a><br><a href="/2019/07/08/linux下常用中间件搭建-nginx搭建-六/"><em>linux下常用中间件搭建 - nginx搭建(六)</em></a><br><a href="/2019/07/09/linux下常用中间件搭建-zookeeper集群-七/"><em>linux下常用中间件搭建 - zookeeper集群(七)</em></a><br><a href="/2019/07/09/linux下常用中间件搭建-activemq启动-八/"><em>linux下常用中间件搭建 - activemq启动(八)</em></a><br><a href="/2019/07/10/linux下常用中间件搭建-maven安装-九/"><em>linux下常用中间件搭建 - maven安装(九)</em></a><br><a href="/2019/07/10/linux下常用中间件搭建-git安装-十/"><em>linux下常用中间件搭建 - git安装(十)</em></a><br><a href="/2019/07/12/linux下常用中间件搭建-oracle安装-十一/"><em>linux下常用中间件搭建 - oracle安装(十一)</em></a><br><a href="/2019/08/30/linux下常用中间件搭建-JBoss部署-十二/"><em>linux下常用中间件搭建 - jboss部署(十二)</em></a></p>
+        <p>生产系统需要在每天凌晨定时做数据库的备份，因此记录下数据库冷备脚本及配置过程。<br><a id="more"></a></p>
+<h2 id="定时任务脚本"><a href="#定时任务脚本" class="headerlink" title="定时任务脚本"></a>定时任务脚本</h2><p>这里我们设置备份目录为<code>/u01/mysql/backup</code> (可设置任何自己的主要的目录作为备份目录)<br>开始写备份脚本 <code>vim /u01/mysql/backup/.job.sh</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment"># 设置今天的日期</span></span><br><span class="line">currenttime=$(date +%Y%m%d)</span><br><span class="line"><span class="comment"># 获取15天之前的日期</span></span><br><span class="line">deltime=$(date -d <span class="string">"-15 day"</span> +%Y%m%d)</span><br><span class="line"><span class="comment"># 定时备份数据库</span></span><br><span class="line">mysqldump mydatabase &gt;  /u01/mysql/backup/<span class="variable">$&#123;currenttime&#125;</span>mydatabase.sql</span><br><span class="line"><span class="comment"># 定时删除日志信息</span></span><br><span class="line">backcount=`find /u01/mysql/backup -mtime +15 -name *mydatabase.sql|wc -l`</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;backcount&#125;</span> -gt 15 ];<span class="keyword">then</span></span><br><span class="line">    find /u01/mysql/backup -mtime +15 -name *mydatabase.sql  -<span class="built_in">exec</span> rm -f &#123;&#125; \;</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>以上主要的备份逻辑为：</p>
+<ul>
+<li>备份的数据库增加日期标识</li>
+<li>判断是否有15个备份</li>
+<li>若多于15个备份，则删除15天之前的数据</li>
+</ul>
+<p><strong>注</strong>：这种逻辑可能会有问题，如果15个备份都是在15天之前的，那么意味着所有备份都会被删除（由于我这里是每天一备份所以问题不大），还有种是根据文件名的排序删除最早的几个，这个就自由发挥了。<br>写完执行脚本之后可以手动执行下脚本,查看备份目录下是否生成了新的备份<code>sh /u01/mysql/backup/.job.sh</code></p>
+<h2 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h2><p>定时任务的配置这里通过修改<code>/etc/crontab</code>文件来实现<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/crontab</span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加下面一行，每天凌晨三点执行</span></span><br><span class="line">  0  3  *  *  * root      sh /u01/mysql/backup/.job.sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>若出现<code>mysqldump未找到命令</code>的报错，可能是mysql的bin目录并不在全局路径中，因此可以将上述目录配置到全局环境变量中<code>ln -s /u01/mysql/bin /usr/bin</code>，也可以针对具体命令进行软链接配置<code>ln -fs /u01/mysql/bin/mysqldump /usr/bin</code><br><strong>注</strong>：执行直接执行mysqldump命令还需要在my.cnf中有root用户密码的配置，详见<a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/">linux下常用中间件搭建 - mysql搭建(二)</a></p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="/2019/07/04/linux下常用中间件搭建-mysql搭建二/">linux下常用中间件搭建 - mysql搭建(二)</a><br><a href="/2019/04/28/Mysql数据库dump导出导入/">Mysql数据库dump导出导入</a></p>
 
       
 
@@ -255,7 +250,11 @@ function showBtn(){
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		
 		</ul>
@@ -268,10 +267,6 @@ function showBtn(){
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/教程//" class="article-tag-list-link color3">教程</a>
         		</li>
       		
 		</ul>
@@ -299,18 +294,9 @@ function showBtn(){
   
 <nav id="article-nav">
   
-    <a href="/2019/07/10/linux下常用中间件搭建-git安装-十/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux下常用中间件搭建 - git安装(十)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/09/linux下常用中间件搭建-activemq启动-八/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux下常用中间件搭建 - activemq启动(八)</div>
+    <a href="/2020/10/30/Linux下自动切割Tomcat日志/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux下自动切割Tomcat日志</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -357,7 +343,7 @@ if(true){
   	repo: 'meifu2027.github.io',
   	owner: 'meifu2027',
   	admin: ['meifu2027'],
-  	id: 'Wed Jul 10 2019 12:20:14 GMT+0800',
+  	id: 'Thu Dec 10 2020 11:07:11 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
