@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>从何写起</title>
+  <title>Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+  <meta name="description" content="背景 最近做Oracle的表同步，发现全量插入的时候，目标表的索引和主键的存在会对插入速度的影响很大（千万级表尤为明显），特此记录。">
+<meta name="keywords" content="linux,oracle,索引,约束">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作">
+<meta property="og:url" content="http://yoursite.com/2021/04/22/Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="背景 最近做Oracle的表同步，发现全量插入的时候，目标表的索引和主键的存在会对插入速度的影响很大（千万级表尤为明显），特此记录。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-22T07:39:50.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作">
+<meta name="twitter:description" content="背景 最近做Oracle的表同步，发现全量插入的时候，目标表的索引和主键的存在会对插入速度的影响很大（千万级表尤为明显），特此记录。">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,22 +170,20 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-IDEA-同一项目多版本、多窗口打开配置启动配置共享" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/">IDEA 同一项目多版本、多窗口打开配置启动配置共享</a>
+    <h1 class="article-title" itemprop="name">
+      Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作
     </h1>
   
 
         
-        <a href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/" class="archive-article-date">
-  	<time datetime="2019-06-18T05:03:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
+        <a href="/2021/04/22/Oracle下使表（table）对应的索引（index）和约束（constraint）生效和失效的操作/" class="archive-article-date">
+  	<time datetime="2021-04-22T06:49:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-22</time>
 </a>
         <!-- 需要添加的位置 -->
         <!-- 开始添加字数统计-->
@@ -190,213 +193,45 @@ ga('send', 'pageview');
       </header>
     
     <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>使用IDEA做java项目开发的朋友可能经历过这样的情况：需要检出多个版本的代码或者需要打开新检出的项目的时候，发现在启动模块的时候需要重新配置。这个时候，做分布式开发的朋友就很痛苦了，是不是所有模块的启动配置都要重新配置呢？答案显然是否定的。<br>
-        
-          <a class="article-more-a" href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">idea</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/18/IDEA-同一项目多版本、多窗口打开配置启动配置共享/">更多 >></a>
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
         </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-rz-未找到命令-安装lrzsz" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/rz-未找到命令-安装lrzsz/">rz: 未找到命令|安装lrzsz</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/22/rz-未找到命令-安装lrzsz/" class="archive-article-date">
-  	<time datetime="2019-05-22T07:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-22</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
+<div id="toc-article" class="toc-article"  style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#约束生效失效"><span class="toc-number">2.</span> <span class="toc-text">约束生效失效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引生效失效"><span class="toc-number">3.</span> <span class="toc-text">索引生效失效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#根据表名查询约束、索引"><span class="toc-number">4.</span> <span class="toc-text">根据表名查询约束、索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引、约束删除脚本"><span class="toc-number">5.</span> <span class="toc-text">索引、约束删除脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特别注意"><span class="toc-number">6.</span> <span class="toc-text">特别注意</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>rz</code> 和 <code>sz</code> 命令能够脱离ftp工具进行快速、方便地在linux服务器上上传和下载文件;<br>
-        
-          <a class="article-more-a" href="/2019/05/22/rz-未找到命令-安装lrzsz/#more">more >></a>
-        
-      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>最近做Oracle的表同步，发现全量插入的时候，目标表的索引和主键的存在会对插入速度的影响很大（千万级表尤为明显），特此记录。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="约束生效失效"><a href="#约束生效失效" class="headerlink" title="约束生效失效"></a>约束生效失效</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 约束失效 （约束包含主键约束、非空约束、外键约束等）</span></span><br><span class="line"><span class="comment">-- TABLE_NAME 表名</span></span><br><span class="line"><span class="comment">-- CONSTRAINT_NAME 约束名称</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> TABLE_NAME  <span class="keyword">DISABLE</span> <span class="keyword">CONSTRAINT</span> CONSTRAINT_NAME;</span><br><span class="line"><span class="comment">-- 约束生效</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> TABLE_NAME  <span class="keyword">ENABLE</span> <span class="keyword">CONSTRAINT</span> CONSTRAINT_NAME;</span><br></pre></td></tr></table></figure>
+<h2 id="索引生效失效"><a href="#索引生效失效" class="headerlink" title="索引生效失效"></a>索引生效失效</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 索引失效 </span></span><br><span class="line"><span class="comment">-- INDEX_NAME 索引名称</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">INDEX</span> INDEX_NAME <span class="keyword">UNUSABLE</span>;</span><br><span class="line"><span class="comment">-- 索引生效</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">INDEX</span> INDEX_NAME <span class="keyword">REBUILD</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="根据表名查询约束、索引"><a href="#根据表名查询约束、索引" class="headerlink" title="根据表名查询约束、索引"></a>根据表名查询约束、索引</h2><p>这里为了方便使用，直接把根据表名查询生效、失效脚本列出来<br><strong>约束查询脚本</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 'TABLE_NAME' 为需要查询的表名</span></span><br><span class="line"><span class="keyword">SELECT</span> TABLE_NAME,</span><br><span class="line">       <span class="string">'ALTER TABLE '</span> || TABLE_NAME || <span class="string">' DISABLE CONSTRAINT ;'</span> ||</span><br><span class="line">       CONSTRAINT_NAME 约束失效脚本,</span><br><span class="line">       <span class="string">'ALTER TABLE '</span> || TABLE_NAME || <span class="string">' ENABLE CONSTRAINT ;'</span> ||</span><br><span class="line">       CONSTRAINT_NAME 约束生效脚本</span><br><span class="line">  <span class="keyword">FROM</span> USER_CONS_COLUMNS</span><br><span class="line"> <span class="keyword">WHERE</span> TABLE_NAME = <span class="string">'TABLE_NAME'</span></span><br><span class="line">   <span class="keyword">AND</span> <span class="keyword">POSITION</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="comment">-- 这个条件用于查询主键约束，非空约束该字段为空</span></span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> TABLE_NAME;</span><br></pre></td></tr></table></figure></p>
+<p><strong>索引查询脚本</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 'TABLE_NAME' 为需要查询的表名</span></span><br><span class="line"><span class="comment">-- 由于约束也会有创建索引（比如主键约束），因此排除跟约束绑定的索引</span></span><br><span class="line"><span class="keyword">SELECT</span> T.TABLE_NAME,</span><br><span class="line">       T.STATUS 索引生效失效标志位,</span><br><span class="line">       <span class="string">'ALTER INDEX '</span> || T.INDEX_NAME || <span class="string">' UNUSABLE;'</span> 索引失效脚本,</span><br><span class="line">       <span class="string">'ALTER INDEX '</span> || T.INDEX_NAME || <span class="string">' REBUILD;'</span> 索引生效脚本</span><br><span class="line">  <span class="keyword">FROM</span> USER_INDEXES T</span><br><span class="line"> <span class="keyword">WHERE</span> T.TABLE_NAME = <span class="string">'TABLE_NAME'</span></span><br><span class="line">   <span class="keyword">AND</span> T.INDEX_NAME <span class="keyword">NOT</span> <span class="keyword">IN</span></span><br><span class="line">       (<span class="keyword">SELECT</span> P.CONSTRAINT_NAME</span><br><span class="line">          <span class="keyword">FROM</span> USER_CONS_COLUMNS P</span><br><span class="line">         <span class="keyword">WHERE</span> P.TABLE_NAME = <span class="string">'TABLE_NAME'</span></span><br><span class="line">           <span class="keyword">AND</span> P.POSITION <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>)</span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> T.TABLE_NAME;</span><br></pre></td></tr></table></figure></p>
+<h2 id="索引、约束删除脚本"><a href="#索引、约束删除脚本" class="headerlink" title="索引、约束删除脚本"></a>索引、约束删除脚本</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 约束删除</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> TABLE_NAME <span class="keyword">drop</span> <span class="keyword">constraint</span> CONSTRAINT_NAME;</span><br><span class="line"><span class="comment">-- 索引删除</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">INDEX</span> INDEX_NAME;</span><br></pre></td></tr></table></figure>
+<h2 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h2><p>本次在同步验证的时候，发现如果<code>truncate table</code> 命令如果在使索引生效之后，那么失效的索引又会生效。因此一定要保证先执行<code>truncate table</code>命令，再执行<code>ALTER TABLE TABLE_NAME  DISABLE CONSTRAINT CONSTRAINT_NAME</code>命令。经验证，对<code>constraint</code>没有影响。</p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/22/rz-未找到命令-安装lrzsz/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux下备份、替换、重启tomcat简单shell脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/">linux下备份、替换、重启tomcat简单shell脚本</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/" class="archive-article-date">
-  	<time datetime="2019-05-16T01:16:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在开发一个项目，部署应用的环境是linux、tomcat8，因为之前的项目都是由专业的实施人员负责部署，对于我来讲linux的掌握程度则相对较低。尽管在 <a href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/"><em>Linux学习笔记 - （一）Linux达人养成计划 I — 吐血整理</em></a>  中分享过自己学习的记录，但是并未真正实践过。<br>谨以此项目来练手第一个shell实战脚本。<br>
-        
-          <a class="article-more-a" href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/#more">more >></a>
-        
       
 
       
@@ -413,11 +248,15 @@ ga('send', 'pageview');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">索引</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">约束</a>
         		</li>
       		
 		</ul>
@@ -431,27 +270,40 @@ ga('send', 'pageview');
         		<li class="article-tag-list-item">
         			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
       		
 		</ul>
 	</div>
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/16/linux下备份、替换、重启tomcat简单shell脚本/">更多 >></a>
-        </p>
-      
 
       
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
+        </div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/15/Oracle导出命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Oracle导出命令exp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -471,218 +323,36 @@ ga('send', 'pageview');
 
 
 
+  
+  
+  
 
   
-    <article id="post-Mysql数据库dump导出导入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Thu Apr 22 2021 14:49:36 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/28/Mysql数据库dump导出导入/">Mysql数据库dump导出导入</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/28/Mysql数据库dump导出导入/" class="archive-article-date">
-  	<time datetime="2019-04-28T04:44:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-28</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
     
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录mysql数据库导出导入命令<br>
-        
-          <a class="article-more-a" href="/2019/04/28/Mysql数据库dump导出导入/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/28/Mysql数据库dump导出导入/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-还没有一个男孩坚强" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/04/还没有一个男孩坚强/">还没有一个男孩坚强</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/04/还没有一个男孩坚强/" class="archive-article-date">
-  	<time datetime="2019-04-04T13:04:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <!-- 目录内容 -->
-		
-<!-- 目录内容结束 -->
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近电影看得不多，晚上却被这个小子感动了好几回。专业的评述不会，聊聊自己的一点感想。<br>
-        
-          <a class="article-more-a" href="/2019/04/04/还没有一个男孩坚强/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">迦百农</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">何以为家</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/随想//" class="article-tag-list-link color3">随想</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/04/还没有一个男孩坚强/">更多 >></a>
-        </p>
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -717,8 +387,8 @@ ga('send', 'pageview');
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
