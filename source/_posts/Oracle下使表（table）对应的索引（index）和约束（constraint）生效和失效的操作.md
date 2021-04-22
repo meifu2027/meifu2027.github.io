@@ -31,8 +31,8 @@ ALTER INDEX INDEX_NAME REBUILD;
 ```
 
 ## 根据表名查询约束、索引
-这里为了方便使用，直接把根据表名查询生效、失效脚本列出来
-**约束查询脚本**
+这里为了方便使用，直接把根据表名查询生效、失效脚本列出来：
+`约束查询脚本`
 ```sql
 -- 'TABLE_NAME' 为需要查询的表名
 SELECT TABLE_NAME,
@@ -45,7 +45,7 @@ SELECT TABLE_NAME,
    AND POSITION IS NOT NULL -- 这个条件用于查询主键约束，非空约束该字段为空
  ORDER BY TABLE_NAME;
 ```
-**索引查询脚本**
+`索引查询脚本`
 ```sql
 -- 'TABLE_NAME' 为需要查询的表名
 -- 由于约束也会有创建索引（比如主键约束），因此排除跟约束绑定的索引
