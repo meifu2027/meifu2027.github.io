@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://yoursite.com/img/blog/20210702-3-新版本nginx二进制文件测试.jpg">
 <meta property="og:image" content="http://yoursite.com/img/blog/20210702-4-旧文件查看.jpg">
 <meta property="og:image" content="http://yoursite.com/img/blog/20210702-5-再次验证nginx版本.jpg">
-<meta property="og:updated_time" content="2021-07-02T04:53:22.878Z">
+<meta property="og:updated_time" content="2021-07-02T04:56:18.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx平滑升级过程记录">
 <meta name="twitter:description" content="对于诸如nginx一类的中间件时常会因为被发现漏洞而升级，今天我来记录下nginx平滑升级的过程。">
@@ -231,16 +231,16 @@ function showBtn(){
 <p>对于诸如nginx一类的中间件时常会因为被发现漏洞而升级，今天我来记录下nginx平滑升级的过程。<br><a id="more"></a></p>
 </blockquote>
 <h2 id="一、nginx信号简介"><a href="#一、nginx信号简介" class="headerlink" title="一、nginx信号简介"></a>一、nginx信号简介</h2><h3 id="主进程支持的信号"><a href="#主进程支持的信号" class="headerlink" title="主进程支持的信号"></a>主进程支持的信号</h3><ul>
-<li>TERM, INT: 立刻退出</li>
-<li>QUIT: 等待工作进程结束后再退出</li>
-<li>KILL: 强制终止进程</li>
-<li>HUP: 重新加载配置文件，使用新的配置启动工作进程，并逐步关闭旧进程。</li>
-<li>USR1: 重新打开日志文件</li>
-<li>USR2: 启动新的主进程，实现热升级</li>
-<li>WINCH: 逐步关闭工作进程<h3 id="工作进程支持的信号"><a href="#工作进程支持的信号" class="headerlink" title="工作进程支持的信号"></a>工作进程支持的信号</h3></li>
-<li>TERM, INT: 立刻退出</li>
-<li>QUIT: 等待请求处理结束后再退出</li>
-<li>USR1: 重新打开日志文件<h2 id="二、版本查看"><a href="#二、版本查看" class="headerlink" title="二、版本查看"></a>二、版本查看</h2>使用命令查看nginx版本<br><code>/usr/local/nginx/sbin/nginx -V</code><br><img src="/img/blog/20210702-1-nginx版本查看.jpg" alt="nginx版本查看"><br>可以看到我的nginx版本是<code>1.16.1</code>，且编译参数为<code>--with-http_stub_status_module --with-http_ssl_module --with-stream</code> (<strong>非常重要</strong>，每个人的可能不一样，记录下需要升级的nginx的编译参数即可)。前去<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener"><em>官网下载列表</em></a>下载最新的stable版本，截止到今天最新版本为<code>1.20.1</code><br><img src="/img/blog/20210702-2-nginx官网下载列表.jpg" alt="nginx官网列表"></li>
+<li><code>TERM</code>, <code>INT</code>: 立刻退出</li>
+<li><code>QUIT</code>: 等待工作进程结束后再退出</li>
+<li><code>KILL</code>: 强制终止进程</li>
+<li><code>HUP</code>: 重新加载配置文件，使用新的配置启动工作进程，并逐步关闭旧进程。</li>
+<li><code>USR1</code>: 重新打开日志文件</li>
+<li><code>USR2</code>: 启动新的主进程，实现热升级</li>
+<li><code>WINCH</code>: 逐步关闭工作进程<h3 id="工作进程支持的信号"><a href="#工作进程支持的信号" class="headerlink" title="工作进程支持的信号"></a>工作进程支持的信号</h3></li>
+<li><code>TERM</code>, <code>INT</code>: 立刻退出</li>
+<li><code>QUIT</code>: 等待请求处理结束后再退出</li>
+<li><code>USR1</code>: 重新打开日志文件<h2 id="二、版本查看"><a href="#二、版本查看" class="headerlink" title="二、版本查看"></a>二、版本查看</h2>使用命令查看nginx版本<br><code>/usr/local/nginx/sbin/nginx -V</code><br><img src="/img/blog/20210702-1-nginx版本查看.jpg" alt="nginx版本查看"><br>可以看到我的nginx版本是<code>1.16.1</code>，且编译参数为<code>--with-http_stub_status_module --with-http_ssl_module --with-stream</code> (<strong>非常重要</strong>，每个人的可能不一样，记录下需要升级的nginx的编译参数即可)。前去<a href="https://nginx.org/en/download.html" target="_blank" rel="noopener"><em>官网下载列表</em></a>下载最新的stable版本，截止到今天最新版本为<code>1.20.1</code><br><img src="/img/blog/20210702-2-nginx官网下载列表.jpg" alt="nginx官网列表"></li>
 </ul>
 <h2 id="三、备份配置文件"><a href="#三、备份配置文件" class="headerlink" title="三、备份配置文件"></a>三、备份配置文件</h2><p>对于我们项目来说，nginx配置反向代理的配置项是最重要的工作，因此可以先手动备份一下nginx的配置文件到本地<br><code>sz /usr/local/nginx/conf/nginx.conf</code></p>
 <h2 id="四、重新编译、启动"><a href="#四、重新编译、启动" class="headerlink" title="四、重新编译、启动"></a>四、重新编译、启动</h2><h3 id="先进行编译"><a href="#先进行编译" class="headerlink" title="先进行编译"></a>先进行编译</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压最新文件</span></span><br><span class="line">[root@ESB-Main setup]<span class="comment"># tar -zxvf nginx-1.20.1.tar.gz -C /u01</span></span><br><span class="line"><span class="comment"># 到目录当中去</span></span><br><span class="line">[root@ESB-Main setup]<span class="comment"># cd /u01/nginx-1.20.1</span></span><br><span class="line"><span class="comment"># 编译 ./configure后面带上你之前查出来的参数</span></span><br><span class="line">[root@ESB-Main nginx-1.20.1]<span class="comment"># ./configure --with-http_stub_status_module --with-http_ssl_module --with-stream</span></span><br><span class="line"><span class="comment"># 只需要到 make，千万不要 make install 否则会将原配置文件覆盖</span></span><br><span class="line">[root@ESB-Main nginx-1.20.1]<span class="comment"># make</span></span><br></pre></td></tr></table></figure>
