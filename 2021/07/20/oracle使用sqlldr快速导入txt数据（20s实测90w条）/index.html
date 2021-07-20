@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2021/7 | 从何写起</title>
+  <title>oracle使用sqlldr快速导入txt数据（20s实测90w条） | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/archives/2021/07/index.html">
+  <meta name="description" content="无论是新系统上线还是用数据库处理数据，当需要有大数据量的导入的时候，你会采取哪种方式呢？今天记录下linux下oracle数据库使用sqlldr命令快速导入数据的操作。">
+<meta name="keywords" content="linux,oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle使用sqlldr快速导入txt数据（20s实测90w条）">
+<meta property="og:url" content="http://yoursite.com/2021/07/20/oracle使用sqlldr快速导入txt数据（20s实测90w条）/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="无论是新系统上线还是用数据库处理数据，当需要有大数据量的导入的时候，你会采取哪种方式呢？今天记录下linux下oracle数据库使用sqlldr命令快速导入数据的操作。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/blog/20210720-1-保存为txt.jpg">
+<meta property="og:updated_time" content="2021-07-20T05:00:39.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="oracle使用sqlldr快速导入txt数据（20s实测90w条）">
+<meta name="twitter:description" content="无论是新系统上线还是用数据库处理数据，当需要有大数据量的导入的时候，你会采取哪种方式呢？今天记录下linux下oracle数据库使用sqlldr命令快速导入数据的操作。">
+<meta name="twitter:image" content="http://yoursite.com/img/blog/20210720-1-保存为txt.jpg">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,36 +172,73 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-oracle使用sqlldr快速导入txt数据（20s实测90w条）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/20/oracle使用sqlldr快速导入txt数据（20s实测90w条）/" class="archive-article-date">
-  	<time datetime="2021-07-20T03:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/20/oracle使用sqlldr快速导入txt数据（20s实测90w条）/">oracle使用sqlldr快速导入txt数据（20s实测90w条）</a>
+    <h1 class="article-title" itemprop="name">
+      oracle使用sqlldr快速导入txt数据（20s实测90w条）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/07/20/oracle使用sqlldr快速导入txt数据（20s实测90w条）/" class="archive-article-date">
+  	<time datetime="2021-07-20T03:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-20</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article"  style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#txt生成"><span class="toc-number">1.</span> <span class="toc-text">txt生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行脚本"><span class="toc-number">2.</span> <span class="toc-text">执行脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ctl脚本"><span class="toc-number">2.1.</span> <span class="toc-text">ctl脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行命令"><span class="toc-number">2.2.</span> <span class="toc-text">执行命令</span></a></li></ol></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>无论是新系统上线还是用数据库处理数据，当需要有大数据量的导入的时候，你会采取哪种方式呢？今天记录下linux下oracle数据库使用<code>sqlldr</code>命令快速导入数据的操作。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="txt生成"><a href="#txt生成" class="headerlink" title="txt生成"></a>txt生成</h2><p>一般我们将数据整理到excel中之后转存为txt文档。<br><img src="/img/blog/20210720-1-保存为txt.jpg" alt="保存为txt"><br>然后将生产的txt文件上传至数据库服务器</p>
+<h2 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h2><p>切换至oracle用户<code>su - oracle</code></p>
+<h3 id="ctl脚本"><a href="#ctl脚本" class="headerlink" title="ctl脚本"></a>ctl脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># skip=1表示跳过第1行数据，skip=0表示不跳过数据</span></span><br><span class="line">OPTIONS (skip=1) </span><br><span class="line">load data</span><br><span class="line"><span class="comment"># 不指定编码可能会存在导入中文乱码的情况，编码可以通过sql查询`select VALUE from nls_database_parameters where parameter ='NLS_CHARACTERSET';`</span></span><br><span class="line">CHARACTERSET ZHS16GBK</span><br><span class="line"><span class="comment"># 需要导入的txt文件</span></span><br><span class="line">INFILE  <span class="string">'/u01/20210720-1.txt'</span>  </span><br><span class="line"><span class="comment"># 指定数据存入目标表</span></span><br><span class="line">append into  table DEMO_TABLE</span><br><span class="line"><span class="comment"># X'09'为为制表符 ，如果指定其他分隔符可以替换，如'|'或','等都可以</span></span><br><span class="line">FIELDS TERMINATED BY X<span class="string">'09'</span></span><br><span class="line"><span class="comment"># 输入要导入的字段，需要与txt上对应起来</span></span><br><span class="line">trailing nullcols</span><br><span class="line">(</span><br><span class="line">column1,</span><br><span class="line">column2,</span><br><span class="line">column3,</span><br><span class="line">column4,</span><br><span class="line">column5,</span><br><span class="line">column6,</span><br><span class="line">column7,</span><br><span class="line">column8,</span><br><span class="line">column9</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># oracle的账号密码输入 指定要执行的ctl脚本  指定日志文件路径</span></span><br><span class="line">sqlldr account/password control =/u01/load.ctl <span class="built_in">log</span>=load.log;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,7 +254,7 @@ ga('send', 'pageview');
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -223,66 +267,85 @@ ga('send', 'pageview');
 	</div>
 
 
+      
+
+      
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/02/nginx平滑升级过程记录/" class="archive-article-date">
-  	<time datetime="2021-07-02T02:58:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/07/02/nginx平滑升级过程记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nginx平滑升级过程记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/02/nginx平滑升级过程记录/">nginx平滑升级过程记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Tue Jul 20 2021 11:58:37 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
+    
+  
 
 
           </div>
@@ -317,8 +380,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
