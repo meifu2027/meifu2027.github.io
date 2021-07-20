@@ -1,12 +1,13 @@
 ---
-title: oracle使用sqlldr快速导入txt数据（20s实测90w条）
+title: oracle使用sqlldr快速导入txt数据（实测20秒90w条）
 categories:
   - 原创
 toc: true
 date: 2021-07-20 11:58:37
 tags: [linux, oracle]
 ---
-> 无论是新系统上线还是用数据库处理数据，当需要有大数据量的导入的时候，你会采取哪种方式呢？今天记录下linux下oracle数据库使用`sqlldr`命令快速导入数据的操作。
+> 无论是新系统上线还是用数据库处理数据，当需要有大数据量的导入的时候，你会采取哪种方式呢？  
+今天记录下linux下oracle数据库使用`sqlldr`命令快速导入数据的操作。
 
 <!-- more -->
 ## txt生成
