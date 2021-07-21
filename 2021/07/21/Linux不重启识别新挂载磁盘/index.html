@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 从何写起</title>
+  <title>Linux不重启识别新挂载磁盘 | 从何写起</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="从何写起">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="项目组之前申请的磁盘扩容通过了，但是通过fdisk -l命令并没有看到。经查询需要重启或者扫描来看到新挂载的磁盘，因此记录下。">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux不重启识别新挂载磁盘">
+<meta property="og:url" content="http://yoursite.com/2021/07/21/Linux不重启识别新挂载磁盘/index.html">
 <meta property="og:site_name" content="从何写起">
+<meta property="og:description" content="项目组之前申请的磁盘扩容通过了，但是通过fdisk -l命令并没有看到。经查询需要重启或者扫描来看到新挂载的磁盘，因此记录下。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/blog/20210721-1-未扫描前.jpg">
+<meta property="og:image" content="http://yoursite.com/img/blog/20210721-2-查看磁盘.jpg">
+<meta property="og:image" content="http://yoursite.com/img/blog/20210721-3-扫描磁盘.jpg">
+<meta property="og:image" content="http://yoursite.com/img/blog/20210721-4-重新查看新挂载磁盘.jpg">
+<meta property="og:updated_time" content="2021-07-21T04:34:44.246Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从何写起">
+<meta name="twitter:title" content="Linux不重启识别新挂载磁盘">
+<meta name="twitter:description" content="项目组之前申请的磁盘扩容通过了，但是通过fdisk -l命令并没有看到。经查询需要重启或者扫描来看到新挂载的磁盘，因此记录下。">
+<meta name="twitter:image" content="http://yoursite.com/img/blog/20210721-1-未扫描前.jpg">
   
     <link rel="alternative" href="/atom.xml" title="从何写起" type="application/atom+xml">
   
@@ -165,150 +175,73 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux不重启识别新挂载磁盘" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux不重启识别新挂载磁盘
+    </h1>
+  
+
+        
+        <a href="/2021/07/21/Linux不重启识别新挂载磁盘/" class="archive-article-date">
+  	<time datetime="2021-07-21T03:48:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-21</time>
+</a>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+        
+      </header>
     
+    <!-- 目录内容 -->
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+<div id="toc-article" class="toc-article"  style="display:none">
+    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+  <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.</span> <span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#未扫描前查看磁盘"><span class="toc-number">1.1.</span> <span class="toc-text">未扫描前查看磁盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看主机总线号"><span class="toc-number">1.2.</span> <span class="toc-text">查看主机总线号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新扫描SCSI总线"><span class="toc-number">1.3.</span> <span class="toc-text">重新扫描SCSI总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再次查看"><span class="toc-number">1.4.</span> <span class="toc-text">再次查看</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+function showToc(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:block");
+  show_toc_btn.setAttribute("style","display:none");
+  };
+function showBtn(){
+  var toc_article = document.getElementById("toc-article");
+  var show_toc_btn = document.getElementById("show-toc-btn");
+  toc_article.setAttribute("style","display:none");
+  show_toc_btn.setAttribute("style","display:block");
+  };
+ </script>
+    		
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>项目组之前申请的磁盘扩容通过了，但是通过<code>fdisk -l</code>命令并没有看到。经查询需要重启或者扫描来看到新挂载的磁盘，因此记录下。<br><a id="more"></a></p>
+</blockquote>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="未扫描前查看磁盘"><a href="#未扫描前查看磁盘" class="headerlink" title="未扫描前查看磁盘"></a>未扫描前查看磁盘</h3><p><code>fdisk -l</code><br><img src="/img/blog/20210721-1-未扫描前.jpg" alt="未扫描前"></p>
+<h3 id="查看主机总线号"><a href="#查看主机总线号" class="headerlink" title="查看主机总线号"></a>查看主机总线号</h3><p><code>ls /sys/class/scsi_host/</code><br><img src="/img/blog/20210721-2-查看磁盘.jpg" alt="查看磁盘"></p>
+<h3 id="重新扫描SCSI总线"><a href="#重新扫描SCSI总线" class="headerlink" title="重新扫描SCSI总线"></a>重新扫描SCSI总线</h3><p><code>echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host0/scan</code><br><code>echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host1/scan</code><br><code>echo &quot;- - -&quot; &gt; /sys/class/scsi_host/host2/scan</code><br><img src="/img/blog/20210721-3-扫描磁盘.jpg" alt="扫描磁盘"></p>
+<h3 id="再次查看"><a href="#再次查看" class="headerlink" title="再次查看"></a>再次查看</h3><p><code>fdisk -l</code><br><img src="/img/blog/20210721-4-重新查看新挂载磁盘.jpg" alt="重新查看新挂载磁盘"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.huaweicloud.com/articles/80e51c71718a7d2e19bcf320a11fd1ae.html" target="_blank" rel="noopener"><em>Linux不重启识别新挂载的磁盘</em></a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/08/（转）MySQL-性能优化技巧/" class="archive-article-date">
-  	<time datetime="2018-11-08T10:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/08/（转）MySQL-性能优化技巧/">（转）MySQL 性能优化技巧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">调优</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/转载//" class="article-tag-list-link color3">转载</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/转载/数据库//" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/12/git学习入门/" class="archive-article-date">
-  	<time datetime="2018-05-12T09:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/12/git学习入门/">git学习入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">版本管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/" class="archive-article-date">
-  	<time datetime="2018-04-11T13:16:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/11/Linux学习笔记-（一）Linux达人养成计划-I-吐血整理/">Linux学习笔记 - （一）Linux达人养成计划 I --- 吐血整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -320,7 +253,7 @@ ga('send', 'pageview');
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -328,26 +261,90 @@ ga('send', 'pageview');
         		<li class="article-tag-list-item">
         			<a href="/categories/原创//" class="article-tag-list-link color3">原创</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/原创/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+      
+        <div class="article-category tagcloud">
+          <i class="icon-smile icon"></i>
+          <ul class="article-tag-list">
+                  <li class="article-tag-list-item">
+                    <a href="#" class="article-tag-list-link color3">阅读量(<span id="busuanzi_value_page_pv"></span>)</a>
+                  </li>
+          </ul>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/07/20/oracle使用sqlldr快速导入txt数据（20s实测90w条）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">oracle使用sqlldr快速导入txt数据（实测20秒90w条）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '4c30d1aeafb1fe6f21b0',
+  	clientSecret: '7120b76d39ecd3594bb81d5e2c96a5dcfef45a52',
+  	repo: 'meifu2027.github.io',
+  	owner: 'meifu2027',
+  	admin: ['meifu2027'],
+  	id: 'Wed Jul 21 2021 11:48:16 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
     
+    
+  
 
 
           </div>
@@ -382,8 +379,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
