@@ -3,7 +3,7 @@ title: centos8下新建LVM分区并挂载
 categories: [原创, 笔记]
 toc: true
 date: 2020-01-20 14:56:29
-tags: [linux]
+tags: [linux, LVM]
 ---
 最近在迁移系统，网管分配好存储之后并未进行分区格式化并进行挂载，故自己操作以作记录。
 <!--more-->
